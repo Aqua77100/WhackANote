@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 873e4a8d12da2c949b1b966a246b0d82
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6642562951090760899
+    second: pngtree-cartoon-worm-png-image_8466702_0
+  - first:
+      213: 5576302296145295409
+    second: pngtree-cartoon-worm-png-image_8466702_1
+  - first:
+      213: -5441882541248050413
+    second: pngtree-cartoon-worm-png-image_8466702_2
+  - first:
+      213: -2782490683184679808
+    second: pngtree-cartoon-worm-png-image_8466702_3
+  - first:
+      213: -7091280085153745526
+    second: pngtree-cartoon-worm-png-image_8466702_4
+  - first:
+      213: -6823147688298293862
+    second: pngtree-cartoon-worm-png-image_8466702_5
+  - first:
+      213: 7255744425250117340
+    second: pngtree-cartoon-worm-png-image_8466702_6
+  - first:
+      213: 6572796890396843193
+    second: pngtree-cartoon-worm-png-image_8466702_7
+  - first:
+      213: -8329380275779242069
+    second: pngtree-cartoon-worm-png-image_8466702_8
+  - first:
+      213: 5345845404895022502
+    second: pngtree-cartoon-worm-png-image_8466702_9
+  - first:
+      213: 3487454136303095300
+    second: pngtree-cartoon-worm-png-image_8466702_10
+  - first:
+      213: 2695286506805412085
+    second: pngtree-cartoon-worm-png-image_8466702_11
+  - first:
+      213: 3346827386716421737
+    second: pngtree-cartoon-worm-png-image_8466702_12
+  - first:
+      213: -3858084597878442994
+    second: pngtree-cartoon-worm-png-image_8466702_13
+  - first:
+      213: -8434003780662910417
+    second: pngtree-cartoon-worm-png-image_8466702_14
+  - first:
+      213: -8800270672134083048
+    second: pngtree-cartoon-worm-png-image_8466702_15
+  - first:
+      213: 2746634650527579284
+    second: pngtree-cartoon-worm-png-image_8466702_16
+  - first:
+      213: -3607996558091894091
+    second: pngtree-cartoon-worm-png-image_8466702_17
+  - first:
+      213: -2254053271781006043
+    second: pngtree-cartoon-worm-png-image_8466702_18
+  - first:
+      213: -224770163121027212
+    second: pngtree-cartoon-worm-png-image_8466702_19
+  - first:
+      213: 4585151396924470152
+    second: pngtree-cartoon-worm-png-image_8466702_20
+  - first:
+      213: 6406326848085550504
+    second: pngtree-cartoon-worm-png-image_8466702_21
+  - first:
+      213: -6617593934331921079
+    second: pngtree-cartoon-worm-png-image_8466702_22
+  - first:
+      213: -2001063993384240193
+    second: pngtree-cartoon-worm-png-image_8466702_23
+  - first:
+      213: 8656732167233927241
+    second: pngtree-cartoon-worm-png-image_8466702_24
+  - first:
+      213: 2788677833163137065
+    second: pngtree-cartoon-worm-png-image_8466702_25
+  - first:
+      213: 7312609995864821249
+    second: pngtree-cartoon-worm-png-image_8466702_26
+  - first:
+      213: -1700219114944451745
+    second: pngtree-cartoon-worm-png-image_8466702_27
+  - first:
+      213: 4729449620690066983
+    second: pngtree-cartoon-worm-png-image_8466702_28
+  - first:
+      213: 5175504148636054066
+    second: pngtree-cartoon-worm-png-image_8466702_29
+  - first:
+      213: 6608309021821695356
+    second: pngtree-cartoon-worm-png-image_8466702_30
+  - first:
+      213: -7380251021324680192
+    second: pngtree-cartoon-worm-png-image_8466702_31
+  - first:
+      213: -8714414129989079916
+    second: pngtree-cartoon-worm-png-image_8466702_32
+  - first:
+      213: -8896176678553336615
+    second: pngtree-cartoon-worm-png-image_8466702_33
+  - first:
+      213: -7020279192970500334
+    second: pngtree-cartoon-worm-png-image_8466702_34
+  - first:
+      213: -2488595506594759878
+    second: pngtree-cartoon-worm-png-image_8466702_35
+  - first:
+      213: 4586190313362437550
+    second: pngtree-cartoon-worm-png-image_8466702_36
+  - first:
+      213: -5517106337272504718
+    second: pngtree-cartoon-worm-png-image_8466702_37
+  - first:
+      213: 8037497386339105862
+    second: pngtree-cartoon-worm-png-image_8466702_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 946
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc6fe96fcf1f2c50800000000000000
+      internalID: 6642562951090760899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_1
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1065
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1387fe1d461036d40800000000000000
+      internalID: 5576302296145295409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_2
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1090
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b828b39ac8a74b0800000000000000
+      internalID: -5441882541248050413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_3
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 946
+        width: 248
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08471f5477b9269d0800000000000000
+      internalID: -2782490683184679808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_4
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 1065
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a85fb917556b69d90800000000000000
+      internalID: -7091280085153745526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_5
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1090
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95d3fcf35f4f41a0800000000000000
+      internalID: -6823147688298293862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1008
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6dd08bc1591b460800000000000000
+      internalID: 7255744425250117340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_7
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1045
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc55e892f3473b50800000000000000
+      internalID: 6572796890396843193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_8
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1008
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7780725c8186c80800000000000000
+      internalID: -8329380275779242069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_9
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1045
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad0cee7212403a40800000000000000
+      internalID: 5345845404895022502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_10
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 947
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e00d44f0de56030800000000000000
+      internalID: 3487454136303095300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_11
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 978
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f04a063cc4976520800000000000000
+      internalID: 2695286506805412085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_12
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 947
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ef7c5a6c1527e20800000000000000
+      internalID: 3346827386716421737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_13
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 978
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e04bc0ecf74557ac0800000000000000
+      internalID: -3858084597878442994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_14
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 862
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22294b2f3664fa80800000000000000
+      internalID: -8434003780662910417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_15
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 614
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ee82413782fd580800000000000000
+      internalID: -8800270672134083048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_16
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 862
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49cb97099a10e1620800000000000000
+      internalID: 2746634650527579284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_17
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 614
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2c9141f32ddedc0800000000000000
+      internalID: -3607996558091894091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_18
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 345
+        width: 1176
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 525afa6ed7ef7b0e0800000000000000
+      internalID: -2254053271781006043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_19
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 786
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477801f3ab471ecf0800000000000000
+      internalID: -224770163121027212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_20
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 810
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883b11ff6eab1af30800000000000000
+      internalID: 4585151396924470152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_21
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 786
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5ef2f7358d7e850800000000000000
+      internalID: 6406326848085550504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_22
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 810
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94dbd54d0659924a0800000000000000
+      internalID: -6617593934331921079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_23
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 261
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbbf18d66eaca34e0800000000000000
+      internalID: -2001063993384240193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_24
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 13
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948fcaf6a04e22870800000000000000
+      internalID: 8656732167233927241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_25
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 261
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920e1b6d6bf53b620800000000000000
+      internalID: 2788677833163137065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_26
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 13
+        width: 255
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e4e702c0c9b7560800000000000000
+      internalID: 7312609995864821249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_27
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 185
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b286d19bb9768e0800000000000000
+      internalID: -1700219114944451745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_28
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 209
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e56505f5162a140800000000000000
+      internalID: 4729449620690066983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_29
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 185
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23233092a9513d740800000000000000
+      internalID: 5175504148636054066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_30
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 209
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c75f0b30b0e65bb50800000000000000
+      internalID: 6608309021821695356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_31
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 127
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0048ab06cc4149990800000000000000
+      internalID: -7380251021324680192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_32
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 165
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c2b5c058e201780800000000000000
+      internalID: -8714414129989079916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_33
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 127
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4c6bfd17e6a8480800000000000000
+      internalID: -8896176678553336615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_34
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 165
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2176deed445f29e90800000000000000
+      internalID: -7020279192970500334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_35
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 67
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b39c7629bb67dd0800000000000000
+      internalID: -2488595506594759878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_36
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 98
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea53e449acb65af30800000000000000
+      internalID: 4586190313362437550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_37
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 67
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ed0d2640d4f63b0800000000000000
+      internalID: -5517106337272504718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngtree-cartoon-worm-png-image_8466702_38
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 98
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c7fd3d94dea8f60800000000000000
+      internalID: 8037497386339105862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pngtree-cartoon-worm-png-image_8466702_0: 6642562951090760899
+      pngtree-cartoon-worm-png-image_8466702_1: 5576302296145295409
+      pngtree-cartoon-worm-png-image_8466702_10: 3487454136303095300
+      pngtree-cartoon-worm-png-image_8466702_11: 2695286506805412085
+      pngtree-cartoon-worm-png-image_8466702_12: 3346827386716421737
+      pngtree-cartoon-worm-png-image_8466702_13: -3858084597878442994
+      pngtree-cartoon-worm-png-image_8466702_14: -8434003780662910417
+      pngtree-cartoon-worm-png-image_8466702_15: -8800270672134083048
+      pngtree-cartoon-worm-png-image_8466702_16: 2746634650527579284
+      pngtree-cartoon-worm-png-image_8466702_17: -3607996558091894091
+      pngtree-cartoon-worm-png-image_8466702_18: -2254053271781006043
+      pngtree-cartoon-worm-png-image_8466702_19: -224770163121027212
+      pngtree-cartoon-worm-png-image_8466702_2: -5441882541248050413
+      pngtree-cartoon-worm-png-image_8466702_20: 4585151396924470152
+      pngtree-cartoon-worm-png-image_8466702_21: 6406326848085550504
+      pngtree-cartoon-worm-png-image_8466702_22: -6617593934331921079
+      pngtree-cartoon-worm-png-image_8466702_23: -2001063993384240193
+      pngtree-cartoon-worm-png-image_8466702_24: 8656732167233927241
+      pngtree-cartoon-worm-png-image_8466702_25: 2788677833163137065
+      pngtree-cartoon-worm-png-image_8466702_26: 7312609995864821249
+      pngtree-cartoon-worm-png-image_8466702_27: -1700219114944451745
+      pngtree-cartoon-worm-png-image_8466702_28: 4729449620690066983
+      pngtree-cartoon-worm-png-image_8466702_29: 5175504148636054066
+      pngtree-cartoon-worm-png-image_8466702_3: -2782490683184679808
+      pngtree-cartoon-worm-png-image_8466702_30: 6608309021821695356
+      pngtree-cartoon-worm-png-image_8466702_31: -7380251021324680192
+      pngtree-cartoon-worm-png-image_8466702_32: -8714414129989079916
+      pngtree-cartoon-worm-png-image_8466702_33: -8896176678553336615
+      pngtree-cartoon-worm-png-image_8466702_34: -7020279192970500334
+      pngtree-cartoon-worm-png-image_8466702_35: -2488595506594759878
+      pngtree-cartoon-worm-png-image_8466702_36: 4586190313362437550
+      pngtree-cartoon-worm-png-image_8466702_37: -5517106337272504718
+      pngtree-cartoon-worm-png-image_8466702_38: 8037497386339105862
+      pngtree-cartoon-worm-png-image_8466702_4: -7091280085153745526
+      pngtree-cartoon-worm-png-image_8466702_5: -6823147688298293862
+      pngtree-cartoon-worm-png-image_8466702_6: 7255744425250117340
+      pngtree-cartoon-worm-png-image_8466702_7: 6572796890396843193
+      pngtree-cartoon-worm-png-image_8466702_8: -8329380275779242069
+      pngtree-cartoon-worm-png-image_8466702_9: 5345845404895022502
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
