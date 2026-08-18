@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 29
+<<<<<<< Updated upstream
   productGUID: 03ab11115f0894c9c9bbfd63e148587c
+=======
+  productGUID: 6a6c012e0d504b64a8af099b002f1dad
+>>>>>>> Stashed changes
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -297,6 +301,7 @@ PlayerSettings:
   AndroidReportGooglePlayAppDependencies: 1
   androidSymbolsSizeThreshold: 800
   m_BuildTargetIcons: []
+<<<<<<< Updated upstream
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
     m_Icons:
@@ -487,6 +492,9 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+=======
+  m_BuildTargetPlatformIcons: []
+>>>>>>> Stashed changes
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
@@ -708,7 +716,11 @@ PlayerSettings:
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
   playerPrefsMaxSize: 32768
+<<<<<<< Updated upstream
   ps4Passcode: Vfi8ykEyLxWAwJdTFdjKIBYc51CLEcQV
+=======
+  ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
+>>>>>>> Stashed changes
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -875,11 +887,11 @@ PlayerSettings:
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   enableDirectStorage: 0
-  cloudProjectId: 33609785-335d-476b-88f4-d1bee8f6a054
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: WhackANote
-  organizationId: aqua7710
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
