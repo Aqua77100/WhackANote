@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stageOne.unity
     guid: 4c686b70a68404db99f379c771c27eae
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 0f699cd4d2d4445749cbde7a8789d460
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: d8dc749843503499ba8b71f35bfc6b56
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

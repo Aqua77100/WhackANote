@@ -6,6 +6,6 @@ public class StartGame : MonoBehaviour
     public string LevelName;
 
     public void LoadLevel(){
-        SceneManager.LoadScene(LevelName);
+        SceneManager.LoadScene("Game");
     }
 }
