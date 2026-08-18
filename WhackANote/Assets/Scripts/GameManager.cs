@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        StartAnonymousSignIn();
     }
 
     // Update is called once per frame
