@@ -39,22 +39,22 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     }
 
     private void Update()
-    {
-        // Explicitly handle Mobile Touch input to ensure Android taps register reliably
+{
+        // Ignore inputs if the game is paused or counting down
+        if (PauseMenu.isPaused || Time.timeScale == 0f) return;
+
+        // Explicitly handle Mobile Touch input
         if (Input.touchCount > 0 && isClickable && !wasTapped)
         {
             foreach (Touch touch in Input.touches)
             {
-                // Trigger tap as soon as the finger touches the screen
                 if (touch.phase == TouchPhase.Began)
                 {
-                    // Convert touch screen position to 2D world coordinates
                     Vector2 touchWorldPos = mainCamera.ScreenToWorldPoint(touch.position);
                     
                     // Raycast specifically for 2D colliders
                     RaycastHit2D hit = Physics2D.Raycast(touchWorldPos, Vector2.zero);
 
-                    // Check if the touch raycast hit THIS mole object
                     if (hit.collider != null && hit.collider.gameObject == gameObject)
                     {
                         ProcessTap();
@@ -121,12 +121,25 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     // Interface implementation for EventSystem/UI touch detection
     public void OnPointerDown(PointerEventData eventData)
     {
+        // Block UI pointer events over moles during pause
+        if (eventData.pointerCurrentRaycast.gameObject != null)
+        {
+            // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
+            if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
+            {
+                return;
+            }
+        }
+        
         ProcessTap();
     }
 
     // Centralized method to process hit logic safely once
     private void ProcessTap()
     {
+        // Block processing if paused or frozen
+        if (PauseMenu.isPaused || Time.timeScale == 0f) return;
+
         if (isClickable && !wasTapped)
         {
             wasTapped = true;
