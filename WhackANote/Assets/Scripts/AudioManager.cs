@@ -6,11 +6,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
 
     [Header("Audio clip:")]
-    public AudioClip background;
+    public AudioClip titleBGM;
+    public AudioClip circusTrack;
 
     private void Start()
     {
-        musicSource.clip = background;
+        musicSource.clip = titleBGM;
         musicSource.Play();
     }
 }

@@ -931,7 +931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 25875858}
-  background: {fileID: 8300000, guid: 89753de79a1394a3a91eef79b5911669, type: 3}
+  titleBGM: {fileID: 8300000, guid: 89753de79a1394a3a91eef79b5911669, type: 3}
+  circusTrack: {fileID: 8300000, guid: 766bb3584cbb444ed8951c854cf139da, type: 3}
 --- !u!4 &552694997
 Transform:
   m_ObjectHideFlags: 0
