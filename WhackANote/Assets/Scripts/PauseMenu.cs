@@ -19,7 +19,11 @@ public class PauseMenu : MonoBehaviour
     private bool hasStartedPlaying = false;
     private bool gameStarted = false;
     
-    private Coroutine countdownCoroutine; // Corouting needed for the countdown
+    private Coroutine countdownCoroutine; // Coroutine needed for the countdown
+
+    // Add event actions for pause state changes (to get rid of the issue with the hitType text going on top of the pause menu)
+    public static event System.Action OnGamePaused;
+    public static event System.Action OnGameResumed;
 
     private void Awake()
     {
@@ -62,6 +66,8 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         isPaused = true;
+
+        OnGamePaused?.Invoke(); // Notify other scripts that the game has paused
         
         if (countdownCoroutine != null)
         {
@@ -104,6 +110,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; // make sure time is pased so game isn't going on
         if (uiBlocker != null) uiBlocker.SetActive(true); // Keep clicks blocked during countdown
         
+        OnGameResumed?.Invoke(); // Notify scripts that gameplay has resumed (e.g. during the countdown)
+
         if (Music != null && Music.isPlaying)
         {
             Music.Pause(); // pause the music

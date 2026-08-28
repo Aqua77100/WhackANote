@@ -167,23 +167,41 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     // Retained for desktop testing/editor mouse clicks
     private void OnMouseDown()
     {
+        // If the click is over a UI button or UI element, STOP processing world input!
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         ProcessTap();
     }
 
     // Interface implementation for EventSystem/UI touch detection
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Block UI pointer events over moles during pause
-        if (eventData.pointerCurrentRaycast.gameObject != null)
+        if (Input.touchCount > 0 && isClickable && !wasTapped)
         {
-            // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
-            if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
+            Touch touch = Input.GetTouch(0);
+
+            // Check if touch ID is over a UI element
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
             {
-                return;
+                return; // Ignore world tap if touching UI
             }
+
+            // Block UI pointer events over moles during pause
+            if (eventData.pointerCurrentRaycast.gameObject != null)
+            {
+                // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
+                if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
+                {
+                    return;
+                }
+            }
+
+            ProcessTap();
         }
 
-        ProcessTap();
     }
 
     // Centralized method to process hit logic safely once
@@ -263,15 +281,47 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         {
             elapsed += Time.deltaTime; // Use deltaTime to get real amount of time
             // Create a new number for transparency over the duration (gets lesser over time)
-            float newAlpha = Mathf.Lerp(startColour.a, 0f, elapsed / fadeDuration); 
+            float newAlpha = Mathf.Lerp(startColour.a, 0f, elapsed / fadeDuration);
 
             // Preserve RGB values and lower only the alpha (transparency) channel
-            HitType.color = new Color(startColour.r, startColour.g, startColour.b, newAlpha); 
+            HitType.color = new Color(startColour.r, startColour.g, startColour.b, newAlpha);
             yield return null;
         }
 
         // Ensure alpha (transparency) is fully zero (invisible) before disabling
         HitType.color = new Color(startColour.r, startColour.g, startColour.b, 0f);
         HitType.gameObject.SetActive(false);
+    }
+
+    // When pause menu = active --> listen (subscribe) to the pause and resume events
+    private void OnEnable()
+    {
+        PauseMenu.OnGamePaused += HandlePause;
+        PauseMenu.OnGameResumed += HandleResume;
+    }
+
+    // When pause menu = inactive --> unsubscribes from the same events
+    private void OnDisable()
+    {
+        PauseMenu.OnGamePaused -= HandlePause;
+        PauseMenu.OnGameResumed -= HandleResume;
+    }
+
+    // Runs automatically when game pauses --> hides the HitType game object if visible
+    private void HandlePause()
+    {
+        if (HitType != null && HitType.gameObject.activeSelf)
+        {
+            HitType.gameObject.SetActive(false);
+        }
+    }
+    // Runs automatically when game resumes --> reveals HitType object ONLY if textFadeRoutine was actively running before pausing
+    private void HandleResume()
+    {
+        // If the fade routine was active when paused --> re-enable the text so it can complete fading
+        if (textFadeRoutine != null && HitType != null)
+        {
+            HitType.gameObject.SetActive(true);
+        }
     }
 }
