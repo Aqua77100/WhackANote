@@ -17,12 +17,22 @@ public class TutorialManager : MonoBehaviour
     [Header("Sequence Steps")] // Hopefully this means that it will be modular
     public List<TutorialStep> steps = new List<TutorialStep>();
 
+    [Header("Audio")]
+    public AudioSource backgroundMusic;
+
     private int currentStepIndex = 0; // change number for whichever step you wish to have
     private bool waitingForInput = false; // Are we wating for the user to tap? --> will be used to move onto next scene hopefully
 
+
     private void Start()
     {
-        ExecuteStep(0); // Excecute the steps from the beginning (0)
+        // Ensure music is stopped at the start of the tutorial
+        if (backgroundMusic != null && backgroundMusic.isPlaying)
+        {
+            backgroundMusic.Stop(); // Excecute the steps from the beginning (0)
+        }
+
+        ExecuteStep(0);
     }
 
     private void Update()
@@ -89,6 +99,15 @@ public class TutorialManager : MonoBehaviour
         waitingForInput = false; // No longer waiting for input (as it has been recieived), so reset for the next step
         ExecuteStep(currentStepIndex + 1); // Excecute next step
     }
+
+    public void StartMiniGamePhase()
+{
+    // Call this when advancing to the mini-game step
+    if (backgroundMusic != null)
+    {
+        backgroundMusic.Play();
+    }
+}
 
     public void CompleteTutorial() // complete the tutorial?
     {

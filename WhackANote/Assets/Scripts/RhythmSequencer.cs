@@ -17,11 +17,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private float SecondsPerBeat => 60f / bpm;
 
+    [Header("Tutorial / Control Settings")]
+    [Tooltip("If true, the sequencer will wait for TutorialManager to call StartTutorialSong() instead of auto-starting.")]
+    public bool isTutorial = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        StartCoroutine(PlaySequence());
+        // Only auto-start if this is NOT a tutorial level
+        if (!isTutorial)
+        {
+            StartCoroutine(PlaySequence());
+        }
     }
 
     private IEnumerator PlaySequence(){
