@@ -195,6 +195,14 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         if (isClickable && !wasTapped)
         {
             wasTapped = true;
+            
+            // Notify tutorial manager if running
+            TutorialManager tutorial = Object.FindAnyObjectByType<TutorialManager>();
+            if (tutorial != null)
+            {
+                // Find index of this mole in the array or pass its reference
+                tutorial.OnMoleTapped(System.Array.IndexOf(tutorial.moles, this));
+            }
 
             // initialise the points, and base for the text
             int points = 0;
