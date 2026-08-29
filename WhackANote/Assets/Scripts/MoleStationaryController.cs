@@ -105,7 +105,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         for (int i = 0; i <= 6 && i < moleSprites.Length; i++)
         {
             spriteRenderer.sprite = moleSprites[i];
-            yield return new WaitForSeconds(frameRate);
+            yield return new WaitForSeconds(frameRate * 0.5f);
         }
 
         // 2. Interactive Window (Wait duration, cancel immediately if tapped)
@@ -160,7 +160,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         for (int i = 9; i < moleSprites.Length && i < 14; i++)
         {
             spriteRenderer.sprite = moleSprites[i];
-            yield return new WaitForSeconds(frameRate);
+            yield return new WaitForSeconds(frameRate * 0.3f);
         }
     }
 

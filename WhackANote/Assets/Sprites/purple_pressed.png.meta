@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2be354f1c2550cd4a9a8b239b91f35d2
+guid: a6e09feed13424aa1b1321f3d3ae793a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2797954244966066203
-    second: light_brown_box_0
+      213: -5794180880345686781
+    second: purple_pressed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: light_brown_box_0
+      name: purple_pressed_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e7500b307bab29d0800000000000000
-      internalID: -2797954244966066203
+      spriteID: 30d92ae203fe69fa0800000000000000
+      internalID: -5794180880345686781
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0416f2ad03f0f46b488c89293053bec1
+    spriteID: c81cff69ccaa743b287e1b5e6b16ea1d
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      light_brown_box_0: -2797954244966066203
+      purple_pressed_0: -5794180880345686781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

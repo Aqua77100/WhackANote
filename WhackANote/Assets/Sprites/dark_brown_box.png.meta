@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2be354f1c2550cd4a9a8b239b91f35d2
+guid: 9dd8b0148aff7471a89929ef72777631
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2797954244966066203
-    second: light_brown_box_0
+      213: -7809022847566712057
+    second: dark_brown_box_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: light_brown_box_0
+      name: dark_brown_box_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e7500b307bab29d0800000000000000
-      internalID: -2797954244966066203
+      spriteID: 70370e71817c0a390800000000000000
+      internalID: -7809022847566712057
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0416f2ad03f0f46b488c89293053bec1
+    spriteID: bbb7700b9107649818cc05af5115214d
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      light_brown_box_0: -2797954244966066203
+      dark_brown_box_0: -7809022847566712057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
