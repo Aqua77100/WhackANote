@@ -5,30 +5,30 @@ using Unity.Services.Core;
 
 public class GameManager : MonoBehaviour
 {
-
-    void Start()
-    {
-        StartAnonymousSignIn();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static GameManager Instance { get; private set; }
+    public static event System.Action OnServicesReady;
 
     async void Awake()
     {
-        if(UnityServices.State == ServicesInitializationState.Uninitialized)
+        // NEW: singleton + persist across scene loads
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (UnityServices.State == ServicesInitializationState.Uninitialized)
         {
             Debug.Log("Services Initializing");
             await UnityServices.InitializeAsync();
         }
-    }
 
-    public async void StartAnonymousSignIn()
-    {
         await SignInAnonymouslyAsync();
+
+        Debug.Log("Services ready — firing OnServicesReady");
+        OnServicesReady?.Invoke();
     }
 
     private async Task SignInAnonymouslyAsync()
@@ -37,21 +37,14 @@ public class GameManager : MonoBehaviour
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             Debug.Log("Sign in anonymously succeeded!");
-
-            // Shows how to get the playerID
             Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
-
         }
         catch (AuthenticationException ex)
         {
-            // Compare error code to AuthenticationErrorCodes
-            // Notify the player with the proper error message
             Debug.LogException(ex);
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
             Debug.LogException(ex);
         }
     }

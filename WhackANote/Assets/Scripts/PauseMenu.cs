@@ -74,6 +74,8 @@ public class PauseMenu : MonoBehaviour
             {
                 GameOverUI.SetActive(true);
             }
+
+            _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore());
         }
     }
 }
