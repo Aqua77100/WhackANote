@@ -12,10 +12,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public TextMeshProUGUI HitType;
 
     [Header("Hit Type Colours")] // These RGB codes actually dont really work, so I manually added them on the moles, hence the header and public types
-    public Color perfectColour = new Color(255, 238, 129, 255);
-    public Color greatColour = new Color(130, 255, 229, 255);
-    public Color goodColour = new Color(244, 153, 252, 255);
-    public Color missColour = new Color(142, 88, 85, 255);
+    public Color perfectColour = new Color32(255, 238, 129, 255);
+    public Color greatColour = new Color32(130, 255, 229, 255);
+    public Color goodColour = new Color32(244, 153, 252, 255);
+    public Color missColour = new Color32(142, 88, 85, 255);
 
     [Header("Animation Settings")]
     public SpriteRenderer spriteRenderer;
@@ -168,10 +168,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     private void OnMouseDown()
     {
         // If the click is over a UI button or UI element, STOP processing world input!
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+        // if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        // {
+        //     return;
+        // }
 
         ProcessTap();
     }
@@ -179,28 +179,37 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     // Interface implementation for EventSystem/UI touch detection
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Input.touchCount > 0 && isClickable && !wasTapped)
+        if (eventData.pointerCurrentRaycast.gameObject != null)
         {
-            Touch touch = Input.GetTouch(0);
-
-            // Check if touch ID is over a UI element
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
             {
-                return; // Ignore world tap if touching UI
+                return;
             }
-
-            // Block UI pointer events over moles during pause
-            if (eventData.pointerCurrentRaycast.gameObject != null)
-            {
-                // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
-                if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
-                {
-                    return;
-                }
-            }
-
-            ProcessTap();
         }
+
+        ProcessTap();
+        // if (Input.touchCount > 0 && isClickable && !wasTapped)
+        // {
+        //     Touch touch = Input.GetTouch(0);
+
+        //     // Check if touch ID is over a UI element
+        //     if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        //     {
+        //         return; // Ignore world tap if touching UI
+        //     }
+
+        //     // Block UI pointer events over moles during pause
+        //     if (eventData.pointerCurrentRaycast.gameObject != null)
+        //     {
+        //         // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
+        //         if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
+        //         {
+        //             return;
+        //         }
+        //     }
+
+        //     ProcessTap();
+        // }
 
     }
 
@@ -258,6 +267,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
             Debug.LogWarning("HitType TextMeshProUGUI is not assigned in Inspector on " + gameObject.name); // You didn't assign the text
             return;
         }
+
+        // Don't spawn text if paused
+        if (HitType == null || PauseMenu.isPaused) return;
+
         // take the input for the string for the case and the colour
         HitType.text = text;
         HitType.color = new Color(colour.r, colour.g, colour.b, 1f);
@@ -296,32 +309,42 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     // When pause menu = active --> listen (subscribe) to the pause and resume events
     private void OnEnable()
     {
-        PauseMenu.OnGamePaused += HandlePause;
-        PauseMenu.OnGameResumed += HandleResume;
+        PauseMenu.OnGamePaused += HideHitTextOnPause;
     }
 
     // When pause menu = inactive --> unsubscribes from the same events
     private void OnDisable()
     {
-        PauseMenu.OnGamePaused -= HandlePause;
-        PauseMenu.OnGameResumed -= HandleResume;
+        PauseMenu.OnGamePaused -= HideHitTextOnPause;
     }
 
     // Runs automatically when game pauses --> hides the HitType game object if visible
-    private void HandlePause()
+    private void HideHitTextOnPause()
     {
-        if (HitType != null && HitType.gameObject.activeSelf)
+        if (textFadeRoutine != null)
+        {
+            StopCoroutine(textFadeRoutine);
+            textFadeRoutine = null;
+        }
+
+        if (HitType != null)
         {
             HitType.gameObject.SetActive(false);
         }
+        // if (HitType != null && HitType.gameObject.activeSelf)
+        // {
+        //     HitType.gameObject.SetActive(false);
+        // }
     }
+
+
     // Runs automatically when game resumes --> reveals HitType object ONLY if textFadeRoutine was actively running before pausing
-    private void HandleResume()
-    {
-        // If the fade routine was active when paused --> re-enable the text so it can complete fading
-        if (textFadeRoutine != null && HitType != null)
-        {
-            HitType.gameObject.SetActive(true);
-        }
-    }
+    // private void HandleResume()
+    // {
+    //     // If the fade routine was active when paused --> re-enable the text so it can complete fading
+    //     if (textFadeRoutine != null && HitType != null)
+    //     {
+    //         HitType.gameObject.SetActive(true);
+    //     }
+    // }
 }
