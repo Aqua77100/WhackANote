@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class TutorialManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI dialogueText; 
+    public TextMeshProUGUI dialogueText;
     public GameObject fullScreenBlocker;
+    [Tooltip("Assign your main Dialogue Box background panel here so it can be explicitly hidden")]
+    public GameObject mainDialogueBox;
 
     [Header("Game References")]
     public MoleStationaryController[] moles;
@@ -22,14 +24,20 @@ public class TutorialManager : MonoBehaviour
 
     private int currentStepIndex = 0; // change number for whichever step you wish to have
     private bool waitingForInput = false; // Are we wating for the user to tap? --> will be used to move onto next scene hopefully
+    private bool ignoreTapThisFrame = false; // Prevents 1 tap from triggering 2 steps simultaneously
 
+    // Track audio state to detect song end (like PauseMenu script)
+    private bool songStarted = false;
+    private bool songCompleted = false;
 
     private void Start()
     {
-        // Ensure music is stopped at the start of the tutorial
-        if (backgroundMusic != null && backgroundMusic.isPlaying)
+        // Mute and stop music completely at start
+        if (backgroundMusic != null)
         {
-            backgroundMusic.Stop(); // Excecute the steps from the beginning (0)
+            backgroundMusic.Stop();
+            backgroundMusic.mute = true;
+            backgroundMusic.loop = false; // False so it actually ends
         }
 
         ExecuteStep(0);
@@ -37,7 +45,29 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
+        // Detect Song Finish 
+        if (songStarted && !songCompleted && backgroundMusic != null)
+        {
+            if (backgroundMusic.isPlaying)
+            {
+                // Audio is actively playing
+            }
+            else if (backgroundMusic.time > 0.1f || !backgroundMusic.isPlaying)  // Only detect song finish if audio HAS actually started playing (> 0.1s in)
+            {
+                // should be when audio officially finished playing to the end
+                OnSongFinished(); // Or maybe this is causing the error
+                return;
+            }
+        }
+
+        // Handling the dialogue taps:
         if (!waitingForInput) return;
+
+        if (ignoreTapThisFrame) //(this was because it would skip to the last one for some reason)
+        {
+            ignoreTapThisFrame = false;
+            return;
+        }
 
         TutorialStep currentStep = steps[currentStepIndex];
 
@@ -52,6 +82,9 @@ public class TutorialManager : MonoBehaviour
 
     public void ExecuteStep(int index)
     {
+        // Hide all the UI containers first
+        HideAllTutorialUI();
+
         if (index >= steps.Count) // if the index goes over the amount of steps we have, then this means that the tutorial is complete.
         {
             CompleteTutorial();
@@ -61,35 +94,40 @@ public class TutorialManager : MonoBehaviour
         currentStepIndex = index; // current step is at index
         TutorialStep step = steps[currentStepIndex]; // cary out step at step index
 
-        // Google suggestion (don't know if this actually works):
-        // Disable all step-specific overlay containers
-        foreach (var s in steps)
+        // Google suggestion (don't know if this actually works properly):
+
+        // Hide ALL UI, unmute, and start audio+gameplay when mini-game starts
+        if (step.triggerType == StepTriggerType.MiniGameCompletion)
         {
-            if (s.stepUIContainer != null) s.stepUIContainer.SetActive(false);
-            if (s.pulseCue != null) s.pulseCue.SetActive(false);
+            StartMiniGamePhase();
+            waitingForInput = false;
+            return;
         }
 
-        // Enable target step UI & text
+        // show dialogue & UI for the tutorial step
+        if (mainDialogueBox != null) mainDialogueBox.SetActive(true);
         if (step.stepUIContainer != null) step.stepUIContainer.SetActive(true);
         if (step.pulseCue != null) step.pulseCue.SetActive(true);
         if (dialogueText != null) dialogueText.text = step.dialogueText;
 
-        // Mole target setup (for the first step)
         if (step.triggerType == StepTriggerType.TapTargetMole && step.targetMoleIndex >= 0)
         {
-            moles[step.targetMoleIndex].PopUp(999f); // Keep mole up until hit (doesn't go down)
+            moles[step.targetMoleIndex].PopUp(999f); // keep this up indefinitely (until you tap)
         }
 
         waitingForInput = true;
     }
 
-    public void OnMoleTapped(int moleIndex) // If you hit the molle, then we need to advance step
+
+
+    public void OnMoleTapped(int moleIndex) // If you hit the mole, then we need to advance step
     {
         if (!waitingForInput) return;
 
         TutorialStep currentStep = steps[currentStepIndex];
         if (currentStep.triggerType == StepTriggerType.TapTargetMole && currentStep.targetMoleIndex == moleIndex)
         {
+            ignoreTapThisFrame = true; // Prevent step 1 from taking this tap (for some reason it kept doing that)
             AdvanceStep();
         }
     }
@@ -100,19 +138,61 @@ public class TutorialManager : MonoBehaviour
         ExecuteStep(currentStepIndex + 1); // Excecute next step
     }
 
-    public void StartMiniGamePhase()
-{
-    // Call this when advancing to the mini-game step
-    if (backgroundMusic != null)
+    public void StartMiniGamePhase()  // Call this when advancing to the mini-game step
     {
-        backgroundMusic.Play();
-    }
-}
+        //NOTE: THIS MIGHT BE WHERE THE ERROR IS HAPPENING --> MAYBE I NEED TO FIX THIS SO THAT WHATEVER IS HAPPENING IN THE BG 
+        //ISN'T RECORDING THE SONG BEGINNING ON START, BUT RATHER ON THE STARTMINIGAMEPHASE METHOD --> SO MAYBE THE LAST PANEL DOESN'T POP OP PREMATURELY
+        // OR I JUST MAKE ANOTHER PANEL IN THE PAUSE MENU THAT USES THE SAME CODE AS THE GAME OVER?
 
-    public void CompleteTutorial() // complete the tutorial?
+        // Unhide and play audio ONLY when mini-game starts
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.mute = false;
+            backgroundMusic.time = 0f;
+            backgroundMusic.Play();
+        }
+
+        if (rhythmSequencer != null)
+        {
+            rhythmSequencer.StartCoroutine("PlaySequence");
+        }
+    }
+
+    private void OnSongFinished()
     {
+        songCompleted = true;
+
+        // Stop mole spawns
+        if (rhythmSequencer != null)
+        {
+            rhythmSequencer.StopAllCoroutines();
+        }
+
+        // should show final "Tutorial Complete" step --> dont know why its early
+        AdvanceStep();
+    }
+
+    private void HideAllTutorialUI() // get rid of dialogue box and overlay when advancing steps using this
+    {
+        if (mainDialogueBox != null) mainDialogueBox.SetActive(false);
+        if (fullScreenBlocker != null) fullScreenBlocker.SetActive(false);
+
+        foreach (var s in steps) // Google said to use this, i don't quite know if this is right
+        {
+            if (s.stepUIContainer != null) s.stepUIContainer.SetActive(false);
+            if (s.pulseCue != null) s.pulseCue.SetActive(false); // Also idk why this isnt working
+        }
+    }
+    public void CompleteTutorial() // complete the tutorial?    
+    {
+        HideAllTutorialUI(); // Turns off the lingering text box
+
+        if (fullScreenBlocker != null)
+            fullScreenBlocker.SetActive(false); // this also doesn't pop up i think
+
         PlayerPrefs.SetInt("tutorial_complete", 1); // set boolean to true
         PlayerPrefs.Save(); // Save
+
         SceneManager.LoadScene("Menu"); // Go back to menu
     }
 }

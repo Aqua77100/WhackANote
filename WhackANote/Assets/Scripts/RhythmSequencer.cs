@@ -32,19 +32,56 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    private IEnumerator PlaySequence(){
+    // private IEnumerator PlaySequence(){
+    //     int sequenceIndex = 0;
+
+    //     while(true){
+    //         float secondsPerBeat = SecondsPerBeat;
+    //         int moleIndex = sequence[sequenceIndex];
+
+    //         if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null){
+    //             float duration = secondsPerBeat * activeWindowInBeats;
+    //             moles[moleIndex].PopUp(duration);
+    //         }
+
+    //         sequenceIndex = (sequenceIndex+1)%sequence.Length;
+
+    //         yield return new WaitForSeconds(secondsPerBeat);
+    //     }
+    // }
+
+    private IEnumerator PlaySequence()
+    {
         int sequenceIndex = 0;
 
-        while(true){
+        // Loop continuously for main game but run ONCE through the array for tutorial
+        while (true)
+        {
             float secondsPerBeat = SecondsPerBeat;
             int moleIndex = sequence[sequenceIndex];
 
-            if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null){
+            if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null)
+            {
                 float duration = secondsPerBeat * activeWindowInBeats;
                 moles[moleIndex].PopUp(duration);
             }
 
-            sequenceIndex = (sequenceIndex+1)%sequence.Length;
+            sequenceIndex++;
+
+            // If we reached the end of the tutorial sequence, stop and advance tutorial!
+            if (sequenceIndex >= sequence.Length)
+            {
+                if (isTutorial)
+                {
+                    // Signal tutorial manager that song is done
+                    TutorialManager tutorial = Object.FindAnyObjectByType<TutorialManager>();
+                    if (tutorial != null) tutorial.AdvanceStep();
+
+                    yield break; // Exit loop
+                }
+
+                sequenceIndex = 0; // Loop around for normal levels
+            }
 
             yield return new WaitForSeconds(secondsPerBeat);
         }

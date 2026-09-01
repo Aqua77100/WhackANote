@@ -8,9 +8,9 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu; // This holds the restart, home, and continue button
     [SerializeField] private GameObject uiBlocker; // this is the dark screen that blocks the player's presses as well as allowing us to tell we're paused
-    [SerializeField] private AudioSource Music; 
+    [SerializeField] private AudioSource Music;
     [SerializeField] private GameObject GameOverUI; // The  gameover (track cleared) panel, which has the retry (restart) and home button
-    
+
     public TextMeshProUGUI countdownText;
 
     // booleans for the game states
@@ -18,8 +18,11 @@ public class PauseMenu : MonoBehaviour
     public bool isEnded = false;
     private bool hasStartedPlaying = false;
     private bool gameStarted = false;
-    
+
     private Coroutine countdownCoroutine; // Corouting needed for the countdown
+
+    [Header("Tutorial Guard")]
+    public bool isTutorialScene = false; // Keep this box in ticked in the Inspector for Tutorial scene!!!!!!
 
     private void Awake()
     {
@@ -27,7 +30,7 @@ public class PauseMenu : MonoBehaviour
         isEnded = false;
         hasStartedPlaying = false;
         gameStarted = false;
-        
+
         Time.timeScale = 0f;
 
         if (GameOverUI != null) GameOverUI.SetActive(false);
@@ -47,7 +50,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (isEnded || !gameStarted || Music == null) return;
+        // Do NOT trigger gameOver screen if this is the tutorial
+        if (isTutorialScene || isEnded || !gameStarted || Music == null) return;
 
         if (Music.isPlaying)
         {
@@ -62,7 +66,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         isPaused = true;
-        
+
         if (countdownCoroutine != null)
         {
             StopCoroutine(countdownCoroutine);
@@ -88,7 +92,7 @@ public class PauseMenu : MonoBehaviour
     public void Continue() // click continue button then:
     {
         isPaused = false;
-        
+
         if (pauseMenu != null) pauseMenu.SetActive(false); // remove pause menu display
 
         if (countdownCoroutine != null)
@@ -103,7 +107,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f; // make sure time is pased so game isn't going on
         if (uiBlocker != null) uiBlocker.SetActive(true); // Keep clicks blocked during countdown
-        
+
         if (Music != null && Music.isPlaying)
         {
             Music.Pause(); // pause the music
@@ -128,7 +132,7 @@ public class PauseMenu : MonoBehaviour
             countdownText.gameObject.SetActive(false); // now set the visibility to false
         }
 
-        
+
         Time.timeScale = 1f; // play normal time speed
         if (uiBlocker != null) uiBlocker.SetActive(false); // Unblock interactions after countdown
 
@@ -146,7 +150,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         gameStarted = true; // game has started
-        countdownCoroutine = null; 
+        countdownCoroutine = null;
     }
 
     public void Restart()
@@ -163,10 +167,10 @@ public class PauseMenu : MonoBehaviour
 
     private void CleanupBeforeSceneChange() // reset the game states
     {
-        isEnded = true; 
+        isEnded = true;
         hasStartedPlaying = false;
         gameStarted = false;
-        
+
         if (countdownCoroutine != null)
         {
             StopCoroutine(countdownCoroutine);

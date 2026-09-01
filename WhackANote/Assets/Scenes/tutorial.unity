@@ -3258,6 +3258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialManager
   dialogueText: {fileID: 1263102060}
   fullScreenBlocker: {fileID: 857519460}
+  mainDialogueBox: {fileID: 984902993}
   moles:
   - {fileID: 1442913060}
   - {fileID: 1721143749}
@@ -3289,12 +3290,6 @@ MonoBehaviour:
     dialogueText: Now give it a try! Tap the moles to play Twinkle Twinkle Little
       Star.
     triggerType: 2
-    stepUIContainer: {fileID: 0}
-    pulseCue: {fileID: 0}
-    targetMoleIndex: 0
-  - stepName: 
-    dialogueText: 
-    triggerType: 0
     stepUIContainer: {fileID: 0}
     pulseCue: {fileID: 0}
     targetMoleIndex: 0
@@ -5851,6 +5846,7 @@ MonoBehaviour:
   GameOverUI: {fileID: 2102176813}
   countdownText: {fileID: 608747442}
   isEnded: 0
+  isTutorialScene: 1
 --- !u!114 &1825380345
 MonoBehaviour:
   m_ObjectHideFlags: 0
