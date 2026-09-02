@@ -105,7 +105,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         for (int i = 0; i <= 6 && i < moleSprites.Length; i++)
         {
             spriteRenderer.sprite = moleSprites[i];
-            yield return new WaitForSeconds(frameRate);
+            yield return new WaitForSeconds(frameRate * 0.5f);
         }
 
         // 2. Interactive Window (Wait duration, cancel immediately if tapped)
@@ -160,7 +160,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         for (int i = 9; i < moleSprites.Length && i < 14; i++)
         {
             spriteRenderer.sprite = moleSprites[i];
-            yield return new WaitForSeconds(frameRate);
+            yield return new WaitForSeconds(frameRate * 0.3f);
         }
     }
 
@@ -222,6 +222,14 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         if (isClickable && !wasTapped)
         {
             wasTapped = true;
+            
+            // Notify tutorial manager if running
+            TutorialManager tutorial = Object.FindAnyObjectByType<TutorialManager>();
+            if (tutorial != null)
+            {
+                // Find index of this mole in the array or pass its reference
+                tutorial.OnMoleTapped(System.Array.IndexOf(tutorial.moles, this));
+            }
 
             // initialise the points, and base for the text
             int points = 0;
