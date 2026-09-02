@@ -8,7 +8,7 @@ public class MetronomeController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (animator = null)
+        if (animator == null)
         {
             animator = GetComponent<Animator>();
         }
