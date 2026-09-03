@@ -188,6 +188,7 @@ public class PauseMenu : MonoBehaviour
         if (!isEnded) // check the boolean
         {
             isEnded = true; // set to true
+            Time.timeScale = 0f;
             if (GameOverUI != null) GameOverUI.SetActive(true); // show gameover UI and the UI blocker 
             if (uiBlocker != null) uiBlocker.SetActive(true);
         }

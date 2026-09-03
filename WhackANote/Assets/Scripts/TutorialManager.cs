@@ -26,10 +26,6 @@ public class TutorialManager : MonoBehaviour
     private bool waitingForInput = false; // Are we wating for the user to tap? --> will be used to move onto next scene hopefully
     private bool ignoreTapThisFrame = false; // Prevents 1 tap from triggering 2 steps simultaneously
 
-    // Track audio state to detect song end (like PauseMenu script)
-    private bool songStarted = false;
-    private bool songCompleted = false;
-
     private void Start()
     {
         // Mute and stop music completely at start
@@ -46,19 +42,19 @@ public class TutorialManager : MonoBehaviour
     private void Update()
     {
         // Detect Song Finish 
-        if (songStarted && !songCompleted && backgroundMusic != null)
-        {
-            if (backgroundMusic.isPlaying)
-            {
-                // Audio is actively playing
-            }
-            else if (backgroundMusic.time > 0.1f || !backgroundMusic.isPlaying)  // Only detect song finish if audio HAS actually started playing (> 0.1s in)
-            {
-                // should be when audio officially finished playing to the end
-                OnSongFinished(); // Or maybe this is causing the error
-                return;
-            }
-        }
+        // if (songStarted && !songCompleted && backgroundMusic != null)
+        // {
+        //     if (backgroundMusic.isPlaying)
+        //     {
+        //         // Audio is actively playing
+        //     }
+        //     else if (backgroundMusic.time > 0.1f || !backgroundMusic.isPlaying)  // Only detect song finish if audio HAS actually started playing (> 0.1s in)
+        //     {
+        //         // should be when audio officially finished playing to the end
+        //         OnSongFinished(); // Or maybe this is causing the error
+        //         return;
+        //     }
+        // }
 
         // Handling the dialogue taps:
         if (!waitingForInput) return;
@@ -158,32 +154,57 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void OnSongFinished()
-    {
-        songCompleted = true;
+    // private void OnSongFinished()
+    // {
+    //     songCompleted = true;
 
-        // Stop mole spawns
-        if (rhythmSequencer != null)
-        {
-            rhythmSequencer.StopAllCoroutines();
-        }
+    //     // Stop mole spawns
+    //     if (rhythmSequencer != null)
+    //     {
+    //         rhythmSequencer.StopAllCoroutines();
+    //     }
 
-        // should show final "Tutorial Complete" step --> dont know why its early
-        AdvanceStep();
-    }
+    //     // should show final "Tutorial Complete" step --> dont know why its early
+    //     AdvanceStep();
+    // }
 
-    private void HideAllTutorialUI() // get rid of dialogue box and overlay when advancing steps using this
+    // private void HideAllTutorialUI() // get rid of dialogue box and overlay when advancing steps using this
+    // {
+    //     if (mainDialogueBox != null) mainDialogueBox.SetActive(false);
+    //     if (fullScreenBlocker != null) fullScreenBlocker.SetActive(false);
+
+    //     foreach (var s in steps) // Google said to use this, i don't quite know if this is right
+    //     {
+    //         if (s.stepUIContainer != null) s.stepUIContainer.SetActive(false);
+    //         if (s.pulseCue != null) s.pulseCue.SetActive(false); // Also idk why this isnt working
+    //     }
+    // }
+    private void HideAllTutorialUI() 
     {
         if (mainDialogueBox != null) mainDialogueBox.SetActive(false);
         if (fullScreenBlocker != null) fullScreenBlocker.SetActive(false);
 
-        foreach (var s in steps) // Google said to use this, i don't quite know if this is right
+        // Stop and hide all active moles so they don't trigger "MISS" on game over
+        if (moles != null)
+        {
+            foreach (var mole in moles)
+            {
+                if (mole != null)
+                {
+                    mole.HideAndStop();
+                }
+            }
+        }
+
+        foreach (var s in steps)
         {
             if (s.stepUIContainer != null) s.stepUIContainer.SetActive(false);
-            if (s.pulseCue != null) s.pulseCue.SetActive(false); // Also idk why this isnt working
+            if (s.pulseCue != null) s.pulseCue.SetActive(false);
         }
     }
-    public void CompleteTutorial() // complete the tutorial?    
+
+
+    public void CompleteTutorial() // complete the tutorial   
     {
         HideAllTutorialUI(); // Turns off the lingering text box
 
@@ -192,7 +213,5 @@ public class TutorialManager : MonoBehaviour
 
         PlayerPrefs.SetInt("tutorial_complete", 1); // set boolean to true
         PlayerPrefs.Save(); // Save
-
-        SceneManager.LoadScene("Menu"); // Go back to menu
     }
 }

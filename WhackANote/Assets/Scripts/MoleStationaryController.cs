@@ -10,6 +10,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public AudioSource audioSource;
     public AudioClip moleNote;
     public TextMeshProUGUI HitType;
+    public bool showHitFeedback = true;
 
     [Header("Hit Type Colours")] // These RGB codes actually dont really work, so I manually added them on the moles, hence the header and public types
     public Color perfectColour = new Color(255, 238, 129, 255);
@@ -281,5 +282,31 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         // Ensure alpha (transparency) is fully zero (invisible) before disabling
         HitType.color = new Color(startColour.r, startColour.g, startColour.b, 0f);
         HitType.gameObject.SetActive(false);
+    }
+
+    public void HideAndStop()
+    {
+        // Stop any active mole movement or timer routines
+        if (activeRoutine != null)
+        {
+            StopCoroutine(activeRoutine);
+            activeRoutine = null;
+        }
+
+        // Stop text fading routines
+        if (textFadeRoutine != null)
+        {
+            StopCoroutine(textFadeRoutine);
+            textFadeRoutine = null;
+        }
+
+        // Reset flags and hide text UI
+        isClickable = false;
+        wasTapped = false;
+
+        if (HitType != null)
+        {
+            HitType.gameObject.SetActive(false);
+        }
     }
 }
