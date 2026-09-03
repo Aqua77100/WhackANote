@@ -2,15 +2,18 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public static event System.Action OnServicesReady;
+    public static event System.Action<int> OnHighScoreRestored; // NEW
+
+    public int RestoredHighScore { get; private set; } = 0;
 
     async void Awake()
     {
-        // NEW: singleton + persist across scene loads
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -29,6 +32,14 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Services ready — firing OnServicesReady");
         OnServicesReady?.Invoke();
+
+        var loaded = await CloudSaveManager.Instance.LoadData(new HashSet<string> { "high_score" });
+        if (loaded.ContainsKey("high_score"))
+        {
+            RestoredHighScore = System.Convert.ToInt32(loaded["high_score"]);
+            Debug.Log($"Restored high score: {RestoredHighScore}");
+            OnHighScoreRestored?.Invoke(RestoredHighScore); // NEW
+        }
     }
 
     private async Task SignInAnonymouslyAsync()
