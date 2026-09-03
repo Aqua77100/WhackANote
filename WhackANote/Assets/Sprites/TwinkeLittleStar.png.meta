@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9a4af1c76de64420a7904948c2e0a92
+guid: f59acdc4177104d48a27479ee1131b45
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9109499792536836275
-    second: pulse_0
+      213: 2721249908109017506
+    second: TwinkeLittleStar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 74
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pulse_0
+      name: TwinkeLittleStar_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 74
-        height: 74
+        x: 0
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d47e850f33e849180800000000000000
-      internalID: -9109499792536836275
+      spriteID: 2a107e5af52d3c520800000000000000
+      internalID: 2721249908109017506
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pulse_0: -9109499792536836275
+      TwinkeLittleStar_0: 2721249908109017506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

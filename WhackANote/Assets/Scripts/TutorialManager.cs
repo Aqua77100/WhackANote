@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject fullScreenBlocker;
     [Tooltip("Assign your main Dialogue Box background panel here so it can be explicitly hidden")]
     public GameObject mainDialogueBox;
+    public TextMeshProUGUI instructionText;
 
     [Header("Game References")]
     public MoleStationaryController[] moles;
@@ -41,21 +42,6 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        // Detect Song Finish 
-        // if (songStarted && !songCompleted && backgroundMusic != null)
-        // {
-        //     if (backgroundMusic.isPlaying)
-        //     {
-        //         // Audio is actively playing
-        //     }
-        //     else if (backgroundMusic.time > 0.1f || !backgroundMusic.isPlaying)  // Only detect song finish if audio HAS actually started playing (> 0.1s in)
-        //     {
-        //         // should be when audio officially finished playing to the end
-        //         OnSongFinished(); // Or maybe this is causing the error
-        //         return;
-        //     }
-        // }
-
         // Handling the dialogue taps:
         if (!waitingForInput) return;
 
@@ -90,8 +76,6 @@ public class TutorialManager : MonoBehaviour
         currentStepIndex = index; // current step is at index
         TutorialStep step = steps[currentStepIndex]; // cary out step at step index
 
-        // Google suggestion (don't know if this actually works properly):
-
         // Hide ALL UI, unmute, and start audio+gameplay when mini-game starts
         if (step.triggerType == StepTriggerType.MiniGameCompletion)
         {
@@ -105,6 +89,32 @@ public class TutorialManager : MonoBehaviour
         if (step.stepUIContainer != null) step.stepUIContainer.SetActive(true);
         if (step.pulseCue != null) step.pulseCue.SetActive(true);
         if (dialogueText != null) dialogueText.text = step.dialogueText;
+        if (instructionText != null) instructionText.text = step.instructionText;
+
+        // DIALOGUE BOX LOGIC
+        bool hasCustomBox = step.customDialogueBox != null;
+
+        // Turn ON custom box IF it exists --> otherwise = turn ON default box
+        if (hasCustomBox)
+        {
+            step.customDialogueBox.SetActive(true);
+            if (mainDialogueBox != null) mainDialogueBox.SetActive(false); // Ensure original is hidden
+        }
+        else
+        {
+            if (mainDialogueBox != null) mainDialogueBox.SetActive(true);
+        }
+
+        // Assign text to whichever box is active
+        TextMeshProUGUI activeDialogueText = (hasCustomBox && step.customDialogueText != null) ? step.customDialogueText : dialogueText;
+        if (activeDialogueText != null) activeDialogueText.text = step.dialogueText;
+
+        TextMeshProUGUI activeInstructionText = (hasCustomBox && step.customInstructionText != null) ? step.customInstructionText : instructionText;
+        if (activeInstructionText != null) activeInstructionText.text = step.instructionText;
+
+        // Show the other step-specific overlays & cues
+        if (step.stepUIContainer != null) step.stepUIContainer.SetActive(true);
+        if (step.pulseCue != null) step.pulseCue.SetActive(true);
 
         if (step.triggerType == StepTriggerType.TapTargetMole && step.targetMoleIndex >= 0)
         {
@@ -136,10 +146,6 @@ public class TutorialManager : MonoBehaviour
 
     public void StartMiniGamePhase()  // Call this when advancing to the mini-game step
     {
-        //NOTE: THIS MIGHT BE WHERE THE ERROR IS HAPPENING --> MAYBE I NEED TO FIX THIS SO THAT WHATEVER IS HAPPENING IN THE BG 
-        //ISN'T RECORDING THE SONG BEGINNING ON START, BUT RATHER ON THE STARTMINIGAMEPHASE METHOD --> SO MAYBE THE LAST PANEL DOESN'T POP OP PREMATURELY
-        // OR I JUST MAKE ANOTHER PANEL IN THE PAUSE MENU THAT USES THE SAME CODE AS THE GAME OVER?
-
         // Unhide and play audio ONLY when mini-game starts
         if (backgroundMusic != null)
         {
@@ -154,31 +160,6 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    // private void OnSongFinished()
-    // {
-    //     songCompleted = true;
-
-    //     // Stop mole spawns
-    //     if (rhythmSequencer != null)
-    //     {
-    //         rhythmSequencer.StopAllCoroutines();
-    //     }
-
-    //     // should show final "Tutorial Complete" step --> dont know why its early
-    //     AdvanceStep();
-    // }
-
-    // private void HideAllTutorialUI() // get rid of dialogue box and overlay when advancing steps using this
-    // {
-    //     if (mainDialogueBox != null) mainDialogueBox.SetActive(false);
-    //     if (fullScreenBlocker != null) fullScreenBlocker.SetActive(false);
-
-    //     foreach (var s in steps) // Google said to use this, i don't quite know if this is right
-    //     {
-    //         if (s.stepUIContainer != null) s.stepUIContainer.SetActive(false);
-    //         if (s.pulseCue != null) s.pulseCue.SetActive(false); // Also idk why this isnt working
-    //     }
-    // }
     private void HideAllTutorialUI() 
     {
         if (mainDialogueBox != null) mainDialogueBox.SetActive(false);
@@ -198,6 +179,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (var s in steps)
         {
+            if (s.customDialogueBox != null) s.customDialogueBox.SetActive(false);
             if (s.stepUIContainer != null) s.stepUIContainer.SetActive(false);
             if (s.pulseCue != null) s.pulseCue.SetActive(false);
         }
