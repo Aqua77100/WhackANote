@@ -50,9 +50,6 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        // Do NOT trigger gameOver screen if this is the tutorial
-        if (isTutorialScene || isEnded || !gameStarted || Music == null) return;
-
         if (Music.isPlaying)
         {
             hasStartedPlaying = true;
