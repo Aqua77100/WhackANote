@@ -8472,7 +8472,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3356406395973183004, guid: 7fca37160df5a41409625163237bbbac, type: 3}
+  m_Sprite: {fileID: 3356406395973183004, guid: 515bec51d5471468a830df2e36b8b4e9, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10193,7 +10193,6 @@ MonoBehaviour:
   GameOverUI: {fileID: 2102176813}
   countdownText: {fileID: 608747442}
   isEnded: 0
-  isTutorialScene: 0
 --- !u!114 &1825380345
 MonoBehaviour:
   m_ObjectHideFlags: 0
