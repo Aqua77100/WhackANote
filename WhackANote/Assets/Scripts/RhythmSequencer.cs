@@ -17,11 +17,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private float SecondsPerBeat => 60f / bpm;
 
+    [Header("Tutorial / Control Settings")]
+    [Tooltip("If true, the sequencer will wait for TutorialManager to call StartTutorialSong() instead of auto-starting.")]
+    public bool isTutorial = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        StartCoroutine(PlaySequence());
+        // Only auto-start if this is NOT a tutorial level
+        if (!isTutorial)
+        {
+            StartCoroutine(PlaySequence());
+        }
     }
 
     private IEnumerator PlaySequence(){
@@ -41,5 +49,42 @@ public class NewMonoBehaviourScript : MonoBehaviour
             yield return new WaitForSeconds(secondsPerBeat);
         }
     }
+
+    // private IEnumerator PlaySequence()
+    // {
+    //     int sequenceIndex = 0;
+
+    //     // Loop continuously for main game but run ONCE through the array for tutorial
+    //     while (true)
+    //     {
+    //         float secondsPerBeat = SecondsPerBeat;
+    //         int moleIndex = sequence[sequenceIndex];
+
+    //         if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null)
+    //         {
+    //             float duration = secondsPerBeat * activeWindowInBeats;
+    //             moles[moleIndex].PopUp(duration);
+    //         }
+
+    //         sequenceIndex++;
+
+    //         // If we reached the end of the tutorial sequence, stop and advance tutorial!
+    //         if (sequenceIndex >= sequence.Length)
+    //         {
+    //             if (isTutorial)
+    //             {
+    //                 // Signal tutorial manager that song is done
+    //                 TutorialManager tutorial = Object.FindAnyObjectByType<TutorialManager>();
+    //                 if (tutorial != null) tutorial.AdvanceStep();
+
+    //                 yield break; // Exit loop
+    //             }
+
+    //             sequenceIndex = 0; // Loop around for normal levels
+    //         }
+
+    //         yield return new WaitForSeconds(secondsPerBeat);
+    //     }
+    // }
 
 }
