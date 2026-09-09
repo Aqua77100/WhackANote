@@ -1,17 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &-6526924415362428203
+--- !u!21 &-1522941306802882348
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jersey10-Regular SDF Material
+  m_Name: Font for title Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - BEVEL_ON
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -36,19 +38,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8712350257448445157}
+        m_Texture: {fileID: 9049840435164365341}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 0, y: 1}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Ambient: 1
-    - _Bevel: 0.88
-    - _BevelClamp: 0
-    - _BevelOffset: -0.12
+    - _Bevel: 1
+    - _BevelClamp: 0.73
+    - _BevelOffset: -0.2
     - _BevelRoundness: 1
     - _BevelWidth: 0
     - _BumpFace: 0
@@ -100,12 +102,12 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.18053639, g: 0.11310859, b: 0.27044016, a: 1}
+    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0.16078432, g: 0.09019608, b: 0.23529413, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0.61006284, g: 0.38428876, b: 0.28201014, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
@@ -119,7 +121,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Jersey10-Regular SDF
+  m_Name: Font for title
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_FontAsset
   m_Version: 1.1.0
   m_FaceInfo:
@@ -144,7 +146,7 @@ MonoBehaviour:
     m_StrikethroughOffset: 14
     m_StrikethroughThickness: 2.9285712
     m_TabWidth: 18
-  m_Material: {fileID: -6526924415362428203}
+  m_Material: {fileID: -1522941306802882348}
   m_SourceFontFileGUID: 97c592578e02f431e9b777ae46467529
   m_CreationSettings:
     sourceFontFileName: 
@@ -2015,7 +2017,7 @@ MonoBehaviour:
     m_GlyphIndex: 260
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: 8712350257448445157}
+  - {fileID: 9049840435164365341}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_GetFontFeatures: 1
@@ -2665,13 +2667,13 @@ MonoBehaviour:
     kerningPairs: []
   fallbackFontAssets: []
   atlas: {fileID: 0}
---- !u!28 &8712350257448445157
+--- !u!28 &9049840435164365341
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jersey10-Regular SDF Atlas
+  m_Name: Font for title Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7fca37160df5a41409625163237bbbac
+guid: 91a1500802aff8e459cb1b8669a881c4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3356406395973183004
-    second: purple_block_0
+      213: 2936404817058830484
+    second: Pink music note_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purple_block_0
+      name: Pink music note_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 63
+        y: 79
+        width: 338
+        height: 338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c16a4d985d9549e20800000000000000
-      internalID: 3356406395973183004
+      spriteID: 49899859f9430c820800000000000000
+      internalID: 2936404817058830484
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d308651509b0dcf46acff7247c23896f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      purple_block_0: 3356406395973183004
+      Pink music note_0: 2936404817058830484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

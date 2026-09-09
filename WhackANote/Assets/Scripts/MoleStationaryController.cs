@@ -13,10 +13,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public bool showHitFeedback = true;
 
     [Header("Hit Type Colours")] // These RGB codes actually dont really work, so I manually added them on the moles, hence the header and public types
-    public Color perfectColour = new Color(255, 238, 129, 255);
-    public Color greatColour = new Color(130, 255, 229, 255);
-    public Color goodColour = new Color(244, 153, 252, 255);
-    public Color missColour = new Color(142, 88, 85, 255);
+    public Color perfectColour = new Color32(255, 238, 129, 255);
+    public Color greatColour = new Color32(130, 255, 229, 255);
+    public Color goodColour = new Color32(244, 153, 252, 255);
+    public Color missColour = new Color32(142, 88, 85, 255);
 
     [Header("Animation Settings")]
     public SpriteRenderer spriteRenderer;
@@ -168,16 +168,20 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     // Retained for desktop testing/editor mouse clicks
     private void OnMouseDown()
     {
+        // If the click is over a UI button or UI element, STOP processing world input!
+        // if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        // {
+        //     return;
+        // }
+
         ProcessTap();
     }
 
     // Interface implementation for EventSystem/UI touch detection
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Block UI pointer events over moles during pause
         if (eventData.pointerCurrentRaycast.gameObject != null)
         {
-            // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
             if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
             {
                 return;
@@ -185,6 +189,29 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         }
 
         ProcessTap();
+        // if (Input.touchCount > 0 && isClickable && !wasTapped)
+        // {
+        //     Touch touch = Input.GetTouch(0);
+
+        //     // Check if touch ID is over a UI element
+        //     if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        //     {
+        //         return; // Ignore world tap if touching UI
+        //     }
+
+        //     // Block UI pointer events over moles during pause
+        //     if (eventData.pointerCurrentRaycast.gameObject != null)
+        //     {
+        //         // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
+        //         if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
+        //         {
+        //             return;
+        //         }
+        //     }
+
+        //     ProcessTap();
+        // }
+
     }
 
     // Centralized method to process hit logic safely once
@@ -249,6 +276,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
             Debug.LogWarning("HitType TextMeshProUGUI is not assigned in Inspector on " + gameObject.name); // You didn't assign the text
             return;
         }
+
+        // Don't spawn text if paused
+        if (HitType == null || PauseMenu.isPaused) return;
+
         // take the input for the string for the case and the colour
         HitType.text = text;
         HitType.color = new Color(colour.r, colour.g, colour.b, 1f);
@@ -272,10 +303,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         {
             elapsed += Time.deltaTime; // Use deltaTime to get real amount of time
             // Create a new number for transparency over the duration (gets lesser over time)
-            float newAlpha = Mathf.Lerp(startColour.a, 0f, elapsed / fadeDuration); 
+            float newAlpha = Mathf.Lerp(startColour.a, 0f, elapsed / fadeDuration);
 
             // Preserve RGB values and lower only the alpha (transparency) channel
-            HitType.color = new Color(startColour.r, startColour.g, startColour.b, newAlpha); 
+            HitType.color = new Color(startColour.r, startColour.g, startColour.b, newAlpha);
             yield return null;
         }
 

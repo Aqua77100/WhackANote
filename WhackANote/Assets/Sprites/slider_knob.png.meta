@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d541475e39554fc8bf307fcae22b76f
+guid: 353509449b9cbe0429159a8142ea2e58
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7832087114731284020
-    second: home_unclicked_0
+      213: 3840635661348352455
+    second: slider_knob_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: home_unclicked_0
+      name: slider_knob_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 63
+        y: 63
+        width: 386
+        height: 370
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 436e8731cb921bc60800000000000000
-      internalID: 7832087114731284020
+      spriteID: 7c1bd5219cdac4530800000000000000
+      internalID: 3840635661348352455
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 079000d7713c947f9901aa8c37727483
+    spriteID: 2ffdd22ca409d7043934c121ab87f1c4
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      home_unclicked_0: 7832087114731284020
+      slider_knob_0: 3840635661348352455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
