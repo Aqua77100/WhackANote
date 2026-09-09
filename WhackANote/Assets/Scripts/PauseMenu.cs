@@ -21,9 +21,6 @@ public class PauseMenu : MonoBehaviour
 
     private Coroutine countdownCoroutine; // Corouting needed for the countdown
 
-    [Header("Tutorial Guard")]
-    public bool isTutorialScene = false; // Keep this box in ticked in the Inspector for Tutorial scene!!!!!!
-
     private void Awake()
     {
         isPaused = false;

@@ -23,9 +23,13 @@ public class TutorialManager : MonoBehaviour
     [Header("Audio")]
     public AudioSource backgroundMusic;
 
+    [Header("Tap Overlay")]
+    [Tooltip("Invisible UI Panel with Raycast Target enabled and TutorialTapOverlay attached")]
+    public GameObject tapAnywhereOverlay;
+
     private int currentStepIndex = 0; // change number for whichever step you wish to have
     private bool waitingForInput = false; // Are we wating for the user to tap? --> will be used to move onto next scene hopefully
-    private bool ignoreTapThisFrame = false; // Prevents 1 tap from triggering 2 steps simultaneously
+    //private bool ignoreTapThisFrame = false; // Prevents 1 tap from triggering 2 steps simultaneously
 
     private void Start()
     {
@@ -40,27 +44,27 @@ public class TutorialManager : MonoBehaviour
         ExecuteStep(0);
     }
 
-    private void Update()
-    {
-        // Handling the dialogue taps:
-        if (!waitingForInput) return;
+    // private void Update()
+    // {
+    //     // Handling the dialogue taps:
+    //     if (!waitingForInput) return;
 
-        if (ignoreTapThisFrame) //(this was because it would skip to the last one for some reason)
-        {
-            ignoreTapThisFrame = false;
-            return;
-        }
+    //     if (ignoreTapThisFrame) //(this was because it would skip to the last one for some reason)
+    //     {
+    //         ignoreTapThisFrame = false;
+    //         return;
+    //     }
 
-        TutorialStep currentStep = steps[currentStepIndex];
+    //     TutorialStep currentStep = steps[currentStepIndex];
 
-        if (currentStep.triggerType == StepTriggerType.TapAnywhere) // If this step is the type to want a tap anywhere, wait for tap and advance forward
-        {
-            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-            {
-                AdvanceStep();
-            }
-        }
-    }
+    //     if (currentStep.triggerType == StepTriggerType.TapAnywhere) // If this step is the type to want a tap anywhere, wait for tap and advance forward
+    //     {
+    //         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+    //         {
+    //             AdvanceStep();
+    //         }
+    //     }
+    // }
 
     public void ExecuteStep(int index)
     {
@@ -116,6 +120,15 @@ public class TutorialManager : MonoBehaviour
         if (step.stepUIContainer != null) step.stepUIContainer.SetActive(true);
         if (step.pulseCue != null) step.pulseCue.SetActive(true);
 
+        // Enable the tap overlay if step type is TapAnywhere --> this fixes the bug I got with the pause menu registering as a click
+        if (step.triggerType == StepTriggerType.TapAnywhere)
+        {
+            if (tapAnywhereOverlay != null) 
+            {
+                tapAnywhereOverlay.SetActive(true);
+            }
+        }
+
         if (step.triggerType == StepTriggerType.TapTargetMole && step.targetMoleIndex >= 0)
         {
             moles[step.targetMoleIndex].PopUp(999f); // keep this up indefinitely (until you tap)
@@ -124,7 +137,17 @@ public class TutorialManager : MonoBehaviour
         waitingForInput = true;
     }
 
+    // Called directly by the TutorialTapOverlay script when touched
+    public void OnTapOverlayClicked()
+    {
+        if (!waitingForInput) return;
 
+        TutorialStep currentStep = steps[currentStepIndex];
+        if (currentStep.triggerType == StepTriggerType.TapAnywhere)
+        {
+            AdvanceStep();
+        }
+    }
 
     public void OnMoleTapped(int moleIndex) // If you hit the mole, then we need to advance step
     {
@@ -133,7 +156,7 @@ public class TutorialManager : MonoBehaviour
         TutorialStep currentStep = steps[currentStepIndex];
         if (currentStep.triggerType == StepTriggerType.TapTargetMole && currentStep.targetMoleIndex == moleIndex)
         {
-            ignoreTapThisFrame = true; // Prevent step 1 from taking this tap (for some reason it kept doing that)
+            //ignoreTapThisFrame = true; // Prevent step 1 from taking this tap (for some reason it kept doing that)
             AdvanceStep();
         }
     }
@@ -164,6 +187,9 @@ public class TutorialManager : MonoBehaviour
     {
         if (mainDialogueBox != null) mainDialogueBox.SetActive(false);
         if (fullScreenBlocker != null) fullScreenBlocker.SetActive(false);
+
+        // HIDE FIX: Reset overlay state on step transition
+        if (tapAnywhereOverlay != null) tapAnywhereOverlay.SetActive(false);
 
         // Stop and hide all active moles so they don't trigger "MISS" on game over
         if (moles != null)
