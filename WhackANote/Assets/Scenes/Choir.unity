@@ -721,7 +721,175 @@ MonoBehaviour:
   - {fileID: 142030031}
   - {fileID: 1913081736}
   - {fileID: 390080515}
-  sequence: 0200000002000000030000000400000003000000020000000100000000000000000000000100000002000000010000000200000002000000030000000400000004000000030000000200000001000000000000000000000001000000020000000100000000000000010000000200000000000000010000000200000003000000020000000000000001000000020000000300000002000000010000000000000001000000040000000200000002000000030000000400000004000000030000000200000001000000000000000000000001000000020000000100000000000000
+  sequence:
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 1
+  - moleIndex: 0
+    beats: 1
+    holdNote: 1
+  - moleIndex: 0
+    beats: 1
+    holdNote: 1
+  - moleIndex: 0
+    beats: 2
+    holdNote: 0
+  - moleIndex: 0
+    beats: 2
+    holdNote: 0
+  - moleIndex: 0
+    beats: 2
+    holdNote: 0
+  - moleIndex: 0
+    beats: 2
+    holdNote: 0
+  - moleIndex: 0
+    beats: 0.5
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 0.5
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 2
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
+  - moleIndex: 0
+    beats: 1
+    holdNote: 0
   bpm: 85
   activeWindowInBeats: 1.5
 --- !u!4 &204618385
