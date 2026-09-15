@@ -10,6 +10,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public AudioSource audioSource;
     public AudioClip moleNote;
     public TextMeshProUGUI HitType;
+    public bool showHitFeedback = true;
 
     [Header("Hit Type Colours")] // These RGB codes actually dont really work, so I manually added them on the moles, hence the header and public types
     public Color perfectColour = new Color32(255, 238, 129, 255);
@@ -105,7 +106,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         for (int i = 0; i <= 6 && i < moleSprites.Length; i++)
         {
             spriteRenderer.sprite = moleSprites[i];
-            yield return new WaitForSeconds(frameRate);
+            yield return new WaitForSeconds(frameRate * 0.5f);
         }
 
         // 2. Interactive Window (Wait duration, cancel immediately if tapped)
@@ -160,7 +161,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         for (int i = 9; i < moleSprites.Length && i < 14; i++)
         {
             spriteRenderer.sprite = moleSprites[i];
-            yield return new WaitForSeconds(frameRate);
+            yield return new WaitForSeconds(frameRate * 0.3f);
         }
     }
 
@@ -222,6 +223,14 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         if (isClickable && !wasTapped)
         {
             wasTapped = true;
+            
+            // Notify tutorial manager if running
+            TutorialManager tutorial = Object.FindAnyObjectByType<TutorialManager>();
+            if (tutorial != null)
+            {
+                // Find index of this mole in the array or pass its reference
+                tutorial.OnMoleTapped(System.Array.IndexOf(tutorial.moles, this));
+            }
 
             // initialise the points, and base for the text
             int points = 0;
@@ -306,45 +315,29 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         HitType.gameObject.SetActive(false);
     }
 
-    // When pause menu = active --> listen (subscribe) to the pause and resume events
-    private void OnEnable()
+    public void HideAndStop()
     {
-        PauseMenu.OnGamePaused += HideHitTextOnPause;
-    }
+        // Stop any active mole movement or timer routines
+        if (activeRoutine != null)
+        {
+            StopCoroutine(activeRoutine);
+            activeRoutine = null;
+        }
 
-    // When pause menu = inactive --> unsubscribes from the same events
-    private void OnDisable()
-    {
-        PauseMenu.OnGamePaused -= HideHitTextOnPause;
-    }
-
-    // Runs automatically when game pauses --> hides the HitType game object if visible
-    private void HideHitTextOnPause()
-    {
+        // Stop text fading routines
         if (textFadeRoutine != null)
         {
             StopCoroutine(textFadeRoutine);
             textFadeRoutine = null;
         }
 
+        // Reset flags and hide text UI
+        isClickable = false;
+        wasTapped = false;
+
         if (HitType != null)
         {
             HitType.gameObject.SetActive(false);
         }
-        // if (HitType != null && HitType.gameObject.activeSelf)
-        // {
-        //     HitType.gameObject.SetActive(false);
-        // }
     }
-
-
-    // Runs automatically when game resumes --> reveals HitType object ONLY if textFadeRoutine was actively running before pausing
-    // private void HandleResume()
-    // {
-    //     // If the fade routine was active when paused --> re-enable the text so it can complete fading
-    //     if (textFadeRoutine != null && HitType != null)
-    //     {
-    //         HitType.gameObject.SetActive(true);
-    //     }
-    // }
 }

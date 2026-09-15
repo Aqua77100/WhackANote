@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 515bec51d5471468a830df2e36b8b4e9
+guid: 9dd8b0148aff7471a89929ef72777631
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3356406395973183004
-    second: purple_block_0
+      213: -7809022847566712057
+    second: dark_brown_box_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purple_block_0
+      name: dark_brown_box_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,14 +122,14 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 35, y: 35, z: 35, w: 35}
+      border: {x: 50, y: 50, z: 50, w: 50}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c16a4d985d9549e20800000000000000
-      internalID: 3356406395973183004
+      spriteID: 70370e71817c0a390800000000000000
+      internalID: -7809022847566712057
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9e93befbf485a479eb5db9b4949738a2
+    spriteID: bbb7700b9107649818cc05af5115214d
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      purple_block_0: 3356406395973183004
+      dark_brown_box_0: -7809022847566712057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

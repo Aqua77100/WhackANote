@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 515bec51d5471468a830df2e36b8b4e9
+guid: f9a4af1c76de64420a7904948c2e0a92
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3356406395973183004
-    second: purple_block_0
+      213: -9109499792536836275
+    second: pulse_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 74
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: purple_block_0
+      name: pulse_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 3
+        y: 3
+        width: 74
+        height: 74
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 35, y: 35, z: 35, w: 35}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c16a4d985d9549e20800000000000000
-      internalID: 3356406395973183004
+      spriteID: d47e850f33e849180800000000000000
+      internalID: -9109499792536836275
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9e93befbf485a479eb5db9b4949738a2
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      purple_block_0: 3356406395973183004
+      pulse_0: -9109499792536836275
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
