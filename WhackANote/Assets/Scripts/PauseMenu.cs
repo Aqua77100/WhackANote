@@ -53,14 +53,14 @@ public class PauseMenu : MonoBehaviour
     {
         if (isEnded || !gameStarted || Music == null) return;
 
-        if (Music.isPlaying)
+        /*if (Music.isPlaying)
         {
             hasStartedPlaying = true;
         }
         else if (hasStartedPlaying && Time.timeScale > 0)
         {
             gameOver(); // if the music has ended, then show game over screen
-        }
+        }*/
     }
 
     public void Pause()

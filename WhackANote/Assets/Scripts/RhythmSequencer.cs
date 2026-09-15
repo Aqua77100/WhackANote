@@ -15,6 +15,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [Tooltip("How long (in beats) the mole stays up for clicking")]
     public float activeWindowInBeats = 0.8f;
 
+    [Header("Game settings")]
+    public PauseMenu pauseMenu;
+
     private float SecondsPerBeat => 60f / bpm;
 
 
@@ -25,20 +28,28 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
     private IEnumerator PlaySequence(){
-        int sequenceIndex = 0;
+        float secondsPerBeat = SecondsPerBeat;
 
-        while(true){
-            float secondsPerBeat = SecondsPerBeat;
+        for (int sequenceIndex = 0; sequenceIndex < sequence.Length; sequenceIndex++)
+        {
             int moleIndex = sequence[sequenceIndex];
 
-            if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null){
+            if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null)
+            {
                 float duration = secondsPerBeat * activeWindowInBeats;
                 moles[moleIndex].PopUp(duration);
+                //Debug.Log("Index = " + moleIndex);
             }
 
-            sequenceIndex = (sequenceIndex+1)%sequence.Length;
-
             yield return new WaitForSeconds(secondsPerBeat);
+        }
+
+        // Wait a little so the final mole can finish
+        yield return new WaitForSeconds(secondsPerBeat);
+
+        if(pauseMenu != null)
+        {
+            pauseMenu.gameOver();
         }
     }
 
