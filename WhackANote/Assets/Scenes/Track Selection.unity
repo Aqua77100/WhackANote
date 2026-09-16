@@ -2904,6 +2904,7 @@ GameObject:
   - component: {fileID: 782075923}
   - component: {fileID: 782075922}
   - component: {fileID: 782075921}
+  - component: {fileID: 782075924}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -2974,7 +2975,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 782075922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 782075924}
+        m_TargetAssemblyTypeName: LoadTrack, Assembly-CSharp
+        m_MethodName: OpenTrack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &782075922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3013,6 +3026,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782075919}
   m_CullTransparentMesh: 1
+--- !u!114 &782075924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782075919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7509fe98ace22747a3ef1d4d30bf2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  trackName: Circus
 --- !u!1 &791882937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,7 +5266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -86.817535}
+  m_AnchoredPosition: {x: 0, y: -86.8175}
   m_SizeDelta: {x: 86.9674, y: 86.8175}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1437692677
@@ -8074,6 +8100,7 @@ GameObject:
   - component: {fileID: 2090333139}
   - component: {fileID: 2090333138}
   - component: {fileID: 2090333137}
+  - component: {fileID: 2090333140}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -8144,7 +8171,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2090333138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2090333140}
+        m_TargetAssemblyTypeName: LoadTrack, Assembly-CSharp
+        m_MethodName: OpenTrack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2090333138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8183,6 +8222,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090333135}
   m_CullTransparentMesh: 1
+--- !u!114 &2090333140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090333135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7509fe98ace22747a3ef1d4d30bf2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadTrack
+  trackName: tutorial
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
