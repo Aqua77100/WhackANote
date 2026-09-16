@@ -186,7 +186,7 @@ public class PauseMenu : MonoBehaviour
             if (GameOverUI != null) GameOverUI.SetActive(true); // show gameover UI and the UI blocker 
             if (uiBlocker != null) uiBlocker.SetActive(true);
 
-            _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore());
+            _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore(), StartGame.CurrentTrackId);
             _ = ScoreManager.Instance.SaveHighScoreIfBeaten();
         }
     }

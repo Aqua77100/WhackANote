@@ -1292,6 +1292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234169634}
+  - component: {fileID: 234169635}
   m_Layer: 5
   m_Name: Mermaid Cove
   m_TagString: Untagged
@@ -1326,6 +1327,26 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &234169635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234169633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4a2b822af43fa47b3f111212ce671b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackPopupDisplay
+  trackId: 
+  scoreText: {fileID: 0}
+  starImages: []
+  oneStarThreshold: 500
+  twoStarThreshold: 1500
+  threeStarThreshold: 3000
+  filledStarColor: {r: 1, g: 1, b: 1, a: 1}
+  emptyStarColor: {r: 1, g: 1, b: 1, a: 0.3}
 --- !u!1 &238338082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 378803343}
+  - component: {fileID: 378803344}
   m_Layer: 5
   m_Name: The Circus
   m_TagString: Untagged
@@ -1726,6 +1748,26 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378803344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378803342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4a2b822af43fa47b3f111212ce671b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackPopupDisplay
+  trackId: Circus
+  scoreText: {fileID: 729692507}
+  starImages: []
+  oneStarThreshold: 2500
+  twoStarThreshold: 5000
+  threeStarThreshold: 8000
+  filledStarColor: {r: 1, g: 1, b: 1, a: 1}
+  emptyStarColor: {r: 1, g: 1, b: 1, a: 0.3}
 --- !u!1 &391175454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3230,7 @@ GameObject:
   - component: {fileID: 836829554}
   - component: {fileID: 836829553}
   - component: {fileID: 836829552}
+  - component: {fileID: 836829555}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -3258,7 +3301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 836829553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 836829555}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &836829553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3297,6 +3352,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836829550}
   m_CullTransparentMesh: 1
+--- !u!114 &836829555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836829550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartGame
+  LevelName: Mermaid Cove
 --- !u!1 &912581756
 GameObject:
   m_ObjectHideFlags: 0
