@@ -2,56 +2,60 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public static event System.Action OnServicesReady;
+    public static event System.Action<int> OnHighScoreRestored;
 
-    void Start()
-    {
-        StartAnonymousSignIn();
-    }
+    public int RestoredHighScore { get; private set; } = 0;
 
-    // Initializes unity gaming services (required before authentication) if it hasn't been initialized yet.
     async void Awake()
     {
-        if(UnityServices.State == ServicesInitializationState.Uninitialized) 
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (UnityServices.State == ServicesInitializationState.Uninitialized)
         {
             Debug.Log("Services Initializing");
-            // waits for Unity's backend services to finish setting up.
             await UnityServices.InitializeAsync();
+        }
 
+        await SignInAnonymouslyAsync();
+
+        Debug.Log("Services ready — firing OnServicesReady");
+        OnServicesReady?.Invoke();
+
+        var loaded = await CloudSaveManager.Instance.LoadData(new HashSet<string> { "high_score" });
+        if (loaded.ContainsKey("high_score"))
+        {
+            RestoredHighScore = System.Convert.ToInt32(loaded["high_score"]);
+            Debug.Log($"Restored high score: {RestoredHighScore}");
+            OnHighScoreRestored?.Invoke(RestoredHighScore);
         }
     }
 
-    // public entry point - kicks off the async sign-in process.
-    public async void StartAnonymousSignIn()
-    {
-        await SignInAnonymouslyAsync();
-    }
-
-    // signs the user into unity authentication anonymously
-    // generates a persistent anonymous player ID tied to the device/install
     private async Task SignInAnonymouslyAsync()
     {
         try
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             Debug.Log("Sign in anonymously succeeded!");
-
-            // Shows how to get the playerID
             Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
-
         }
         catch (AuthenticationException ex)
         {
-            // Compare error code to AuthenticationErrorCodes
-            // Notify the player with the proper error message
             Debug.LogException(ex);
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
             Debug.LogException(ex);
         }
     }
