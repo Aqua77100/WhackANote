@@ -933,6 +933,7 @@ MonoBehaviour:
   musicSource: {fileID: 25875858}
   titleBGM: {fileID: 8300000, guid: 89753de79a1394a3a91eef79b5911669, type: 3}
   circusTrack: {fileID: 8300000, guid: 766bb3584cbb444ed8951c854cf139da, type: 3}
+  tutorialTrack: {fileID: 8300000, guid: 5f734fd53fc0f45328e929ba1cc2dfd6, type: 3}
 --- !u!4 &552694997
 Transform:
   m_ObjectHideFlags: 0
@@ -2271,7 +2272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  LevelName: Game
+  LevelName: Track Selection
 --- !u!1 &1726934078
 GameObject:
   m_ObjectHideFlags: 0

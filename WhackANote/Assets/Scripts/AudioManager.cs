@@ -8,11 +8,13 @@ public class AudioManager : MonoBehaviour
     [Header("Audio clip:")]
     public AudioClip titleBGM;
     public AudioClip circusTrack;
+    public AudioClip tutorialTrack;
 
     public static AudioManager instance;
 
     private void Awake()
     {
+        // so title BGM carries on to track selection
         // if this instance has not been created before
         if (instance == null)
         {

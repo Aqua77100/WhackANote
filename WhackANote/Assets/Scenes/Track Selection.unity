@@ -2977,8 +2977,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 782075924}
-        m_TargetAssemblyTypeName: LoadTrack, Assembly-CSharp
-        m_MethodName: OpenTrack
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3035,10 +3035,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 782075919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7509fe98ace22747a3ef1d4d30bf2be, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  trackName: Circus
+  LevelName: Circus
 --- !u!1 &791882937
 GameObject:
   m_ObjectHideFlags: 0
@@ -4106,7 +4106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
   myMixer: {fileID: 24100000, guid: 55397187d9bc3b14da84b4933cee76df, type: 2}
-  musicSlider: {fileID: 0}
+  musicSlider: {fileID: 526169626}
 --- !u!114 &1189527892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4190,8 +4190,8 @@ RectTransform:
   - {fileID: 915698617}
   - {fileID: 391175457}
   - {fileID: 1496031734}
-  - {fileID: 378803343}
   - {fileID: 465390198}
+  - {fileID: 378803343}
   - {fileID: 234169634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4232,6 +4232,7 @@ MonoBehaviour:
   musicSource: {fileID: 1282381677}
   titleBGM: {fileID: 8300000, guid: 89753de79a1394a3a91eef79b5911669, type: 3}
   circusTrack: {fileID: 8300000, guid: 766bb3584cbb444ed8951c854cf139da, type: 3}
+  tutorialTrack: {fileID: 8300000, guid: 5f734fd53fc0f45328e929ba1cc2dfd6, type: 3}
 --- !u!4 &1215556042
 Transform:
   m_ObjectHideFlags: 0
@@ -4604,8 +4605,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 226454885}
   m_HandleRect: {fileID: 226454884}
   m_Direction: 0
-  m_Value: 0.0000017314937
-  m_Size: 0.4476004
+  m_Value: 0.0000017314936
+  m_Size: 0.44760036
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7598,11 +7599,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1189527895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -842, y: 481.95}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 48, y: -45}
   m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1942291604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7648,8 +7649,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1942291607}
-        m_TargetAssemblyTypeName: TrackSelectionBack, Assembly-CSharp
-        m_MethodName: LoadTitle
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7706,10 +7707,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1942291602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be128c9ac1c94b42996a73f3a312ae0, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackSelectionBack
-  title: Menu
+  LevelName: Menu
 --- !u!1 &1959794357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8173,8 +8174,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2090333140}
-        m_TargetAssemblyTypeName: LoadTrack, Assembly-CSharp
-        m_MethodName: OpenTrack
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8231,10 +8232,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2090333135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7509fe98ace22747a3ef1d4d30bf2be, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadTrack
-  trackName: tutorial
+  LevelName: tutorial
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

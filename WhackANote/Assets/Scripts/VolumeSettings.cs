@@ -7,6 +7,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
 
+    // if player prefs for music volume has already been set, load it. if not, set volume as usual
     private void Start()
     {
         if (PlayerPrefs.HasKey("musicVolume"))
@@ -19,6 +20,7 @@ public class VolumeSettings : MonoBehaviour
         }
     }
 
+    // set volume and volume slider matches with the music audio mixer in min/max value
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
@@ -26,6 +28,7 @@ public class VolumeSettings : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolume", volume);
     }
 
+    // keep the volume setting from the player that was previously set before
     private void LoadVolume()
     {
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
