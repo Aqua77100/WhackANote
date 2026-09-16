@@ -154,6 +154,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -705,6 +706,7 @@ MonoBehaviour:
   sequence: 0300000008000000070000000500000003000000080000000300000002000000010000000800000006000000030000000800000003000000070000000500000001000000060000000300000003000000050000000200000001000000000000000100000002000000040000000600000006000000060000000400000002000000
   bpm: 85
   activeWindowInBeats: 1.5
+  isTutorial: 0
 --- !u!4 &204618385
 Transform:
   m_ObjectHideFlags: 0
@@ -1126,6 +1128,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -1803,7 +1806,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.2
+  m_PixelsPerUnitMultiplier: 0.69
 --- !u!222 &622520804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2196,7 +2199,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.2
+  m_PixelsPerUnitMultiplier: 0.9
 --- !u!222 &824914088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2351,6 +2354,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -3295,6 +3299,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -3651,7 +3656,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.2
+  m_PixelsPerUnitMultiplier: 0.69
 --- !u!222 &1341144916
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3695,6 +3700,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -4040,6 +4046,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -4654,6 +4661,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -5269,6 +5277,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
+  showHitFeedback: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
