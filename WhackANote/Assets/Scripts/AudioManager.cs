@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -31,5 +33,24 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.clip = titleBGM;
         musicSource.Play();
+    }
+
+    //pause the titleBGM when on one of the tracks
+    private void Update()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "tutorial" || currentScene.name == "Circus")
+        {
+            musicSource.Pause();
+        }
+        else // once back on the title or track selection, play the title BGM again
+        {
+            if (!musicSource.isPlaying)
+            {
+                musicSource.clip = titleBGM;
+                musicSource.Play();
+            }
+        }
     }
 }
