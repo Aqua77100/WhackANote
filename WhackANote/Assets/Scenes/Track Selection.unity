@@ -1339,9 +1339,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4a2b822af43fa47b3f111212ce671b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackPopupDisplay
-  trackId: Mermaid
+  trackId: MMC
   scoreText: {fileID: 947226096}
-  starImages: []
+  starImages:
+  - {fileID: 517478147}
+  - {fileID: 661447767}
+  - {fileID: 1101986619}
   starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
   starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
   starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
@@ -4689,8 +4692,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 226454885}
   m_HandleRect: {fileID: 226454884}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.44760036
+  m_Value: 0.00000005410918
+  m_Size: 0.4476004
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
