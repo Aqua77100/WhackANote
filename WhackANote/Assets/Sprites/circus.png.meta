@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0d9e8d179b40546f8a891ea00079f785
+guid: 806aac7c59ac6470d91e21a3103c3259
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3722307111630557030
-    second: MermaidCove_0
+      213: -6743665025602963732
+    second: circus_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -110,24 +110,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MermaidCove_0
+      name: circus_0
       rect:
         serializedVersion: 2
         x: 0
@@ -148,14 +135,14 @@ TextureImporter:
         height: 256
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 20, z: 50, w: 20}
+      border: {x: 20, y: 80, z: 20, w: 9}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66f46ada89a48a330800000000000000
-      internalID: 3722307111630557030
+      spriteID: ce6b5b08360b962a0800000000000000
+      internalID: -6743665025602963732
       vertices: []
       indices: 
       edges: []
@@ -164,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 76af9d4e0c9eacc4b8a00ddeb243e912
+    spriteID: 489ed4d71dbc45f4a978a171907c8443
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MermaidCove_0: 3722307111630557030
+      circus_0: -6743665025602963732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
