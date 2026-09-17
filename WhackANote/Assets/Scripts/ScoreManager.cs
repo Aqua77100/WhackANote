@@ -70,18 +70,27 @@ public class ScoreManager : MonoBehaviour
 
     public async Task SaveHighScoreIfBeaten()
     {
-        var loaded = await CloudSaveManager.Instance.LoadData(new HashSet<string> { "high_score" });
-        int savedHighScore = loaded.ContainsKey("high_score") ? System.Convert.ToInt32(loaded["high_score"]) : 0;
+        try
+        {
+            string key = $"highscore_{StartGame.CurrentTrackId}";
 
-        if (currentScore > savedHighScore)
-        {
-            var data = new Dictionary<string, object> { { "high_score", currentScore } };
-            await CloudSaveManager.Instance.SaveData(data);
-            Debug.Log($"New high score saved: {currentScore}");
+            var loaded = await CloudSaveManager.Instance.LoadData(new HashSet<string> { key });
+            int savedHighScore = loaded.ContainsKey(key) ? System.Convert.ToInt32(loaded[key]) : 0;
+
+            if (currentScore > savedHighScore)
+            {
+                var data = new Dictionary<string, object> { { key, currentScore } };
+                await CloudSaveManager.Instance.SaveData(data);
+                Debug.Log($"New high score saved for {StartGame.CurrentTrackId}: {currentScore}");
+            }
+            else
+            {
+                Debug.Log($"Score {currentScore} did not beat saved high score {savedHighScore} for {StartGame.CurrentTrackId}");
+            }
         }
-        else
+        catch (System.Exception ex)
         {
-            Debug.Log($"Score {currentScore} did not beat saved high score {savedHighScore}");
+            Debug.LogException(ex);
         }
     }
 

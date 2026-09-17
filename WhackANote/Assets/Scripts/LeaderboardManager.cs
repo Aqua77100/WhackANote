@@ -10,10 +10,6 @@ public class LeaderboardManager : MonoBehaviour
 {
     public static LeaderboardManager Instance { get; private set; }
 
-    private const string LeaderboardId = "High_Scores";
-
-    private bool authReady = false;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -25,45 +21,34 @@ public class LeaderboardManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        // SAFE: Unity Services are already initializing by now
-        AuthenticationService.Instance.SignedIn += () =>
-        {
-            authReady = true;
-            Debug.Log($"Signed in automatically. PlayerID: {AuthenticationService.Instance.PlayerId}");
-        };
-    }
-
     private async Task<bool> EnsureReady()
     {
-        if (!authReady)
+        if (AuthenticationService.Instance.IsSignedIn)
+            return true;
+
+        Debug.LogWarning("Waiting for authentication...");
+
+        for (int i = 0; i < 10; i++)
         {
-            Debug.LogWarning("Waiting for authentication...");
-            for (int i = 0; i < 10; i++)
-            {
-                await Task.Delay(200);
-                if (authReady) break;
-            }
+            await Task.Delay(300);
+            if (AuthenticationService.Instance.IsSignedIn)
+                return true;
         }
 
-        if (!authReady)
-        {
-            Debug.LogError("UGS not ready — aborting leaderboard call.");
-            return false;
-        }
-
-        return true;
+        Debug.LogError("UGS not ready — aborting leaderboard call.");
+        return false;
     }
 
-    public async Task SubmitScore(int score)
+    public async Task SubmitScore(int score, string trackId)
     {
         if (!await EnsureReady()) return;
 
+        string leaderboardId = $"High_Scores_{trackId}";
+
         try
         {
-            var result = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, score);
-            Debug.Log($"Score submitted: {result.Score} (Rank {result.Rank + 1})");
+            var result = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardId, score);
+            Debug.Log($"Score submitted to {leaderboardId}: {result.Score} (Rank {result.Rank + 1})");
         }
         catch (RequestFailedException ex)
         {
@@ -71,14 +56,16 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
-    public async Task<List<LeaderboardEntry>> GetTopScores(int limit = 10)
+    public async Task<List<LeaderboardEntry>> GetTopScores(string trackId, int limit = 10)
     {
         if (!await EnsureReady()) return null;
+
+        string leaderboardId = $"High_Scores_{trackId}";
 
         try
         {
             var options = new GetScoresOptions { Limit = limit };
-            var response = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, options);
+            var response = await LeaderboardsService.Instance.GetScoresAsync(leaderboardId, options);
 
             foreach (var entry in response.Results)
             {
@@ -94,13 +81,15 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
-    public async Task GetPlayerScore()
+    public async Task GetPlayerScore(string trackId)
     {
         if (!await EnsureReady()) return;
 
+        string leaderboardId = $"High_Scores_{trackId}";
+
         try
         {
-            var entry = await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId);
+            var entry = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardId);
             Debug.Log($"Your rank: #{entry.Rank + 1} — Score: {entry.Score}");
         }
         catch (RequestFailedException ex)

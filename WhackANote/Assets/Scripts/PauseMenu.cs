@@ -156,7 +156,7 @@ public class PauseMenu : MonoBehaviour
     public void Home()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("Menu"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+        SceneManager.LoadScene("Track Selection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
     }
 
     private void CleanupBeforeSceneChange() // reset the game states
@@ -179,15 +179,34 @@ public class PauseMenu : MonoBehaviour
 
     public void gameOver()
     {
-        if (!isEnded) // check the boolean
+        if (!isEnded)
         {
-            isEnded = true; // set to true
+            isEnded = true;
             Time.timeScale = 0f;
-            if (GameOverUI != null) GameOverUI.SetActive(true); // show gameover UI and the UI blocker 
+            if (GameOverUI != null) GameOverUI.SetActive(true);
             if (uiBlocker != null) uiBlocker.SetActive(true);
 
-            _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore());
+            _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore(), StartGame.CurrentTrackId);
             _ = ScoreManager.Instance.SaveHighScoreIfBeaten();
+
+            if (StartGame.CurrentTrackId == "tutorial")
+            {
+                _ = SaveTutorialCompletion();
+            }
+        }
+    }
+
+    private async System.Threading.Tasks.Task SaveTutorialCompletion()
+    {
+        try
+        {
+            var data = new System.Collections.Generic.Dictionary<string, object> { { "tutorial_completed", true } };
+            await CloudSaveManager.Instance.SaveData(data);
+            Debug.Log("Tutorial marked as completed");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogException(ex);
         }
     }
 
