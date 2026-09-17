@@ -1339,12 +1339,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4a2b822af43fa47b3f111212ce671b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackPopupDisplay
-  trackId: 
-  scoreText: {fileID: 0}
+  trackId: Mermaid
+  scoreText: {fileID: 947226096}
   starImages: []
-  starFullSprite: {fileID: 0}
-  starHalfSprite: {fileID: 0}
-  starNoneSprite: {fileID: 0}
+  starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
+  starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
+  starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
   oneStarThreshold: 500
   twoStarThreshold: 1500
   threeStarThreshold: 3000
@@ -1764,9 +1764,9 @@ MonoBehaviour:
   trackId: Circus
   scoreText: {fileID: 729692507}
   starImages: []
-  starFullSprite: {fileID: 0}
-  starHalfSprite: {fileID: 0}
-  starNoneSprite: {fileID: 0}
+  starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
+  starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
+  starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
   oneStarThreshold: 2500
   twoStarThreshold: 5000
   threeStarThreshold: 8000
@@ -2090,6 +2090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465390198}
+  - component: {fileID: 465390199}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -2123,6 +2124,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &465390199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465390197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10bddd292f0df1d418348cbeaebb023b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialPopupDisplay
+  statusValueText: {fileID: 1914257771}
 --- !u!1 &517478145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,7 +3380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
-  LevelName: MermaidCove
+  LevelName: MMC
 --- !u!1 &912581756
 GameObject:
   m_ObjectHideFlags: 0

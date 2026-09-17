@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "tutorial" || currentScene.name == "Circus")
+        if (currentScene.name == "tutorial" || currentScene.name == "Circus" || currentScene.name == "MMC")
         {
             musicSource.Pause();
         }
