@@ -156,7 +156,7 @@ public class PauseMenu : MonoBehaviour
     public void Home()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("Menu"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+        SceneManager.LoadScene("Track Selection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
     }
 
     private void CleanupBeforeSceneChange() // reset the game states
