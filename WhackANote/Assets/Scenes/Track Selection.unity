@@ -1341,16 +1341,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrackPopupDisplay
   trackId: 
   scoreText: {fileID: 0}
-  starImages:
-  - {fileID: 517478147}
-  - {fileID: 661447767}
-  - {fileID: 1101986619}
-  starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
-  starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
-  starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
-  oneStarThreshold: 2500
-  twoStarThreshold: 5000
-  threeStarThreshold: 8000
+  starImages: []
+  starFullSprite: {fileID: 0}
+  starHalfSprite: {fileID: 0}
+  starNoneSprite: {fileID: 0}
+  oneStarThreshold: 500
+  twoStarThreshold: 1500
+  threeStarThreshold: 3000
 --- !u!1 &238338082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,13 +1763,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrackPopupDisplay
   trackId: Circus
   scoreText: {fileID: 729692507}
-  starImages:
-  - {fileID: 1437692677}
-  - {fileID: 202197951}
-  - {fileID: 593349545}
-  starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
-  starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
-  starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
+  starImages: []
+  starFullSprite: {fileID: 0}
+  starHalfSprite: {fileID: 0}
+  starNoneSprite: {fileID: 0}
   oneStarThreshold: 2500
   twoStarThreshold: 5000
   threeStarThreshold: 8000
@@ -2096,7 +2090,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465390198}
-  - component: {fileID: 465390199}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -2130,19 +2123,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &465390199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465390197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10bddd292f0df1d418348cbeaebb023b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TutorialPopupDisplay
-  statusValueText: {fileID: 1914257771}
 --- !u!1 &517478145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,7 +4302,7 @@ MonoBehaviour:
   musicSource: {fileID: 1282381677}
   titleBGM: {fileID: 8300000, guid: 89753de79a1394a3a91eef79b5911669, type: 3}
   circusTrack: {fileID: 8300000, guid: 766bb3584cbb444ed8951c854cf139da, type: 3}
-  tutorialTrack: {fileID: 8300000, guid: 5f734fd53fc0f45328e929ba1cc2dfd6, type: 3}
+  tutorialTrack: {fileID: 0}
 --- !u!4 &1215556042
 Transform:
   m_ObjectHideFlags: 0
@@ -4695,8 +4675,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 226454885}
   m_HandleRect: {fileID: 226454884}
   m_Direction: 0
-  m_Value: 0.00000005410918
-  m_Size: 0.4476004
+  m_Value: 0
+  m_Size: 0.44760036
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5744,7 +5724,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 3722307111630557030, guid: 0d9e8d179b40546f8a891ea00079f785, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
