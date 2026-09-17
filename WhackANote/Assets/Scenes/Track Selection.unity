@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3722307111630557030, guid: ac6165599a3ae3c41932674ab3010a17, type: 3}
+  m_Sprite: {fileID: 3722307111630557030, guid: 0d9e8d179b40546f8a891ea00079f785, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3364,7 +3364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
-  LevelName: Mermaid Cove
+  LevelName: MermaidCove
 --- !u!1 &912581756
 GameObject:
   m_ObjectHideFlags: 0
@@ -5721,8 +5721,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3722307111630557030, guid: ac6165599a3ae3c41932674ab3010a17, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 3722307111630557030, guid: 0d9e8d179b40546f8a891ea00079f785, type: 3}
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
