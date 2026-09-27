@@ -155,6 +155,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         if (!wasTapped) // If you miss the tap, display MISS
         {
             ShowHitText("MISS", missColour);
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(0, "MISS");
+            }
         }
 
         // 3. Pop Down (Frames 9 to 13)
@@ -231,7 +235,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
 
             if (ScoreManager.Instance != null)
             {
-                ScoreManager.Instance.AddScore(points);
+                ScoreManager.Instance.AddScore(points, feedbackText);
             }
 
             if (audioSource != null && audioSource.clip != null)

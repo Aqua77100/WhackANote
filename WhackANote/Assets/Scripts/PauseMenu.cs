@@ -156,7 +156,7 @@ public class PauseMenu : MonoBehaviour
     public void Home()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("Track Selection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+        SceneManager.LoadScene("Track Selection"); 
     }
 
     private void CleanupBeforeSceneChange() // reset the game states
@@ -183,7 +183,31 @@ public class PauseMenu : MonoBehaviour
         {
             isEnded = true;
             Time.timeScale = 0f;
-            if (GameOverUI != null) GameOverUI.SetActive(true);
+
+            int currentScore = ScoreManager.Instance != null ? ScoreManager.Instance.GetScore() : 0;
+            int previousHighScore = ScoreManager.Instance != null ? ScoreManager.Instance.GetSavedHighScore() : 0;
+
+            // Instantiate the stats container using the live ScoreManager data
+            TrackCompletionStats stats = new TrackCompletionStats(
+                perfects: ScoreManager.Instance != null ? ScoreManager.Instance.Perfects : 0, 
+                greats: ScoreManager.Instance != null ? ScoreManager.Instance.Greats : 0, 
+                goods: ScoreManager.Instance != null ? ScoreManager.Instance.Goods : 0, 
+                misses: ScoreManager.Instance != null ? ScoreManager.Instance.Misses : 0, 
+                currentScore: currentScore, 
+                highScore: Mathf.Max(currentScore, previousHighScore)
+            );
+
+            //if (GameOverUI != null) GameOverUI.SetActive(true);
+            if (GameOverUI != null)
+                {
+                    GameOverUI.SetActive(true);
+                    TrackCompletedUI uiScript = GameOverUI.GetComponent<TrackCompletedUI>();
+                    if (uiScript != null)
+                    {
+                        uiScript.DisplayStats(stats);
+                    }
+                }
+
             if (uiBlocker != null) uiBlocker.SetActive(true);
 
             _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore(), StartGame.CurrentTrackId);
