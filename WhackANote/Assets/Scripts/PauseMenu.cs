@@ -217,7 +217,7 @@ public class PauseMenu : MonoBehaviour
                 goods: ScoreManager.Instance != null ? ScoreManager.Instance.Goods : 0, 
                 misses: ScoreManager.Instance != null ? ScoreManager.Instance.Misses : 0, 
                 currentScore: currentScore, 
-                highScore: Mathf.Max(currentScore, previousHighScore)
+                highScore: previousHighScore
             );
 
             //if (GameOverUI != null) GameOverUI.SetActive(true);

@@ -31,7 +31,8 @@ public class TrackCompletedUI : MonoBehaviour
 
         // --- Scores ---
         if (scoreText != null)    scoreText.text = $"Score: {stats.CurrentScore:N0}";
-        if (highScoreText != null) highScoreText.text = $"High Score: {stats.HighScore:N0}";
+        int displayHighScore = Mathf.Max(stats.CurrentScore, stats.HighScore);
+        if (highScoreText != null) highScoreText.text = $"High Score: {displayHighScore:N0}";
 
         
         if (newHighScoreBadge != null)
