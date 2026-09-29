@@ -31,7 +31,7 @@ public class TrackCompletionStats
 
     // CODE FOR: TEST 2 (STAR CALCULATIONS)
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public StarState[] CalculateStarStates(int oneStarThreshold = 500, int twoStarThreshold = 1500, int threeStarThreshold = 3000)
+    public StarState[] CalculateStarStates(int oneStarThreshold = 750, int twoStarThreshold = 2500, int threeStarThreshold = 4000)
     {
         StarState[] stars = new StarState[3] { StarState.Empty, StarState.Empty, StarState.Empty };
 
