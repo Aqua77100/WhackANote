@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu; // This holds the restart, home, and continue button
     [SerializeField] private GameObject uiBlocker; // this is the dark screen that blocks the player's presses as well as allowing us to tell we're paused
     [SerializeField] private AudioSource Music;
-    [SerializeField] private GameObject GameOverUI; // The  gameover (track cleared) panel, which has the retry (restart) and home button
+    [SerializeField] private GameObject trackCompleteUI; // The  gameover (track cleared) panel, which has the retry (restart) and home button
 
     public TextMeshProUGUI countdownText;
 
@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        if (GameOverUI != null) GameOverUI.SetActive(false);
+        if (trackCompleteUI != null) trackCompleteUI.SetActive(false);
         if (pauseMenu != null) pauseMenu.SetActive(false);
         if (uiBlocker != null) uiBlocker.SetActive(true); // This will block the UI initially (with the countdown present) so user isnt thrown into game
 
@@ -53,7 +53,7 @@ public class PauseMenu : MonoBehaviour
         }
         else if (hasStartedPlaying && Time.timeScale > 0)
         {
-            gameOver(); // if the music has ended, then show game over screen
+            trackComplete(); // if the music has ended, then show game over screen
         }
     }
 
@@ -156,7 +156,7 @@ public class PauseMenu : MonoBehaviour
     public void Home()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("Track Selection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+        SceneManager.LoadScene("Track Selection"); 
     }
 
     private void CleanupBeforeSceneChange() // reset the game states
@@ -171,19 +171,66 @@ public class PauseMenu : MonoBehaviour
             countdownCoroutine = null;
         }
 
-        if (GameOverUI != null) GameOverUI.SetActive(false);
+        if (trackCompleteUI != null) trackCompleteUI.SetActive(false);
         if (pauseMenu != null) pauseMenu.SetActive(false);
 
         Time.timeScale = 1f;
     }
 
-    public void gameOver()
+    private async System.Threading.Tasks.Task<int> GetPrevScore()
+    {
+        int previousHighScore = 0;
+
+        // Fetch the saved high score from CloudSave
+        try
+        {
+            string key = $"highscore_{StartGame.CurrentTrackId}";
+            var loaded = await CloudSaveManager.Instance.LoadData(new System.Collections.Generic.HashSet<string> { key });
+
+            if (loaded != null && loaded.ContainsKey(key))
+            {
+                previousHighScore = System.Convert.ToInt32(loaded[key]);
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogException(ex);
+        }
+
+        return previousHighScore;
+    }
+
+    public async void trackComplete()
     {
         if (!isEnded)
         {
             isEnded = true;
             Time.timeScale = 0f;
-            if (GameOverUI != null) GameOverUI.SetActive(true);
+
+            int currentScore = ScoreManager.Instance != null ? ScoreManager.Instance.GetScore() : 0;
+            int previousHighScore = await GetPrevScore();
+
+            // Instantiate the stats container using the live ScoreManager data
+            TrackCompletionStats stats = new TrackCompletionStats(
+                perfects: ScoreManager.Instance != null ? ScoreManager.Instance.Perfects : 0, 
+                greats: ScoreManager.Instance != null ? ScoreManager.Instance.Greats : 0, 
+                goods: ScoreManager.Instance != null ? ScoreManager.Instance.Goods : 0, 
+                misses: ScoreManager.Instance != null ? ScoreManager.Instance.Misses : 0, 
+                currentScore: currentScore, 
+                highScore: previousHighScore
+            );
+
+            //if (GameOverUI != null) GameOverUI.SetActive(true);
+            if (trackCompleteUI != null)
+                {
+                    trackCompleteUI.SetActive(true);
+                    TrackCompletedUI uiScript = trackCompleteUI.GetComponent<TrackCompletedUI>();
+                    if (uiScript != null)
+                    {
+                        uiScript.DisplayStats(stats);
+                    }
+                }
+
             if (uiBlocker != null) uiBlocker.SetActive(true);
 
             _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore(), StartGame.CurrentTrackId);

@@ -155,6 +155,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         if (!wasTapped) // If you miss the tap, display MISS
         {
             ShowHitText("MISS", missColour);
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(0, "MISS");
+            }
         }
 
         // 3. Pop Down (Frames 9 to 13)
@@ -168,12 +172,6 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     // Retained for desktop testing/editor mouse clicks
     private void OnMouseDown()
     {
-        // If the click is over a UI button or UI element, STOP processing world input!
-        // if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-        // {
-        //     return;
-        // }
-
         ProcessTap();
     }
 
@@ -189,28 +187,6 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         }
 
         ProcessTap();
-        // if (Input.touchCount > 0 && isClickable && !wasTapped)
-        // {
-        //     Touch touch = Input.GetTouch(0);
-
-        //     // Check if touch ID is over a UI element
-        //     if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-        //     {
-        //         return; // Ignore world tap if touching UI
-        //     }
-
-        //     // Block UI pointer events over moles during pause
-        //     if (eventData.pointerCurrentRaycast.gameObject != null)
-        //     {
-        //         // If the tap hit a UI element (like Dark Panel or CountdownText) instead of world space, ignore
-        //         if (eventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
-        //         {
-        //             return;
-        //         }
-        //     }
-
-        //     ProcessTap();
-        // }
 
     }
 
@@ -259,7 +235,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
 
             if (ScoreManager.Instance != null)
             {
-                ScoreManager.Instance.AddScore(points);
+                ScoreManager.Instance.AddScore(points, feedbackText);
             }
 
             if (audioSource != null && audioSource.clip != null)
