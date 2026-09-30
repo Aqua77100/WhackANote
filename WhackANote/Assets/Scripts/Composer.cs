@@ -116,4 +116,16 @@ public class Composer : MonoBehaviour
     {
         return recordedSequence.ToArray();
     }
+
+    /*public void SetBPM(int newBPM, AudioClip newMetronomeClip)
+    {
+        bpm = newBPM;
+
+        if (metronomeAudio != null)
+        {
+            metronomeAudio.clip = newMetronomeClip;
+        }
+
+        Debug.Log("SongRecorder BPM: " + bpm);
+    }*/
 }
