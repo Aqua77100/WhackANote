@@ -223,6 +223,14 @@ public class PauseMenu : MonoBehaviour
             //if (GameOverUI != null) GameOverUI.SetActive(true);
             if (trackCompleteUI != null)
                 {
+                    // Find all moles in the scene and stop their routines & hide text
+                    MoleStationaryController[] moles = Object.FindObjectsByType<MoleStationaryController>();
+                    foreach (var mole in moles)
+                    {
+                        mole.HideAndStop();
+                    }
+
+
                     trackCompleteUI.SetActive(true);
                     TrackCompletedUI uiScript = trackCompleteUI.GetComponent<TrackCompletedUI>();
                     if (uiScript != null)

@@ -82,6 +82,16 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    private void OnDisable()
+    {
+        HideAndStop();
+    }
+
+    private void OnDestroy()
+    {
+        HideAndStop();
+    }
+
     // Called externally by RhythmSequencer
     public void PopUp(float interactiveDuration)
     {
@@ -254,7 +264,7 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
         }
 
         // Don't spawn text if paused
-        if (HitType == null || PauseMenu.isPaused) return;
+        if (PauseMenu.isPaused || Time.timeScale == 0f) return;
 
         // take the input for the string for the case and the colour
         HitType.text = text;
@@ -272,12 +282,13 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     {
         // This method was from Google, using the Mathf.Lerp
         yield return new WaitForSeconds(holdDuration); // Wait for 0.2f
+        
         Color startColour = HitType.color; // Get the texts current colour
         float elapsed = 0f; // timer variable
 
         while (elapsed < fadeDuration) //While still within the window for fading:
         {
-            elapsed += Time.deltaTime; // Use deltaTime to get real amount of time
+            elapsed += Time.unscaledDeltaTime; // Use deltaTime to get real amount of time
             // Create a new number for transparency over the duration (gets lesser over time)
             float newAlpha = Mathf.Lerp(startColour.a, 0f, elapsed / fadeDuration);
 
