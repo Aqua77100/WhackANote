@@ -20,6 +20,11 @@ public class ScoreManager : MonoBehaviour
     public float perfectMultiplier = 1.05f;
     private int currentPerfectStreak = 0;
 
+    [Header("Game Over Settings")]
+    [Tooltip("Enable or disable failing from missing too many moles (great for testing!)")]
+    public bool enableGameOverOnMisses = true;
+    public int maxAllowedMisses = 10;
+
     // --- HIT COUNT & MULTIPLIER TRACKING ---
     public int Perfects { get; private set; }
     public int Greats { get; private set; }
@@ -36,18 +41,14 @@ public class ScoreManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
         ResetStatsOnScreenLoad();
 
-        if (scoreText == null)
+        if (multiplierText != null)
         {
-            scoreText = Object.FindAnyObjectByType<TextMeshProUGUI>();
-        }
-
-        if (multiplierText == null)
-        {
-            multiplierText = Object.FindAnyObjectByType<TextMeshProUGUI>();
+            multiplierText.gameObject.SetActive(false);
         }
 
         // Covers the case where GameManager already finished loading before this runs
@@ -89,7 +90,20 @@ public class ScoreManager : MonoBehaviour
             case "PERFECT!": Perfects++; currentPerfectStreak++; break;
             case "GREAT!":   Greats++; currentPerfectStreak = 0; break;
             case "GOOD!":    Goods++; currentPerfectStreak = 0; break;
-            case "MISS":     Misses++; currentPerfectStreak = 0; break;
+            case "MISS":     
+                Misses++; 
+                currentPerfectStreak = 0;
+
+                // Check for GameOver condition
+                if (enableGameOverOnMisses && Misses >= maxAllowedMisses)
+                {
+                    if (PauseMenu.Instance != null)
+                    {
+                        PauseMenu.Instance.TriggerGameOver();
+                    }
+                    return; // Stop any  score processing
+                }
+                break;
         }
 
         currentScore += points;
@@ -109,7 +123,7 @@ public class ScoreManager : MonoBehaviour
             
             if (multiplierText != null)
             {
-                StopAllCoroutines(); // Prevents overlapping timers if they hit another streak quickly
+                StopAllCoroutines(); // Prevents overlapping timers if they hit another streak quickly (for fast levels)
                 StartCoroutine(FlashMultiplierRoutine());
             }
         }

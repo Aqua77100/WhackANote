@@ -6,10 +6,13 @@ using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu Instance { get; private set; }
+
     [SerializeField] private GameObject pauseMenu; // This holds the restart, home, and continue button
     [SerializeField] private GameObject uiBlocker; // this is the dark screen that blocks the player's presses as well as allowing us to tell we're paused
     [SerializeField] private AudioSource Music;
     [SerializeField] private GameObject trackCompleteUI; // The  gameover (track cleared) panel, which has the retry (restart) and home button
+    [SerializeField] private GameObject gameOverUI;
 
     public TextMeshProUGUI countdownText;
 
@@ -23,6 +26,16 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this); // Destroy only this component if duplicate, not the whole gameObject
+            return;
+        }
+
         isPaused = false;
         isEnded = false;
         hasStartedPlaying = false;
@@ -31,6 +44,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         if (trackCompleteUI != null) trackCompleteUI.SetActive(false);
+        if (gameOverUI != null) gameOverUI.SetActive(false);
         if (pauseMenu != null) pauseMenu.SetActive(false);
         if (uiBlocker != null) uiBlocker.SetActive(true); // This will block the UI initially (with the countdown present) so user isnt thrown into game
 
@@ -83,7 +97,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Continue() // click continue button then:
+    public void Continue() 
     {
         isPaused = false;
 
@@ -97,7 +111,7 @@ public class PauseMenu : MonoBehaviour
         countdownCoroutine = StartCoroutine(CountdownRoutine()); // start the countdown
     }
 
-    IEnumerator CountdownRoutine() // this is the countdown coroutine
+    IEnumerator CountdownRoutine() 
     {
         Time.timeScale = 0f; // make sure time is pased so game isn't going on
         if (uiBlocker != null) uiBlocker.SetActive(true); // Keep clicks blocked during countdown
@@ -147,6 +161,31 @@ public class PauseMenu : MonoBehaviour
         countdownCoroutine = null;
     }
 
+    // --- GAME OVER FUNCTIONALITY ---
+    public void TriggerGameOver()
+    {
+        if (isEnded) return;
+
+        isEnded = true;
+        Time.timeScale = 0f;
+
+        if (Music != null)
+        {
+            Music.Stop();
+        }
+
+        // Hide and stop all mole routines
+        MoleStationaryController[] moles = Object.FindObjectsByType<MoleStationaryController>();
+        foreach (var mole in moles)
+        {
+            mole.HideAndStop();
+        }
+
+        // Show GameOver panel & blocker
+        if (gameOverUI != null) gameOverUI.SetActive(true);
+        if (uiBlocker != null) uiBlocker.SetActive(true);
+    }
+
     public void Restart()
     {
         CleanupBeforeSceneChange(); // Reset to initial states (see method below)
@@ -172,6 +211,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         if (trackCompleteUI != null) trackCompleteUI.SetActive(false);
+        if (gameOverUI != null) gameOverUI.SetActive(false);
         if (pauseMenu != null) pauseMenu.SetActive(false);
 
         Time.timeScale = 1f;
@@ -265,7 +305,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    // This is for the last test case about mobile interruptions--not sure how to test these, got these from google
     private void OnApplicationFocus(bool hasFocus)
     {
         // If the app loses focus (phone call, home button, app switcher) and game isn't already ended
