@@ -1552,9 +1552,9 @@ MonoBehaviour:
   starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
   starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
   starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
-  oneStarThreshold: 500
-  twoStarThreshold: 1500
-  threeStarThreshold: 3000
+  oneStarThreshold: 750
+  twoStarThreshold: 250
+  threeStarThreshold: 400
 --- !u!1 &238338082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,9 +2053,9 @@ MonoBehaviour:
   starFullSprite: {fileID: -4120795866798805975, guid: c492d87f2935e4c428517d6482e9ddc6, type: 3}
   starHalfSprite: {fileID: 2388233712120523991, guid: 63e239d3d0f36d84cbac460296c36900, type: 3}
   starNoneSprite: {fileID: 7201907227059142769, guid: 8be43d10300bd264db9152fa6d1ecce3, type: 3}
-  oneStarThreshold: 2500
-  twoStarThreshold: 5000
-  threeStarThreshold: 8000
+  oneStarThreshold: 750
+  twoStarThreshold: 250
+  threeStarThreshold: 400
 --- !u!1 &391175454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5055,7 +5055,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 226454885}
   m_HandleRect: {fileID: 226454884}
   m_Direction: 0
-  m_Value: 0.00000005410918
+  m_Value: 0
   m_Size: 0.4476004
   m_NumberOfSteps: 0
   m_OnValueChanged:
