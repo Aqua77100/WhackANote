@@ -190,7 +190,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5fea56ce1445c43e2a791e6e6c1f33c2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4ad31a8a2593342c0bbae0ac1f25eb72, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -703,9 +703,9 @@ MonoBehaviour:
   - {fileID: 452950833}
   - {fileID: 1002197531}
   - {fileID: 0}
-  sequence: 0300000008000000070000000600000003000000080000000300000002000000010000000800000006000000030000000800000008000000080000000300000008000000070000000600000003000000080000000700000006000000010000000800000006000000080000000300000008000000080000000800000008000000
-  bpm: 85
-  activeWindowInBeats: 1.5
+  sequence: 04000000020000000600000004000000060000000300000005000000070000000300000008000000000000000200000001000000020000000600000003000000
+  bpm: 80
+  activeWindowInBeats: 1.8
   isTutorial: 0
 --- !u!4 &204618385
 Transform:
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 452950834}
   - component: {fileID: 452950833}
   m_Layer: 0
-  m_Name: Mole_D4
+  m_Name: Mole_E4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1164,7 +1164,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: da5e474f3f7134ce8a819f325ff04a8a, type: 3}
+  m_Resource: {fileID: 8300000, guid: ecb08bb09f44f4086bec0404d4f4ad17, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2466,7 +2466,7 @@ GameObject:
   - component: {fileID: 1002197532}
   - component: {fileID: 1002197531}
   m_Layer: 0
-  m_Name: Mole_E4
+  m_Name: Mole_F4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2523,7 +2523,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 29c1f341fe13e470fbb106991dd58680, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7a4172a62ce6c442a94e24e6fcec8542, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3381,7 +3381,7 @@ GameObject:
   - component: {fileID: 1327623826}
   - component: {fileID: 1327623825}
   m_Layer: 0
-  m_Name: Mole_G#3
+  m_Name: Mole_G3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3438,7 +3438,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 8c6fb6f88d36746c78b04960c394a9e0, type: 3}
+  m_Resource: {fileID: 8300000, guid: d8da00d07c7944191b3e2514c0acf24e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3782,7 +3782,7 @@ GameObject:
   - component: {fileID: 1381646348}
   - component: {fileID: 1381646347}
   m_Layer: 0
-  m_Name: Mole_A#3
+  m_Name: Mole_A3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3839,7 +3839,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6a7c46fdcfb4f4bb58785a66e032c968, type: 3}
+  m_Resource: {fileID: 8300000, guid: a161aa6753e9e4243b52289c9066f515, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4258,7 +4258,7 @@ GameObject:
   - component: {fileID: 1520026392}
   - component: {fileID: 1520026391}
   m_Layer: 0
-  m_Name: Mole_C#4
+  m_Name: Mole_D4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4315,7 +4315,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: ff80b3259bb1a47f6a9ac9b8ac6cb9c1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 77c4eec9deda4446d848df9770ab004f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4868,7 +4868,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3b078d0133b3a4de4bedba682a7ef53f, type: 3}
+  m_Resource: {fileID: 8300000, guid: d2e2038e4fd4a4fa995f509839745218, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5356,7 +5356,7 @@ GameObject:
   - component: {fileID: 1875355411}
   - component: {fileID: 1875355412}
   m_Layer: 0
-  m_Name: Mole_F#3
+  m_Name: Mole_F3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5373,7 +5373,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 8f5a5ee2f9fe846b6bd25a4539a71cba, type: 3}
+  m_Resource: {fileID: 8300000, guid: e823cb33f8224429980077d73b825987, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
