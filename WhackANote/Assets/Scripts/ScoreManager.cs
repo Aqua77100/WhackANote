@@ -46,16 +46,10 @@ public class ScoreManager : MonoBehaviour
 
         ResetStatsOnScreenLoad();
 
-        if (scoreText == null)
+        if (multiplierText != null)
         {
-            scoreText = Object.FindAnyObjectByType<TextMeshProUGUI>();
+            multiplierText.gameObject.SetActive(false);
         }
-
-        if (multiplierText == null)
-        {
-            multiplierText = Object.FindAnyObjectByType<TextMeshProUGUI>();
-        }
-        multiplierText.gameObject.SetActive(false);
 
         // Covers the case where GameManager already finished loading before this runs
         if (GameManager.Instance != null)
