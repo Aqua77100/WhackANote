@@ -17,9 +17,11 @@ public class TrackCompletionStats
     public int CurrentScore { get; private set; }
     public int HighScore { get; private set; }
 
-    // CODE FOR: TEST 1 (SCORE AND HIT TYPES)
+    public int MultiplierCount { get; private set; }
+
+    // CODE FOR: TEST 1 (SCORE AND HIT TYPES) + Multiplier Count
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public TrackCompletionStats(int perfects, int greats, int goods, int misses, int currentScore, int highScore)
+    public TrackCompletionStats(int perfects, int greats, int goods, int misses, int currentScore, int highScore, int multiplierCount = 0)
     {
         Perfects = perfects;
         Greats = greats;
@@ -27,6 +29,7 @@ public class TrackCompletionStats
         Misses = misses;
         CurrentScore = currentScore;
         HighScore = highScore;
+        MultiplierCount = multiplierCount;
     }
 
     // CODE FOR: TEST 2 (STAR CALCULATIONS)

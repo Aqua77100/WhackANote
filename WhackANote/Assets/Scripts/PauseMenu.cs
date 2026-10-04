@@ -217,10 +217,10 @@ public class PauseMenu : MonoBehaviour
                 goods: ScoreManager.Instance != null ? ScoreManager.Instance.Goods : 0, 
                 misses: ScoreManager.Instance != null ? ScoreManager.Instance.Misses : 0, 
                 currentScore: currentScore, 
-                highScore: previousHighScore
+                highScore: previousHighScore,
+                multiplierCount: ScoreManager.Instance != null ? ScoreManager.Instance.MultiplierCount : 0
             );
 
-            //if (GameOverUI != null) GameOverUI.SetActive(true);
             if (trackCompleteUI != null)
                 {
                     // Find all moles in the scene and stop their routines & hide text

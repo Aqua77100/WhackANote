@@ -15,6 +15,9 @@ public class TrackCompletedUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private GameObject newHighScoreBadge;
 
+    [Header("Multiplier UI")]
+    [SerializeField] private TextMeshProUGUI multiplierCountText;
+
     [Header("Stars")]
     [SerializeField] private Image[] starImages; // Assign 3 star images
     [SerializeField] private Sprite starFullSprite;
@@ -33,6 +36,12 @@ public class TrackCompletedUI : MonoBehaviour
         if (scoreText != null)    scoreText.text = $"Score: {stats.CurrentScore:N0}";
         int displayHighScore = Mathf.Max(stats.CurrentScore, stats.HighScore);
         if (highScoreText != null) highScoreText.text = $"High Score: {displayHighScore:N0}";
+
+        // --- Perfect Combos (Multipler Counts) ---
+        if (multiplierCountText != null)
+        {
+            multiplierCountText.text = $"Perfect Combos: {stats.MultiplierCount}";
+        }
 
         
         if (newHighScoreBadge != null)
