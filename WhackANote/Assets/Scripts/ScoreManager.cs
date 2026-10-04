@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 public class ScoreManager : MonoBehaviour
 {
 
-    public static ScoreManager Instance
-    {
-        get;
-        private set;
-    }
+    public static ScoreManager Instance { get; private set; }
 
     public TextMeshProUGUI scoreText;
     private int currentScore = 0;
     private int _cachedHighScore = 0;
+
+    // --- HIT COUNT TRACKING ---
+    public int Perfects { get; private set; }
+    public int Greats { get; private set; }
+    public int Goods { get; private set; }
+    public int Misses { get; private set; }
 
     private void Awake()
     {
@@ -26,6 +28,8 @@ public class ScoreManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        ResetStatsOnScreenLoad();
 
         if (scoreText == null)
         {
@@ -53,9 +57,27 @@ public class ScoreManager : MonoBehaviour
         Debug.Log($"ScoreManager: high score updated from restore event: {restoredScore}");
     }
 
-    public void AddScore(int points)
+    public void ResetStatsOnScreenLoad()
+    {
+        currentScore = 0;
+        Perfects = 0;
+        Greats = 0;
+        Goods = 0;
+        Misses = 0;
+    }
+
+    public void AddScore(int points, string hitType = "")
     {
         currentScore += points;
+
+        // Increment hit types based on the feedback string
+        switch (hitType)
+        {
+            case "PERFECT!": Perfects++; break;
+            case "GREAT!":   Greats++;   break;
+            case "GOOD!":    Goods++;    break;
+            case "MISS":     Misses++;   break;
+        }
 
         if (scoreText != null)
         {
