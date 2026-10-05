@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8be43d10300bd264db9152fa6d1ecce3
+guid: fe1e91f3531e846e188a32778417aa1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7201907227059142769
-    second: star_none_0
+      213: 8884643844725135074
+    second: moleDizzy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: star_none_0
+      name: moleDizzy_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 63
-        width: 418
-        height: 386
+        x: 0
+        y: 0
+        width: 32
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 170cd26377052f360800000000000000
-      internalID: 7201907227059142769
+      spriteID: 2e6d3b001889c4b70800000000000000
+      internalID: 8884643844725135074
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      star_none_0: 7201907227059142769
+      moleDizzy_0: 8884643844725135074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
