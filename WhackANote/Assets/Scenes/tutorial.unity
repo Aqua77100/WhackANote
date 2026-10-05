@@ -10203,7 +10203,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1541131040}
   uiBlocker: {fileID: 1803615046}
   Music: {fileID: 254005151}
-  GameOverUI: {fileID: 2102176813}
+  trackCompleteUI: {fileID: 2102176813}
   countdownText: {fileID: 608747442}
   isEnded: 0
 --- !u!114 &1825380345
