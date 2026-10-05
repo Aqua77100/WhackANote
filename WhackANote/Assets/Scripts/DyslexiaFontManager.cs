@@ -63,7 +63,7 @@ public class DyslexiaFontManager : MonoBehaviour
         ApplyFontToScene();
     }
 
-    private void ApplyFontToScene()
+    public void ApplyFontToScene()
     {
         // drop entries for text objects destroyed by earlier scene loads
         var dead = new List<TMP_Text>();
@@ -73,7 +73,7 @@ public class DyslexiaFontManager : MonoBehaviour
         }
         foreach (var key in dead) originals.Remove(key);
 
-        TextMeshProUGUI[] allText = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        TextMeshProUGUI[] allText = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include);
 
         foreach (var text in allText)
         {
