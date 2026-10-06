@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
   scoreText: {fileID: 1240774984}
-  multiplierText: {fileID: 0}
+  multiplierText: {fileID: 1656182508}
   perfectStreakThreshold: 10
   perfectMultiplier: 1.05
   enableGameOverOnMisses: 1
@@ -3385,7 +3385,7 @@ GameObject:
   - component: {fileID: 691643743}
   - component: {fileID: 691643742}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ScoreCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1083,7 +1083,7 @@ MonoBehaviour:
   multiplierText: {fileID: 625016142}
   perfectStreakThreshold: 10
   perfectMultiplier: 1.05
-  enableGameOverOnMisses: 0
+  enableGameOverOnMisses: 1
   maxAllowedMisses: 10
 --- !u!1 &214032462
 GameObject:
@@ -3536,7 +3536,7 @@ GameObject:
   - component: {fileID: 691643743}
   - component: {fileID: 691643742}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ScoreCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9306,7 +9306,7 @@ GameObject:
   - component: {fileID: 2121433695}
   - component: {fileID: 2121433699}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PauseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
