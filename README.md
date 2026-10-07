@@ -44,12 +44,12 @@ A 2-D whack-a-mole-based rhythm game designed to make rhythm games feel more use
 - Select the root folder that contains the Assets, Packages, and ProjectSettings folders, then click Add Project.
 
 #### Setting Up
-- In Unity, navigate to the Title Scene. This is where you will begin running the game.
+- In Unity, navigate to the "Menu" Scene (the title screen). This is where you will begin running the game, so please make sure to always start here. Otherwise, the game will not function as intended.
 - Click the play button in Unity to begin!
 
 ## 🎮 How to Play
-- **Navigation:** Simply tap the UI buttons (e.g. Play Button, Settings, Back, Home, Retry, etc)
-- **Gameplay:** Tap the moles as well as you can to match the beat and try to get the best score via different gradings to try and beat others.
+- **Navigation:** Simply tap the UI buttons (e.g. Play Button, Settings, Back, Home, Retry, etc).
+- **Gameplay:** Tap the moles as well as you can to match the beat. Try to get the best score via different gradings to beat others!
 
 ## ©️Credits
 - **Creators:** Angelina, Archy, Finn, Will
