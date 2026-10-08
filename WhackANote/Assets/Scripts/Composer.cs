@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Composer : MonoBehaviour
 {
@@ -28,6 +30,17 @@ public class Composer : MonoBehaviour
 
     public bool IsRecording => isRecording;
 
+    [Header("Preview")]
+    public composerMole[] moles;
+
+    public float playbackBPM = 120f;
+    [Header("Recording Timer")]
+    public TextMeshProUGUI recordingTimerText;
+
+    private float recordingTime = 0f;   
+    [Header("Record Button")]
+    public TMP_Text recordButtonText;
+
     private void Awake()
     {
         Instance = this;
@@ -38,6 +51,18 @@ public class Composer : MonoBehaviour
         if (!isRecording)
             return;
 
+        // Update recording stopwatch
+        recordingTime += Time.deltaTime;
+
+        int minutes = Mathf.FloorToInt(recordingTime / 60f);
+        int seconds = Mathf.FloorToInt(recordingTime % 60f);
+
+        if (recordingTimerText != null)
+        {
+            recordingTimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+
+        // Recording slot timer
         timer += Time.deltaTime;
 
         if (timer >= secondsPerSlot)
@@ -55,8 +80,19 @@ public class Composer : MonoBehaviour
         secondsPerSlot = (60f / bpm) / subdivisions;
 
         timer = 0f;
+        recordingTime = 0f;
         currentNote = -1;
         isRecording = true;
+
+        if (recordingTimerText != null)
+        {
+            recordingTimerText.text = "00:00:000";
+        }
+
+        if (recordButtonText != null)
+        {
+            recordButtonText.text = "Stop Recording";
+        }
 
         PlayMetronome();
 
@@ -68,17 +104,29 @@ public class Composer : MonoBehaviour
         if (!isRecording)
             return;
 
-        FinishCurrentSlot();
+        // Finish the current slot without another metronome click
+        FinishCurrentSlot(false);
 
         isRecording = false;
+
+        // Stop the metronome
+        if (metronomeAudio != null)
+        {
+            metronomeAudio.Stop();
+        }
+
+        if (recordButtonText != null)
+        {
+            recordButtonText.text = "Record";
+        }
 
         Debug.Log("Recording stopped");
 
         Debug.Log("Sequence: " +
-                  string.Join(", ", recordedSequence));
+                string.Join(", ", recordedSequence));
     }
 
-    private void FinishCurrentSlot()
+    private void FinishCurrentSlot(bool playMetronome = true)
     {
         recordedSequence.Add(currentNote);
 
@@ -91,7 +139,10 @@ public class Composer : MonoBehaviour
 
         currentNote = -1;
 
-        PlayMetronome();
+        if (playMetronome)
+        {
+            PlayMetronome();
+        }
     }
 
     public void RecordMole(int moleIndex)
@@ -117,15 +168,53 @@ public class Composer : MonoBehaviour
         return recordedSequence.ToArray();
     }
 
-    /*public void SetBPM(int newBPM, AudioClip newMetronomeClip)
+    public void SetBPM(int newBPM)
     {
-        bpm = newBPM;
+        playbackBPM = newBPM;
 
-        if (metronomeAudio != null)
+        Debug.Log("Playback BPM set to: " + playbackBPM);
+    }
+
+    public void PlayCreation()
+    {  
+        if (recordedSequence.Count == 0)
         {
-            metronomeAudio.clip = newMetronomeClip;
+            Debug.Log("Nothing has been recorded yet.");
+            return;
         }
 
-        Debug.Log("SongRecorder BPM: " + bpm);
-    }*/
+        StartCoroutine(PlayRecordedSequence());
+    }
+
+    private IEnumerator PlayRecordedSequence()
+    {
+        float secondsPerBeat = 60f / playbackBPM;
+
+        Debug.Log("Playing creation at " + playbackBPM + " BPM");
+
+        foreach (int moleIndex in recordedSequence)
+        {
+            // -1 means a rest
+            if (moleIndex >= 0 && moleIndex < moles.Length)
+            {
+                moles[moleIndex].PlayPreview();
+            }
+
+            yield return new WaitForSeconds(secondsPerBeat);
+        }
+
+        Debug.Log("Finished playing creation.");
+    }
+
+    public void ToggleRecording()
+    {
+        if (isRecording)
+        {
+            StopRecording();
+        }
+        else
+        {
+            StartRecording();
+        }
+    }
 }

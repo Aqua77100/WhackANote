@@ -44,4 +44,19 @@ public class composerMole : MonoBehaviour
 
         Debug.Log("Composer mole pressed: " + moleIndex);
     }
+
+    public void PlayPreview()
+    {
+        // Play the mole's note
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.PlayOneShot(audioSource.clip);
+        }
+
+        // Play the mole animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Pressed");
+        }
+    }
 }
