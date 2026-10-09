@@ -32,5 +32,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MMC.unity
     guid: 4fa935d8cb1b546e887f3c0c6912c588
+  - enabled: 1
+    path: Assets/Scenes/Composer.unity
+    guid: f75cc6f2b9c8549b9af73f0f90755f94
+  - enabled: 1
+    path: Assets/Scenes/CustomTrackSelection.unity
+    guid: 190df2daf2f69484a8ac13310bbbf51b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

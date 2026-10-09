@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -21,15 +22,30 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [Tooltip("If true, the sequencer will wait for TutorialManager to call StartTutorialSong() instead of auto-starting.")]
     public bool isTutorial = false;
 
+    [Header("Custom Level Settings")]
+    public bool loadCustomLevel = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        // Only auto-start if this is NOT a tutorial level
-        if (!isTutorial)
+        if (isTutorial)
+            return;
+
+        // Only load a saved level in the custom gameplay scene.
+        if (loadCustomLevel)
         {
-            StartCoroutine(PlaySequence());
+            if (!LoadCustomLevel())
+                return;
         }
+
+        if (sequence == null || sequence.Length == 0)
+        {
+            Debug.LogError("Level sequence is empty!");
+            return;
+        }
+
+        StartCoroutine(PlaySequence());
     }
 
     private IEnumerator PlaySequence(){
@@ -86,5 +102,66 @@ public class NewMonoBehaviourScript : MonoBehaviour
     //         yield return new WaitForSeconds(secondsPerBeat);
     //     }
     // }
+
+
+    private bool LoadCustomLevel()
+    {
+        string fileName = PlayerPrefs.GetString(
+            "SelectedCreatedLevelFile", ""
+        );
+
+        if (string.IsNullOrEmpty(fileName))
+        {
+            Debug.LogError("No custom level was selected!");
+            return false;
+        }
+
+        string filePath = Path.Combine(
+            Application.persistentDataPath,
+            "CreatedLevels",
+            Path.GetFileName(fileName)
+        );
+
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError("Custom level not found: " + filePath);
+            return false;
+        }
+
+        try
+        {
+            string json = File.ReadAllText(filePath);
+
+            SavedLevelData data =
+                JsonUtility.FromJson<SavedLevelData>(json);
+
+            if (data == null ||
+                data.sequence == null ||
+                data.sequence.Length == 0 ||
+                data.bpm <= 0)
+            {
+                Debug.LogError("Invalid custom level data!");
+                return false;
+            }
+
+            // Apply the saved level's sequence and BPM.
+            sequence = data.sequence;
+            bpm = data.bpm;
+
+            Debug.Log(
+                "Loaded level: " + data.levelName +
+                " | BPM: " + bpm +
+                " | Sequence: " + string.Join(", ", sequence)
+            );
+
+            return true;
+        }
+        catch (System.Exception exception)
+        {
+            Debug.LogError("Failed to load level: " + exception.Message);
+            return false;
+        }
+    }
+
 
 }
