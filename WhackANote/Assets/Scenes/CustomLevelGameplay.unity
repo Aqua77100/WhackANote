@@ -155,7 +155,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 6
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -698,18 +698,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   moles:
   - {fileID: 1875355411}
-  - {fileID: 1327623825}
-  - {fileID: 1381646347}
-  - {fileID: 235593}
   - {fileID: 1769151750}
+  - {fileID: 1327623825}
   - {fileID: 1520026391}
+  - {fileID: 1381646347}
   - {fileID: 452950833}
+  - {fileID: 235593}
   - {fileID: 1002197531}
   - {fileID: 0}
   sequence: 0300000008000000070000000600000003000000080000000300000002000000010000000800000006000000030000000800000008000000080000000300000008000000070000000600000003000000080000000700000006000000010000000800000006000000080000000300000008000000080000000800000008000000
   bpm: 85
   activeWindowInBeats: 1.5
   isTutorial: 0
+  loadCustomLevel: 1
 --- !u!4 &204618385
 Transform:
   m_ObjectHideFlags: 0
@@ -1132,7 +1133,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 5
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -2494,7 +2495,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 7
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -3412,7 +3413,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 2
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -3816,7 +3817,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 4
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -4295,7 +4296,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 3
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -4851,7 +4852,7 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
-  moleIndex: 0
+  moleIndex: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
