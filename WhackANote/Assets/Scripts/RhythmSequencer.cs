@@ -24,6 +24,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [Header("Custom Level Settings")]
     public bool loadCustomLevel = false;
+    public CustomLevelBackground customLevelBackground;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,23 +49,60 @@ public class NewMonoBehaviourScript : MonoBehaviour
         StartCoroutine(PlaySequence());
     }
 
-    private IEnumerator PlaySequence(){
+    
+    private IEnumerator PlaySequence()
+    {
         int sequenceIndex = 0;
 
-        while(true){
+        // Custom levels wait until the countdown finishes.
+        if (loadCustomLevel)
+        {
+            yield return new WaitUntil(() => Time.timeScale > 0f);
+        }
+
+        while (true)
+        {
             float secondsPerBeat = SecondsPerBeat;
             int moleIndex = sequence[sequenceIndex];
 
-            if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null){
+            if (moleIndex >= 0 &&
+                moleIndex < moles.Length &&
+                moles[moleIndex] != null)
+            {
                 float duration = secondsPerBeat * activeWindowInBeats;
                 moles[moleIndex].PopUp(duration);
             }
 
-            sequenceIndex = (sequenceIndex+1)%sequence.Length;
-
+            // Wait for this beat to finish.
             yield return new WaitForSeconds(secondsPerBeat);
+
+            sequenceIndex++;
+
+            if (sequenceIndex >= sequence.Length)
+            {
+                if (loadCustomLevel)
+                {
+                    // Custom level: sequence is finished.
+                    Debug.Log("Custom level completed!");
+
+                    PauseMenu menu = FindFirstObjectByType<PauseMenu>();
+
+                    if (menu != null)
+                    {
+                        menu.gameOver();
+                    }
+
+                    yield break;
+                }
+                else
+                {
+                    // Built-in level: start the sequence again.
+                    sequenceIndex = 0;
+                }
+            }
         }
     }
+
 
     // private IEnumerator PlaySequence()
     // {
@@ -147,6 +185,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
             // Apply the saved level's sequence and BPM.
             sequence = data.sequence;
             bpm = data.bpm;
+
+            // Apply the saved level's background.
+            if (customLevelBackground != null)
+            {
+                customLevelBackground.SetBackground(data.backgroundName);
+            }
+            else
+            {
+                Debug.LogWarning("Custom Level Background is not assigned!");
+            }
 
             Debug.Log(
                 "Loaded level: " + data.levelName +

@@ -21,6 +21,9 @@ public class PauseMenu : MonoBehaviour
 
     private Coroutine countdownCoroutine; // Corouting needed for the countdown
 
+    [Header("Custom Level Settings")]
+    [SerializeField] private bool isCustomLevel = false;
+
     private void Awake()
     {
         isPaused = false;
@@ -47,13 +50,19 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
+        // Custom levels finish when their sequence ends,
+        // so ignore music-based completion.
+        if (isCustomLevel || isEnded || Music == null)
+            return;
+
+        // Built-in levels still finish when their music ends.
         if (Music.isPlaying)
         {
             hasStartedPlaying = true;
         }
         else if (hasStartedPlaying && Time.timeScale > 0)
         {
-            gameOver(); // if the music has ended, then show game over screen
+            gameOver();
         }
     }
 
@@ -177,24 +186,44 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    
     public void gameOver()
     {
         if (!isEnded)
         {
             isEnded = true;
+
+            // Stop gameplay
             Time.timeScale = 0f;
-            if (GameOverUI != null) GameOverUI.SetActive(true);
-            if (uiBlocker != null) uiBlocker.SetActive(true);
 
-            _ = LeaderboardManager.Instance.SubmitScore(ScoreManager.Instance.GetScore(), StartGame.CurrentTrackId);
-            _ = ScoreManager.Instance.SaveHighScoreIfBeaten();
+            // Display Game Over UI
+            if (GameOverUI != null)
+                GameOverUI.SetActive(true);
 
-            if (StartGame.CurrentTrackId == "tutorial")
+            if (uiBlocker != null)
+                uiBlocker.SetActive(true);
+
+            // Only submit leaderboard scores for built-in levels
+            if (!isCustomLevel)
             {
-                _ = SaveTutorialCompletion();
+                _ = LeaderboardManager.Instance.SubmitScore(
+                    ScoreManager.Instance.GetScore(),
+                    StartGame.CurrentTrackId
+                );
+
+                _ = ScoreManager.Instance.SaveHighScoreIfBeaten();
+
+                // Save tutorial completion if applicable
+                if (StartGame.CurrentTrackId == "tutorial")
+                {
+                    _ = SaveTutorialCompletion();
+                }
             }
+
+            Debug.Log("Level finished!");
         }
     }
+
 
     private async System.Threading.Tasks.Task SaveTutorialCompletion()
     {

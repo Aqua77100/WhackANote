@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 235594}
   - component: {fileID: 235593}
   m_Layer: 0
-  m_Name: Mole_B3
+  m_Name: Mole_F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5fea56ce1445c43e2a791e6e6c1f33c2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0d4d51dac30074684a1f807369270ef5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -711,6 +711,7 @@ MonoBehaviour:
   activeWindowInBeats: 1.5
   isTutorial: 0
   loadCustomLevel: 1
+  customLevelBackground: {fileID: 229434819}
 --- !u!4 &204618385
 Transform:
   m_ObjectHideFlags: 0
@@ -739,6 +740,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
   scoreText: {fileID: 1240774984}
+--- !u!1 &229434818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229434820}
+  - component: {fileID: 229434819}
+  m_Layer: 0
+  m_Name: CustomBackgroundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &229434819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229434818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd04d1c12260e4847b2947fd76471c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  backgroundImage: {fileID: 1632883554}
+  backgroundRenderer: {fileID: 0}
+  backgrounds:
+  - backgroundName: Circus
+    sprite: {fileID: -6743665025602963732, guid: 806aac7c59ac6470d91e21a3103c3259, type: 3}
+  - backgroundName: Mermaid Cove
+    sprite: {fileID: 3722307111630557030, guid: 0d9e8d179b40546f8a891ea00079f785, type: 3}
+  - backgroundName: Moon
+    sprite: {fileID: 2721249908109017506, guid: f59acdc4177104d48a27479ee1131b45, type: 3}
+  - backgroundName: Field
+    sprite: {fileID: 5149760908985499077, guid: bb36919833ebd47cb996c7c0ae200b38, type: 3}
+--- !u!4 &229434820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229434818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.56074, y: -1.67887, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286253600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1167,7 @@ GameObject:
   - component: {fileID: 452950834}
   - component: {fileID: 452950833}
   m_Layer: 0
-  m_Name: Mole_D4
+  m_Name: Mole_E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1171,7 +1227,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: da5e474f3f7134ce8a819f325ff04a8a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 98159505c29a24c6c8ce4df5aa4a53e1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2473,7 +2529,7 @@ GameObject:
   - component: {fileID: 1002197532}
   - component: {fileID: 1002197531}
   m_Layer: 0
-  m_Name: Mole_E4
+  m_Name: Mole_G2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2533,7 +2589,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 29c1f341fe13e470fbb106991dd58680, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8f3dfc47ee7de4a97addd7803fbe09b7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3391,7 +3447,7 @@ GameObject:
   - component: {fileID: 1327623826}
   - component: {fileID: 1327623825}
   m_Layer: 0
-  m_Name: Mole_G#3
+  m_Name: Mole_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3451,7 +3507,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 8c6fb6f88d36746c78b04960c394a9e0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 6a2963d331ed7478fb31426c0cbdc6b4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3795,7 +3851,7 @@ GameObject:
   - component: {fileID: 1381646348}
   - component: {fileID: 1381646347}
   m_Layer: 0
-  m_Name: Mole_A#3
+  m_Name: Mole_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3855,7 +3911,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6a7c46fdcfb4f4bb58785a66e032c968, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2af01fcd3ec4c4151854b048d0469d13, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4274,7 +4330,7 @@ GameObject:
   - component: {fileID: 1520026392}
   - component: {fileID: 1520026391}
   m_Layer: 0
-  m_Name: Mole_C#4
+  m_Name: Mole_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4334,7 +4390,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: ff80b3259bb1a47f6a9ac9b8ac6cb9c1, type: 3}
+  m_Resource: {fileID: 8300000, guid: a5d52f94ab28646d0a45b7f37e9a3d65, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4830,7 +4886,7 @@ GameObject:
   - component: {fileID: 1769151751}
   - component: {fileID: 1769151750}
   m_Layer: 0
-  m_Name: Mole_C4
+  m_Name: Mole_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4890,7 +4946,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3b078d0133b3a4de4bedba682a7ef53f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 06286f74c48754e53a820c75f27e6498, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5378,7 +5434,7 @@ GameObject:
   - component: {fileID: 1875355411}
   - component: {fileID: 1875355412}
   m_Layer: 0
-  m_Name: Mole_F#3
+  m_Name: Mole_G1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5395,7 +5451,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 8f5a5ee2f9fe846b6bd25a4539a71cba, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1647ada83a0584532950abeb53beb597, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6195,6 +6251,7 @@ MonoBehaviour:
   GameOverUI: {fileID: 654282299}
   countdownText: {fileID: 1974283502}
   isEnded: 0
+  isCustomLevel: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6216,3 +6273,4 @@ SceneRoots:
   - {fileID: 286253602}
   - {fileID: 691643745}
   - {fileID: 1508740375}
+  - {fileID: 229434820}
