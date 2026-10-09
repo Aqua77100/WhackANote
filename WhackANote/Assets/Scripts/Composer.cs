@@ -41,6 +41,12 @@ public class Composer : MonoBehaviour
     [Header("Record Button")]
     public TMP_Text recordButtonText;
 
+    [Header("Countdown")]
+    public TextMeshProUGUI countdownText;
+    public int countdownSeconds = 3;
+
+    private bool isCountingDown = false;
+
     private void Awake()
     {
         Instance = this;
@@ -212,9 +218,32 @@ public class Composer : MonoBehaviour
         {
             StopRecording();
         }
-        else
+        else if (!isCountingDown)
         {
-            StartRecording();
+            StartCoroutine(CountdownThenRecord());
         }
+    }
+
+    private IEnumerator CountdownThenRecord()
+    {
+        isCountingDown = true;
+
+        if (countdownText != null)
+            countdownText.gameObject.SetActive(true);
+
+        for (int count = countdownSeconds; count > 0; count--)
+        {
+            if (countdownText != null)
+                countdownText.text = count.ToString();
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        if (countdownText != null)
+            countdownText.gameObject.SetActive(false);
+
+        isCountingDown = false;
+
+        StartRecording();
     }
 }

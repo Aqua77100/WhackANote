@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class SavedLevelData
@@ -24,10 +25,27 @@ public class LevelSavePopup : MonoBehaviour
     public TMP_Dropdown bpmDropdown;
     public TMP_Text statusText;
 
+    [Header("Level Image Preview")]
+    public Image levelImagePreview;
+    public Sprite[] backgroundSprites;
+
+    [Header("Background UI")]
+    public CanvasGroup mainUIGroup;
+    public GameObject dimBackground;
+
     private void Start()
     {
         if (popupPanel != null)
             popupPanel.SetActive(false);
+
+        if (backgroundDropdown != null)
+        {
+            backgroundDropdown.onValueChanged.AddListener(UpdateBackgroundPreview);
+            UpdateBackgroundPreview(backgroundDropdown.value);
+        }
+
+        if (dimBackground != null)
+            dimBackground.SetActive(false);
     }
 
     public void OpenPopup()
@@ -38,11 +56,23 @@ public class LevelSavePopup : MonoBehaviour
             return;
         }
 
-        // Stop recording before opening the save menu.
         if (composer.IsRecording)
             composer.StopRecording();
 
-        popupPanel.SetActive(true);
+        // Disable the normal UI buttons.
+        if (mainUIGroup != null)
+        {
+            mainUIGroup.interactable = false;
+            mainUIGroup.blocksRaycasts = false;
+        }
+
+        // Darken the screen.
+        if (dimBackground != null)
+            dimBackground.SetActive(true);
+
+        // Show the popup on top.
+        if (popupPanel != null)
+            popupPanel.SetActive(true);
 
         if (statusText != null)
             statusText.text = "";
@@ -53,7 +83,6 @@ public class LevelSavePopup : MonoBehaviour
             levelNameInput.text = "My Level";
         }
 
-        // Default to the current playback BPM.
         SetBpmDropdownToCurrent();
     }
 
@@ -61,6 +90,17 @@ public class LevelSavePopup : MonoBehaviour
     {
         if (popupPanel != null)
             popupPanel.SetActive(false);
+
+        // Restore the normal UI buttons.
+        if (mainUIGroup != null)
+        {
+            mainUIGroup.interactable = true;
+            mainUIGroup.blocksRaycasts = true;
+        }
+
+        // Remove the dark overlay.
+        if (dimBackground != null)
+            dimBackground.SetActive(false);
     }
 
     private void SetBpmDropdownToCurrent()
@@ -204,5 +244,19 @@ public class LevelSavePopup : MonoBehaviour
             statusText.text = message;
 
         Debug.Log(message);
+    }
+
+    public void UpdateBackgroundPreview(int index)
+    {
+        if (levelImagePreview == null ||
+            backgroundSprites == null ||
+            index < 0 ||
+            index >= backgroundSprites.Length)
+        {
+            return;
+        }
+
+        levelImagePreview.sprite = backgroundSprites[index];
+        levelImagePreview.enabled = backgroundSprites[index] != null;
     }
 }
