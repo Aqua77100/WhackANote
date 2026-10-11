@@ -32,5 +32,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MMC.unity
     guid: 4fa935d8cb1b546e887f3c0c6912c588
+  - enabled: 1
+    path: Assets/Scenes/Garden.unity
+    guid: 35f6c212af5d4c94f822453b447f2e6f
+  - enabled: 1
+    path: Assets/Scenes/WhackArena.unity
+    guid: 266f92d027f765844a9f0dd7cba27b00
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
