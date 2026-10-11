@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using Unity.Services.Authentication;
+using UnityEngine.SceneManagement;
 
 public class LeaderboardPanel : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class LeaderboardPanel : MonoBehaviour
     // Called by each track's Leaderboard button with that track's ID (e.g. "Circus")
     public async void Open(string trackId)
     {
-        gameObject.SetActive(true);
+        SceneManager.LoadScene("TEST Leaderboard");
         titleText.text = $"{trackId} Leaderboard";
         statusText.text = "Loading...";
         yourRankRow.gameObject.SetActive(false);
