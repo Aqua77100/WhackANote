@@ -799,6 +799,7 @@ GameObject:
   - component: {fileID: 1048146565}
   - component: {fileID: 1048146564}
   - component: {fileID: 1048146563}
+  - component: {fileID: 1048146566}
   m_Layer: 5
   m_Name: LeaderboardPanel
   m_TagString: Untagged
@@ -866,6 +867,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -772, y: -360}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1048146566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048146562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a3ce061c2139848904492e24610cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::LeaderboardPanel
+  titleText: {fileID: 253092147}
+  statusText: {fileID: 2047697298}
+  rowContainer: {fileID: 0}
+  rowPrefab: {fileID: 1359557604}
+  yourRankRow: {fileID: 1359557604}
+  maxEntries: 50
 --- !u!1 &1280282833
 GameObject:
   m_ObjectHideFlags: 0
