@@ -21,11 +21,18 @@ public class CustomLevelDetailsPopup : MonoBehaviour
     [Header("Gameplay")]
     public string gameplaySceneName = "CustomLevelGameplay";
 
-    public void Show(
-        SavedLevelData data,
-        string filePath,
-        Sprite backgroundSprite)
+    [Header("Delete Level")]
+    public GameObject deleteConfirmationPanel;
+    public CustomLevelSelectManager levelSelectManager;
+
+    public void Show(SavedLevelData data, string filePath, Sprite backgroundSprite)
     {
+        // panel is hidden whenever you open a diff level
+        if (deleteConfirmationPanel != null)
+        {
+            deleteConfirmationPanel.SetActive(false);
+        }
+
         if (data == null)
         {
             Debug.LogError("No level data was provided.");
@@ -119,4 +126,78 @@ public class CustomLevelDetailsPopup : MonoBehaviour
         SceneManager.LoadScene(gameplaySceneName);
     }
 
+    public void ShowDeleteConfirmation()
+    {
+        if(deleteConfirmationPanel != null)
+        {
+            deleteConfirmationPanel.SetActive(true);
+        }
+    }
+
+    public void CancelDelete()
+    {
+        if (deleteConfirmationPanel != null)
+        {
+            deleteConfirmationPanel.SetActive(false);
+        }
+    }
+
+    public void ConfirmDelete()
+    {
+        if (string.IsNullOrEmpty(selectedLevelFileName))
+        {
+            Debug.LogError("No custom level selected for deletion!");
+            return;
+        }
+
+        // Get the saved JSON file's location.
+        string filePath = Path.Combine(
+            Application.persistentDataPath,
+            "CreatedLevels",
+            Path.GetFileName(selectedLevelFileName)
+        );
+
+        // Only allow saved JSON level files to be deleted.
+        if (!string.Equals(
+            Path.GetExtension(filePath),
+            ".json",
+            System.StringComparison.OrdinalIgnoreCase))
+        {
+            Debug.LogError("Invalid custom level file!");
+            return;
+        }
+
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError("Level file does not exist: " + filePath);
+            return;
+        }
+
+        try
+        {
+            // Permanently delete the saved level.
+            File.Delete(filePath);
+
+            Debug.Log("Deleted custom level: " + selectedLevelFileName);
+
+            selectedLevelFileName = null;
+
+            // Close the details popup.
+            Close();
+
+            // Refresh the cards to remove the deleted level.
+            if (levelSelectManager != null)
+            {
+                levelSelectManager.LoadSavedLevels();
+            }
+            else
+            {
+                Debug.LogWarning("Level Select Manager is not assigned!");
+            }
+        }
+        catch (System.Exception exception)
+        {
+            Debug.LogError("Failed to delete level: " + exception.Message);
+        }
+    }
 }

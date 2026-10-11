@@ -47,6 +47,11 @@ public class Composer : MonoBehaviour
 
     private bool isCountingDown = false;
 
+    [Header("Preview UI")]
+    [SerializeField] private GameObject previewingText;
+
+     public bool IsPreviewing { get; private set; } = false;
+
     private void Awake()
     {
         Instance = this;
@@ -183,12 +188,18 @@ public class Composer : MonoBehaviour
 
     public void PlayCreation()
     {  
+        if(IsPreviewing || isRecording || isCountingDown)
+        {
+            return;
+        }
+
         if (recordedSequence.Count == 0)
         {
             Debug.Log("Nothing has been recorded yet.");
             return;
         }
 
+        IsPreviewing = true;
         StartCoroutine(PlayRecordedSequence());
     }
 
@@ -197,6 +208,9 @@ public class Composer : MonoBehaviour
         float secondsPerBeat = 60f / playbackBPM;
 
         Debug.Log("Playing creation at " + playbackBPM + " BPM");
+
+        if (previewingText != null)
+            previewingText.SetActive(true);
 
         foreach (int moleIndex in recordedSequence)
         {
@@ -208,6 +222,11 @@ public class Composer : MonoBehaviour
 
             yield return new WaitForSeconds(secondsPerBeat);
         }
+
+        if (previewingText != null)
+            previewingText.SetActive(false);
+        
+        IsPreviewing = false;
 
         Debug.Log("Finished playing creation.");
     }

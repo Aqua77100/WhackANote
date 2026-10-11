@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class composerMole : MonoBehaviour
@@ -6,7 +7,6 @@ public class composerMole : MonoBehaviour
     public int moleIndex;
     public AudioSource audioSource;
     public Animator animator;
-
 
     private void Awake()
     {
@@ -19,31 +19,36 @@ public class composerMole : MonoBehaviour
         PressMole();
     }
 
+    
     public void PressMole()
     {
-        if (Composer.Instance == null)
+        // Prevent manual clicking during preview
+        if (Composer.Instance != null &&
+            Composer.Instance.IsPreviewing)
+        {
             return;
+        }
 
-        if (!Composer.Instance.IsRecording)
-            return;
+        // Only record the note if recording is active
+        if (Composer.Instance != null &&
+            Composer.Instance.IsRecording)
+        {
+            Composer.Instance.RecordMole(moleIndex);
+        }
 
-        // record this mole
-        Composer.Instance.RecordMole(moleIndex);
-
+        // Play the mole's sound
         if (audioSource != null && audioSource.clip != null)
         {
             audioSource.PlayOneShot(audioSource.clip);
         }
 
-        // play press animation
-        if(animator != null)
+        // Play the press animation
+        if (animator != null)
         {
-            Debug.Log("animate");
             animator.SetTrigger("Pressed");
-        } 
-
-        Debug.Log("Composer mole pressed: " + moleIndex);
+        }
     }
+
 
     public void PlayPreview()
     {
