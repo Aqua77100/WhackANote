@@ -11,10 +11,4 @@ public class StartGame : MonoBehaviour
         CurrentTrackId = LevelName; // NEW
         SceneManager.LoadScene(LevelName);
     }
-
-    public void LoadLeaderboard()
-    {
-        CurrentTrackId = LevelName;
-        SceneManager.LoadScene("Leaderboard");
-    }
 }
