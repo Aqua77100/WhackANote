@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio clip:")]
     public AudioClip titleBGM;
+    public AudioClip circusTrack;
+    public AudioClip tutorialTrack;
 
     public static AudioManager instance;
 
@@ -38,22 +40,17 @@ public class AudioManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
-        switch (currentScene.name)
+        if (currentScene.name == "tutorial" || currentScene.name == "Circus" || currentScene.name == "MMC")
         {
-            case "tutorial":
-            case "Circus":
-            case "MMC":
-            case "Garden":
-            case "WhackArena":
-                musicSource.Pause();
-                break;
-            default: // once back on the title or track selection, play the title BGM again
-                if (!musicSource.isPlaying)
-                {
-                    musicSource.clip = titleBGM;
-                    musicSource.Play();
-                }
-                break;
+            musicSource.Pause();
+        }
+        else // once back on the title or track selection, play the title BGM again
+        {
+            if (!musicSource.isPlaying)
+            {
+                musicSource.clip = titleBGM;
+                musicSource.Play();
+            }
         }
     }
 }
