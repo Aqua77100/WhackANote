@@ -15,6 +15,6 @@ public class StartGame : MonoBehaviour
     public void LoadLeaderboard()
     {
         CurrentTrackId = LevelName;
-        SceneManager.LoadScene("TEST Leaderboard");
+        SceneManager.LoadScene("Leaderboard");
     }
 }
