@@ -404,7 +404,6 @@ GameObject:
   - component: {fileID: 98764384}
   - component: {fileID: 98764383}
   - component: {fileID: 98764382}
-  - component: {fileID: 98764381}
   - component: {fileID: 98764385}
   m_Layer: 5
   m_Name: Leaderboard button
@@ -433,19 +432,6 @@ RectTransform:
   m_AnchoredPosition: {x: 743.27, y: -256}
   m_SizeDelta: {x: 324.7191, y: 76.58}
   m_Pivot: {x: 1, y: 0}
---- !u!114 &98764381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98764379}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameScripts::StartGame
-  LevelName: TEST Leaderboard
 --- !u!114 &98764382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,15 +477,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 98764385}
-        m_TargetAssemblyTypeName: LeaderboardPanel, GameScripts
-        m_MethodName: Open
-        m_Mode: 5
+        m_TargetAssemblyTypeName: StartGame, GameScripts
+        m_MethodName: LoadLeaderboard
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Circus
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &98764383
@@ -549,15 +535,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 98764379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0a3ce061c2139848904492e24610cbe, type: 3}
+  m_Script: {fileID: 11500000, guid: ef1b1cd19c4ca4350b8b16d2f8b55835, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameScripts::LeaderboardPanel
-  titleText: {fileID: 0}
-  statusText: {fileID: 0}
-  rowContainer: {fileID: 0}
-  rowPrefab: {fileID: 0}
-  yourRankRow: {fileID: 0}
-  maxEntries: 50
+  m_EditorClassIdentifier: GameScripts::StartGame
+  LevelName: Circus
 --- !u!1 &119126842
 GameObject:
   m_ObjectHideFlags: 0

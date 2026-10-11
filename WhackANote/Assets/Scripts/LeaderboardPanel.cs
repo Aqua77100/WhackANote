@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using Unity.Services.Authentication;
-using UnityEngine.SceneManagement;
+using Codice.Client.BaseCommands;
 
 public class LeaderboardPanel : MonoBehaviour
 {
@@ -12,10 +12,14 @@ public class LeaderboardPanel : MonoBehaviour
     [SerializeField] private LeaderboardRowUI yourRankRow;  // pinned row outside the scroll area
     [SerializeField] private int maxEntries = 50;
 
+    private void Start()
+    {
+        Open(StartGame.CurrentTrackId);
+    }
+
     // Called by each track's Leaderboard button with that track's ID (e.g. "Circus")
     public async void Open(string trackId)
     {
-        SceneManager.LoadScene("TEST Leaderboard");
         titleText.text = $"{trackId} Leaderboard";
         statusText.text = "Loading...";
         yourRankRow.gameObject.SetActive(false);
