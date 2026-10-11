@@ -28,6 +28,7 @@ public class LeaderboardPanel : MonoBehaviour
         try
         {
             var entries = await LeaderboardManager.Instance.GetTopScores(trackId, maxEntries);
+            if (this == null) return; // scene was unloaded while waiting
 
             if (entries == null)
             {
@@ -47,6 +48,8 @@ public class LeaderboardPanel : MonoBehaviour
 
             // Pinned row so you can always see your own position, even when scrolled away
             var mine = await LeaderboardManager.Instance.GetPlayerScore(trackId);
+            if (this == null) return;
+            
             if (mine != null)
             {
                 yourRankRow.gameObject.SetActive(true);
