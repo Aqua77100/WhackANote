@@ -32,6 +32,9 @@ public class composerMole : MonoBehaviour
 
     public void PressMole()
     {
+        if (LevelSavePopup.IsPopupOpen)
+            return;
+            
         // Don't allow manual presses during preview
         if (Composer.Instance != null &&
             Composer.Instance.IsPreviewing)

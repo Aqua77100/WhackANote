@@ -34,6 +34,8 @@ public class LevelSavePopup : MonoBehaviour
     public CanvasGroup mainUIGroup;
     public GameObject dimBackground;
 
+    public static bool IsPopupOpen { get; private set; } = false;
+
     private void Start()
     {
         if (popupPanel != null)
@@ -71,6 +73,7 @@ public class LevelSavePopup : MonoBehaviour
         if (dimBackground != null)
             dimBackground.SetActive(true);
 
+        IsPopupOpen = true;
         // Show the popup on top.
         if (popupPanel != null)
             popupPanel.SetActive(true);
@@ -89,6 +92,8 @@ public class LevelSavePopup : MonoBehaviour
 
     public void ClosePopup()
     {
+        IsPopupOpen = false;
+
         if (popupPanel != null)
             popupPanel.SetActive(false);
 
@@ -266,5 +271,10 @@ public class LevelSavePopup : MonoBehaviour
 
         levelImagePreview.sprite = backgroundSprites[index];
         levelImagePreview.enabled = backgroundSprites[index] != null;
+    }
+
+    private void OnDisable()
+    {
+        IsPopupOpen = false;
     }
 }
