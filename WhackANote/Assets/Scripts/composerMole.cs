@@ -8,10 +8,21 @@ public class composerMole : MonoBehaviour
     public AudioSource audioSource;
     public Animator animator;
 
+    [Header("Instrument Sounds")]
+    public AudioClip[] instrumentClips;
+
+    private int selectedInstrument = 0;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+    }
+
+    // Called when the global instrument changes
+    public void SetInstrument(int index)
+    {
+        selectedInstrument = index;
     }
 
     private void OnMouseDown()
@@ -19,46 +30,53 @@ public class composerMole : MonoBehaviour
         PressMole();
     }
 
-    
     public void PressMole()
     {
-        // Prevent manual clicking during preview
+        // Don't allow manual presses during preview
         if (Composer.Instance != null &&
             Composer.Instance.IsPreviewing)
         {
             return;
         }
 
-        // Only record the note if recording is active
+        // Record only when recording
         if (Composer.Instance != null &&
             Composer.Instance.IsRecording)
         {
             Composer.Instance.RecordMole(moleIndex);
         }
 
-        // Play the mole's sound
-        if (audioSource != null && audioSource.clip != null)
-        {
-            audioSource.PlayOneShot(audioSource.clip);
-        }
-
-        // Play the press animation
-        if (animator != null)
-        {
-            animator.SetTrigger("Pressed");
-        }
+        PlaySoundAndAnimation();
     }
-
 
     public void PlayPreview()
     {
-        // Play the mole's note
-        if (audioSource != null && audioSource.clip != null)
+        PlaySoundAndAnimation();
+    }
+
+    private void PlaySoundAndAnimation()
+    {
+        AudioClip clipToPlay = null;
+
+        // Get the selected instrument's audio clip
+        if (instrumentClips != null &&
+            selectedInstrument >= 0 &&
+            selectedInstrument < instrumentClips.Length)
         {
-            audioSource.PlayOneShot(audioSource.clip);
+            clipToPlay = instrumentClips[selectedInstrument];
         }
 
-        // Play the mole animation
+        // Fall back to original audio clip
+        if (clipToPlay == null && audioSource != null)
+        {
+            clipToPlay = audioSource.clip;
+        }
+
+        if (audioSource != null && clipToPlay != null)
+        {
+            audioSource.PlayOneShot(clipToPlay);
+        }
+
         if (animator != null)
         {
             animator.SetTrigger("Pressed");

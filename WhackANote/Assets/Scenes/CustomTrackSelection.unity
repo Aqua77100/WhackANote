@@ -2739,6 +2739,10 @@ MonoBehaviour:
     sprite: {fileID: 3722307111630557030, guid: 0d9e8d179b40546f8a891ea00079f785, type: 3}
   - backgroundName: Moon
     sprite: {fileID: 2721249908109017506, guid: f59acdc4177104d48a27479ee1131b45, type: 3}
+  - backgroundName: Garden
+    sprite: {fileID: -5699104055798326421, guid: b3bbb5473345a4131beb10db068a9be6, type: 3}
+  - backgroundName: Arcade
+    sprite: {fileID: 1440048236831023578, guid: c8982d37a293c450dad087d593cc53a9, type: 3}
   detailsPopup: {fileID: 945268351}
 --- !u!4 &1206784214
 Transform:
@@ -4386,8 +4390,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -142}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -8.839966}
+  m_SizeDelta: {x: 1433.177, y: 302}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2065250351
 MonoBehaviour:

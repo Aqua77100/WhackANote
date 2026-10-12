@@ -186,6 +186,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
             sequence = data.sequence;
             bpm = data.bpm;
 
+
+            // Apply the saved instrument to every mole
+            for (int i = 0; i < moles.Length; i++)
+            {
+                if (moles[i] != null)
+                {
+                    moles[i].SetInstrument(data.instrumentIndex);
+                }
+            }
+
+            Debug.Log("Loaded instrument: " + data.instrumentIndex);
+
+
             // Apply the saved level's background.
             if (customLevelBackground != null)
             {

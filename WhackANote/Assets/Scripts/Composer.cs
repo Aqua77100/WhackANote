@@ -52,6 +52,9 @@ public class Composer : MonoBehaviour
 
      public bool IsPreviewing { get; private set; } = false;
 
+     [Header("Instrument Selection")]
+    public TMP_Dropdown instrumentDropdown;
+
     private void Awake()
     {
         Instance = this;
@@ -265,4 +268,31 @@ public class Composer : MonoBehaviour
 
         StartRecording();
     }
+
+
+    private void Start()
+    {
+        if (instrumentDropdown != null)
+        {
+            instrumentDropdown.onValueChanged.AddListener(ChangeInstrument);
+
+            // Apply the currently selected instrument
+            ChangeInstrument(instrumentDropdown.value);
+        }
+    }
+
+    public void ChangeInstrument(int instrumentIndex)
+    {
+        // Change the instrument for every mole
+        foreach (composerMole mole in moles)
+        {
+            if (mole != null)
+            {
+                mole.SetInstrument(instrumentIndex);
+            }
+        }
+
+        Debug.Log("Instrument changed to index: " + instrumentIndex);
+    }
+
 }

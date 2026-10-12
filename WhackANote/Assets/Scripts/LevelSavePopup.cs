@@ -11,6 +11,7 @@ public class SavedLevelData
     public string backgroundName;
     public int bpm;
     public int[] sequence;
+    public int instrumentIndex;
 }
 
 public class LevelSavePopup : MonoBehaviour
@@ -207,13 +208,20 @@ public class LevelSavePopup : MonoBehaviour
             return;
         }
 
+        
         SavedLevelData data = new SavedLevelData
         {
             levelName = levelName,
             backgroundName = backgroundName,
             bpm = selectedBPM,
-            sequence = sequence
+            sequence = sequence,
+
+            // Save the instrument selected in the Composer
+            instrumentIndex = composer.instrumentDropdown != null
+                ? composer.instrumentDropdown.value
+                : 0
         };
+
 
         string json = JsonUtility.ToJson(data, true);
 

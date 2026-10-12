@@ -12,6 +12,10 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public TextMeshProUGUI HitType;
     public bool showHitFeedback = true;
 
+    [Header("Instrument Sounds")]
+    public AudioClip[] instrumentClips;
+
+
     [Header("Mole Settings")]
     public int moleIndex;
 
@@ -360,4 +364,39 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
             HitType.gameObject.SetActive(false);
         }
     }
+
+
+    public void SetInstrument(int instrumentIndex)
+    {
+        // Check that the selected instrument exists
+        if (instrumentClips == null ||
+            instrumentIndex < 0 ||
+            instrumentIndex >= instrumentClips.Length ||
+            instrumentClips[instrumentIndex] == null)
+        {
+            Debug.LogWarning(
+                "Instrument " + instrumentIndex +
+                " is not assigned for " + gameObject.name
+            );
+            return;
+        }
+
+        // Get the selected instrument's note
+        moleNote = instrumentClips[instrumentIndex];
+
+        // Update the AudioSource
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.clip = moleNote;
+        }
+
+        Debug.Log(
+            gameObject.name +
+            " changed to instrument " + instrumentIndex
+        );
+    }
+
 }

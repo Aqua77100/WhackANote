@@ -155,6 +155,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: 1182842959add4a21b497dae5781568b, type: 3}
+  - {fileID: 8300000, guid: 0d4d51dac30074684a1f807369270ef5, type: 3}
+  - {fileID: 8300000, guid: d8abae1c7afc94f6090d39ff2a757ff3, type: 3}
   moleIndex: 6
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -778,8 +782,10 @@ MonoBehaviour:
     sprite: {fileID: 3722307111630557030, guid: 0d9e8d179b40546f8a891ea00079f785, type: 3}
   - backgroundName: Moon
     sprite: {fileID: 2721249908109017506, guid: f59acdc4177104d48a27479ee1131b45, type: 3}
-  - backgroundName: Field
-    sprite: {fileID: 5149760908985499077, guid: bb36919833ebd47cb996c7c0ae200b38, type: 3}
+  - backgroundName: Garden
+    sprite: {fileID: -5699104055798326421, guid: b3bbb5473345a4131beb10db068a9be6, type: 3}
+  - backgroundName: Arcade
+    sprite: {fileID: 1440048236831023578, guid: c8982d37a293c450dad087d593cc53a9, type: 3}
 --- !u!4 &229434820
 Transform:
   m_ObjectHideFlags: 0
@@ -1189,6 +1195,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: f808a5393e9ba467093eed8bcfd4c8ee, type: 3}
+  - {fileID: 8300000, guid: 98159505c29a24c6c8ce4df5aa4a53e1, type: 3}
+  - {fileID: 8300000, guid: e3b6450166c244d738a3a720ef262352, type: 3}
   moleIndex: 5
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -2551,6 +2561,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: f044539ecda574c89abaf22022d210d4, type: 3}
+  - {fileID: 8300000, guid: 8f3dfc47ee7de4a97addd7803fbe09b7, type: 3}
+  - {fileID: 8300000, guid: e5ba445a35a2140369438c2943d12a8d, type: 3}
   moleIndex: 7
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -3469,6 +3483,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: d1cae2ebd648e46e79fae229c695a749, type: 3}
+  - {fileID: 8300000, guid: 6a2963d331ed7478fb31426c0cbdc6b4, type: 3}
+  - {fileID: 8300000, guid: 73db689d735a5447aae193785c843031, type: 3}
   moleIndex: 2
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -3873,6 +3891,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: 8d67cb9870b144eb1982bc6aa05597d6, type: 3}
+  - {fileID: 8300000, guid: 2af01fcd3ec4c4151854b048d0469d13, type: 3}
+  - {fileID: 8300000, guid: 5c8f3d3979d6342dba270f807124b2df, type: 3}
   moleIndex: 4
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -4352,6 +4374,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: b69a25af45f0344f2983cd28db9448a4, type: 3}
+  - {fileID: 8300000, guid: a5d52f94ab28646d0a45b7f37e9a3d65, type: 3}
+  - {fileID: 8300000, guid: 46e334c82d7994bb3b7196bb6f3edcd2, type: 3}
   moleIndex: 3
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -4908,6 +4934,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: daa42ced1f1f545d89983b1ce00b92f1, type: 3}
+  - {fileID: 8300000, guid: 06286f74c48754e53a820c75f27e6498, type: 3}
+  - {fileID: 8300000, guid: 4d79856a0eb334ca39f26a6fc5b998aa, type: 3}
   moleIndex: 1
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -5664,6 +5694,10 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips:
+  - {fileID: 8300000, guid: 115833fc87b2d42d2bf7897d794084d7, type: 3}
+  - {fileID: 8300000, guid: 1647ada83a0584532950abeb53beb597, type: 3}
+  - {fileID: 8300000, guid: 1e81c093c79dc4f1793b46bfb3d63106, type: 3}
   moleIndex: 0
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
@@ -5689,7 +5723,8 @@ MonoBehaviour:
   perfectScore: 100
   greatScore: 50
   goodScore: 25
-  moles: []
+  moles:
+  - {fileID: 0}
   duration: 0
 --- !u!95 &1875355412
 Animator:
