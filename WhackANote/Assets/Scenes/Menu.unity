@@ -4381,7 +4381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
   myMixer: {fileID: 24100000, guid: 55397187d9bc3b14da84b4933cee76df, type: 2}
   musicSlider: {fileID: 1588714038}
-  dyslexiaToggle: {fileID: 0}
+  dyslexiaToggle: {fileID: 390546011}
 --- !u!1 &1994720704
 GameObject:
   m_ObjectHideFlags: 0
