@@ -81,20 +81,21 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
-    public async Task GetPlayerScore(string trackId)
+    public async Task<LeaderboardEntry> GetPlayerScore(string trackId)
     {
-        if (!await EnsureReady()) return;
+        if (!await EnsureReady()) return null;
 
         string leaderboardId = $"High_Scores_{trackId}";
 
         try
         {
-            var entry = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardId);
-            Debug.Log($"Your rank: #{entry.Rank + 1} — Score: {entry.Score}");
+            return await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardId);
         }
         catch (RequestFailedException ex)
         {
-            Debug.LogWarning($"Player has no score yet: {ex.Message}");
+            // Throws if the player has no score on this leaderboard yet; that's expected
+            Debug.LogWarning($"Player has no score yet on {leaderboardId}: {ex.Message}");
+            return null;
         }
     }
 }
