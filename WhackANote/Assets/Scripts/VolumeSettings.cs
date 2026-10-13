@@ -6,6 +6,7 @@ public class VolumeSettings : MonoBehaviour
 {
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
+    [SerializeField] private Toggle dyslexiaToggle; // NEW
 
     // if player prefs for music volume has already been set, load it. if not, set volume as usual
     private void Start()
@@ -17,6 +18,15 @@ public class VolumeSettings : MonoBehaviour
         else
         {
             SetMusicVolume();
+        }
+    }
+
+    // NEW — runs every time this GameObject (the Settings panel) is activated
+    private void OnEnable()
+    {
+        if (dyslexiaToggle != null && DyslexiaFontManager.Instance != null)
+        {
+            dyslexiaToggle.SetIsOnWithoutNotify(DyslexiaFontManager.Instance.IsDyslexiaFontEnabled());
         }
     }
 
@@ -34,5 +44,11 @@ public class VolumeSettings : MonoBehaviour
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
 
         SetMusicVolume();
+    }
+
+    // NEW — called by the dyslexia toggle's OnValueChanged event
+    public async void OnDyslexiaToggleChanged(bool isOn)
+    {
+        await DyslexiaFontManager.Instance.SetDyslexiaFont(isOn);
     }
 }

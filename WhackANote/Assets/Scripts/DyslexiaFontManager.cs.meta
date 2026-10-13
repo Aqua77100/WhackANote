@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: d5d5479685d03fa4a834560781fc84c2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - defaultFont: {fileID: 11400000, guid: cb6d87c96e4d04ea388610a730b79385, type: 2}
+  - dyslexiaFont: {fileID: 11400000, guid: d0e1bb48ed3fda64a92d0391563bcb13, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
