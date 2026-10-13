@@ -26,18 +26,28 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public bool loadCustomLevel = false;
     public CustomLevelBackground customLevelBackground;
 
+    [Header("Custom Level Drum Loops")]
+    public AudioSource drumBackingTrack;
+
+    public AudioClip drumLoop65;
+    public AudioClip drumLoop85;
+    public AudioClip drumLoop105;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private void Start()
     {
         if (isTutorial)
             return;
 
-        // Only load a saved level in the custom gameplay scene.
         if (loadCustomLevel)
         {
             if (!LoadCustomLevel())
                 return;
+
+            // Select the drum loop based on the saved BPM
+            SetupDrumLoop();
         }
 
         if (sequence == null || sequence.Length == 0)
@@ -49,6 +59,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         StartCoroutine(PlaySequence());
     }
 
+
     
     private IEnumerator PlaySequence()
     {
@@ -58,6 +69,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (loadCustomLevel)
         {
             yield return new WaitUntil(() => Time.timeScale > 0f);
+
+            // Start the backing track when gameplay begins
+            if (drumBackingTrack != null && drumBackingTrack.clip != null)
+            {
+                drumBackingTrack.Play();
+            }
         }
 
         while (true)
@@ -84,6 +101,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 {
                     // Custom level: sequence is finished.
                     Debug.Log("Custom level completed!");
+
+                    // stop backing track
+                    if(drumBackingTrack != null)
+                    {
+                        drumBackingTrack.Stop();
+                    }
 
                     PauseMenu menu = FindFirstObjectByType<PauseMenu>();
 
@@ -224,5 +247,30 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
+    private void SetupDrumLoop()
+    {
+        if (!loadCustomLevel || drumBackingTrack == null)
+            return;
 
+        switch (Mathf.RoundToInt(bpm))
+        {
+            case 65:
+                drumBackingTrack.clip = drumLoop65;
+                break;
+
+            case 85:
+                drumBackingTrack.clip = drumLoop85;
+                break;
+
+            case 105:
+                drumBackingTrack.clip = drumLoop105;
+                break;
+
+            default:
+                Debug.LogWarning("No drum loop for BPM: " + bpm);
+                return;
+        }
+
+        drumBackingTrack.loop = true;
+    }
 }

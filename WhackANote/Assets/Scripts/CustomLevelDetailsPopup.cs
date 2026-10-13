@@ -25,6 +25,15 @@ public class CustomLevelDetailsPopup : MonoBehaviour
     public GameObject deleteConfirmationPanel;
     public CustomLevelSelectManager levelSelectManager;
 
+
+    [Header("Star Rating")]
+    [SerializeField] private Image[] starImages;
+
+    [SerializeField] private Sprite starFullSprite;
+    [SerializeField] private Sprite starHalfSprite;
+    [SerializeField] private Sprite starNoneSprite;
+
+
     public void Show(SavedLevelData data, string filePath, Sprite backgroundSprite)
     {
         // panel is hidden whenever you open a diff level
@@ -67,6 +76,9 @@ public class CustomLevelDetailsPopup : MonoBehaviour
             highScoreValueText.text =
                 bestScore > 0 ? bestScore.ToString() : "-";
         }
+
+        // Update stars based on this level's personal best
+        UpdateStars(bestScore, data.sequence);
 
         if (dimBackground != null)
             dimBackground.SetActive(true);
@@ -177,6 +189,12 @@ public class CustomLevelDetailsPopup : MonoBehaviour
         {
             // Permanently delete the saved level.
             File.Delete(filePath);
+            
+            string scoreKey = "CustomLevelHighScore_" +
+            Path.GetFileNameWithoutExtension(filePath);
+
+            PlayerPrefs.DeleteKey(scoreKey);
+            PlayerPrefs.Save();
 
             Debug.Log("Deleted custom level: " + selectedLevelFileName);
 
@@ -200,4 +218,74 @@ public class CustomLevelDetailsPopup : MonoBehaviour
             Debug.LogError("Failed to delete level: " + exception.Message);
         }
     }
+
+
+    private void UpdateStars(int score, int[] sequence)
+    {
+        if (sequence == null)
+            return;
+
+        // Count playable notes (ignore rests represented by -1)
+        int playableNotes = 0;
+
+        foreach (int note in sequence)
+        {
+            if (note >= 0)
+            {
+                playableNotes++;
+            }
+        }
+
+        // Each PERFECT hit is worth 50 points
+        int maximumScore = playableNotes * 50;
+
+        if (maximumScore <= 0)
+        {
+            foreach (Image star in starImages)
+            {
+                if (star != null)
+                    star.sprite = starNoneSprite;
+            }
+
+            return;
+        }
+
+        // Calculate thresholds based on the maximum score
+        int oneStarThreshold = Mathf.CeilToInt(maximumScore * 0.30f);
+        int twoStarThreshold = Mathf.CeilToInt(maximumScore * 0.60f);
+        int threeStarThreshold = Mathf.CeilToInt(maximumScore * 0.90f);
+
+        int[] thresholds =
+        {
+            0,
+            oneStarThreshold,
+            twoStarThreshold,
+            threeStarThreshold
+        };
+
+        for (int i = 0; i < starImages.Length && i < 3; i++)
+        {
+            if (starImages[i] == null)
+                continue;
+
+            int lowerBound = thresholds[i];
+            int upperBound = thresholds[i + 1];
+            int halfwayPoint =
+                lowerBound + (upperBound - lowerBound) / 2;
+
+            if (score >= upperBound)
+            {
+                starImages[i].sprite = starFullSprite;
+            }
+            else if (score >= halfwayPoint)
+            {
+                starImages[i].sprite = starHalfSprite;
+            }
+            else
+            {
+                starImages[i].sprite = starNoneSprite;
+            }
+        }
+    }
+
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Custom Level Settings")]
     [SerializeField] private bool isCustomLevel = false;
+    [Header("Custom Level Audio")]
+    [SerializeField] private AudioSource drumBackingTrack;
+
+    private bool resumeDrumAfterCountdown = false;
 
     private void Awake()
     {
@@ -90,6 +95,14 @@ public class PauseMenu : MonoBehaviour
         {
             Music.Pause(); // pause the music
         }
+
+        // Pause the custom-level drum track
+        if (isCustomLevel && drumBackingTrack != null &&
+            drumBackingTrack.isPlaying)
+        {
+            resumeDrumAfterCountdown = true;
+            drumBackingTrack.Pause();
+        }
     }
 
     public void Continue() // click continue button then:
@@ -109,7 +122,7 @@ public class PauseMenu : MonoBehaviour
     IEnumerator CountdownRoutine() // this is the countdown coroutine
     {
         Time.timeScale = 0f; // make sure time is pased so game isn't going on
-        if (uiBlocker != null) uiBlocker.SetActive(true); // Keep clicks blocked during countdown
+        if (uiBlocker != null) uiBlocker.SetActive(true); // Keep clicks blocked during countdown       
 
         if (Music != null && Music.isPlaying)
         {
@@ -138,6 +151,14 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f; // play normal time speed
         if (uiBlocker != null) uiBlocker.SetActive(false); // Unblock interactions after countdown
+        
+        // Resume the drum loop AFTER the countdown finishes
+        if (isCustomLevel && drumBackingTrack != null &&
+            resumeDrumAfterCountdown)
+        {
+            drumBackingTrack.UnPause();
+            resumeDrumAfterCountdown = false;
+        }
 
         if (Music != null)
         {
@@ -168,6 +189,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Track Selection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
     }
 
+    public void CustomHome()
+    {
+        CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
+        SceneManager.LoadScene("CustomTrackSelection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+    }
+
     private void CleanupBeforeSceneChange() // reset the game states
     {
         isEnded = true;
@@ -184,6 +211,13 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenu != null) pauseMenu.SetActive(false);
 
         Time.timeScale = 1f;
+
+        resumeDrumAfterCountdown = false;
+
+        if (drumBackingTrack != null)
+        {
+            drumBackingTrack.Stop();
+        }
     }
 
     
@@ -192,6 +226,40 @@ public class PauseMenu : MonoBehaviour
         if (!isEnded)
         {
             isEnded = true;
+
+
+            if (isCustomLevel && ScoreManager.Instance != null)
+            {
+                string fileName = PlayerPrefs.GetString(
+                    "SelectedCreatedLevelFile", ""
+                );
+
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    string scoreKey = "CustomLevelHighScore_" +
+                        Path.GetFileNameWithoutExtension(fileName);
+
+                    int currentScore = ScoreManager.Instance.GetScore();
+                    int previousBest = PlayerPrefs.GetInt(scoreKey, 0);
+
+                    // Only save if the player beats their previous high score
+                    if (currentScore > previousBest)
+                    {
+                        PlayerPrefs.SetInt(scoreKey, currentScore);
+                        PlayerPrefs.Save();
+
+                        Debug.Log("New custom level high score: " + currentScore);
+                    }
+                }
+            }
+
+
+            resumeDrumAfterCountdown = false;
+
+            if (drumBackingTrack != null)
+            {
+                drumBackingTrack.Stop();
+            }
 
             // Stop gameplay
             Time.timeScale = 0f;
