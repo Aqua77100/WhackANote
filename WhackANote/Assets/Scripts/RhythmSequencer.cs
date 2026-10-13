@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -21,34 +22,110 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [Tooltip("If true, the sequencer will wait for TutorialManager to call StartTutorialSong() instead of auto-starting.")]
     public bool isTutorial = false;
 
+    [Header("Custom Level Settings")]
+    public bool loadCustomLevel = false;
+    public CustomLevelBackground customLevelBackground;
+
+    [Header("Custom Level Drum Loops")]
+    public AudioSource drumBackingTrack;
+
+    public AudioClip drumLoop65;
+    public AudioClip drumLoop85;
+    public AudioClip drumLoop105;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private void Start()
     {
-        // Only auto-start if this is NOT a tutorial level
-        if (!isTutorial)
+        if (isTutorial)
+            return;
+
+        if (loadCustomLevel)
         {
-            StartCoroutine(PlaySequence());
+            if (!LoadCustomLevel())
+                return;
+
+            // Select the drum loop based on the saved BPM
+            SetupDrumLoop();
         }
+
+        if (sequence == null || sequence.Length == 0)
+        {
+            Debug.LogError("Level sequence is empty!");
+            return;
+        }
+
+        StartCoroutine(PlaySequence());
     }
 
-    private IEnumerator PlaySequence(){
+
+    
+    private IEnumerator PlaySequence()
+    {
         int sequenceIndex = 0;
 
-        while(true){
+        // Custom levels wait until the countdown finishes.
+        if (loadCustomLevel)
+        {
+            yield return new WaitUntil(() => Time.timeScale > 0f);
+
+            // Start the backing track when gameplay begins
+            if (drumBackingTrack != null && drumBackingTrack.clip != null)
+            {
+                drumBackingTrack.Play();
+            }
+        }
+
+        while (true)
+        {
             float secondsPerBeat = SecondsPerBeat;
             int moleIndex = sequence[sequenceIndex];
 
-            if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null){
+            if (moleIndex >= 0 &&
+                moleIndex < moles.Length &&
+                moles[moleIndex] != null)
+            {
                 float duration = secondsPerBeat * activeWindowInBeats;
                 moles[moleIndex].PopUp(duration);
             }
 
-            sequenceIndex = (sequenceIndex+1)%sequence.Length;
-
+            // Wait for this beat to finish.
             yield return new WaitForSeconds(secondsPerBeat);
+
+            sequenceIndex++;
+
+            if (sequenceIndex >= sequence.Length)
+            {
+                if (loadCustomLevel)
+                {
+                    // Custom level: sequence is finished.
+                    Debug.Log("Custom level completed!");
+
+                    // stop backing track
+                    if(drumBackingTrack != null)
+                    {
+                        drumBackingTrack.Stop();
+                    }
+
+                    PauseMenu menu = FindFirstObjectByType<PauseMenu>();
+
+                    if (menu != null)
+                    {
+                        menu.gameOver();
+                    }
+
+                    yield break;
+                }
+                else
+                {
+                    // Built-in level: start the sequence again.
+                    sequenceIndex = 0;
+                }
+            }
         }
     }
+
 
     // private IEnumerator PlaySequence()
     // {
@@ -87,4 +164,113 @@ public class NewMonoBehaviourScript : MonoBehaviour
     //     }
     // }
 
+
+    private bool LoadCustomLevel()
+    {
+        string fileName = PlayerPrefs.GetString(
+            "SelectedCreatedLevelFile", ""
+        );
+
+        if (string.IsNullOrEmpty(fileName))
+        {
+            Debug.LogError("No custom level was selected!");
+            return false;
+        }
+
+        string filePath = Path.Combine(
+            Application.persistentDataPath,
+            "CreatedLevels",
+            Path.GetFileName(fileName)
+        );
+
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError("Custom level not found: " + filePath);
+            return false;
+        }
+
+        try
+        {
+            string json = File.ReadAllText(filePath);
+
+            SavedLevelData data =
+                JsonUtility.FromJson<SavedLevelData>(json);
+
+            if (data == null ||
+                data.sequence == null ||
+                data.sequence.Length == 0 ||
+                data.bpm <= 0)
+            {
+                Debug.LogError("Invalid custom level data!");
+                return false;
+            }
+
+            // Apply the saved level's sequence and BPM.
+            sequence = data.sequence;
+            bpm = data.bpm;
+
+
+            // Apply the saved instrument to every mole
+            for (int i = 0; i < moles.Length; i++)
+            {
+                if (moles[i] != null)
+                {
+                    moles[i].SetInstrument(data.instrumentIndex);
+                }
+            }
+
+            Debug.Log("Loaded instrument: " + data.instrumentIndex);
+
+
+            // Apply the saved level's background.
+            if (customLevelBackground != null)
+            {
+                customLevelBackground.SetBackground(data.backgroundName);
+            }
+            else
+            {
+                Debug.LogWarning("Custom Level Background is not assigned!");
+            }
+
+            Debug.Log(
+                "Loaded level: " + data.levelName +
+                " | BPM: " + bpm +
+                " | Sequence: " + string.Join(", ", sequence)
+            );
+
+            return true;
+        }
+        catch (System.Exception exception)
+        {
+            Debug.LogError("Failed to load level: " + exception.Message);
+            return false;
+        }
+    }
+
+    private void SetupDrumLoop()
+    {
+        if (!loadCustomLevel || drumBackingTrack == null)
+            return;
+
+        switch (Mathf.RoundToInt(bpm))
+        {
+            case 65:
+                drumBackingTrack.clip = drumLoop65;
+                break;
+
+            case 85:
+                drumBackingTrack.clip = drumLoop85;
+                break;
+
+            case 105:
+                drumBackingTrack.clip = drumLoop105;
+                break;
+
+            default:
+                Debug.LogWarning("No drum loop for BPM: " + bpm);
+                return;
+        }
+
+        drumBackingTrack.loop = true;
+    }
 }

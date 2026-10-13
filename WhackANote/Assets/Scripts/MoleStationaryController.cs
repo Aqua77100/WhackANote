@@ -12,6 +12,13 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public TextMeshProUGUI HitType;
     public bool showHitFeedback = true;
 
+    [Header("Instrument Sounds")]
+    public AudioClip[] instrumentClips;
+
+
+    [Header("Mole Settings")]
+    public int moleIndex;
+
     [Header("Hit Type Colours")] // These RGB codes actually dont really work, so I manually added them on the moles, hence the header and public types
     public Color perfectColour = new Color32(255, 238, 129, 255);
     public Color greatColour = new Color32(130, 255, 229, 255);
@@ -37,6 +44,8 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
     public int goodScore = 15;
 
     private int currentHitFrame = 7; // To keep track of what frame of the mole array we're on
+    public MoleStationaryController[] moles;
+    public float duration;
 
     private void Awake()
     {
@@ -202,10 +211,25 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
 
     // Centralized method to process hit logic safely once
     private void ProcessTap()
-    {
+    {       
         // Block processing if paused or frozen
         if (PauseMenu.isPaused || Time.timeScale == 0f) return;
 
+        // composer mode
+        if(Composer.Instance != null && Composer.Instance.isRecording)
+        {
+            //Debug.Log("being tapped");
+            moles[moleIndex].PopUp(duration);
+            Composer.Instance.RecordMole(moleIndex);
+            // play the moles note so user can hear it
+            if(audioSource != null && audioSource.clip != null)
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+            }
+            return;
+        }
+
+        // normal gameplay
         if (isClickable && !wasTapped)
         {
             wasTapped = true;
@@ -327,4 +351,39 @@ public class MoleStationaryController : MonoBehaviour, IPointerDownHandler
             HitType.gameObject.SetActive(false);
         }
     }
+
+
+    public void SetInstrument(int instrumentIndex)
+    {
+        // Check that the selected instrument exists
+        if (instrumentClips == null ||
+            instrumentIndex < 0 ||
+            instrumentIndex >= instrumentClips.Length ||
+            instrumentClips[instrumentIndex] == null)
+        {
+            Debug.LogWarning(
+                "Instrument " + instrumentIndex +
+                " is not assigned for " + gameObject.name
+            );
+            return;
+        }
+
+        // Get the selected instrument's note
+        moleNote = instrumentClips[instrumentIndex];
+
+        // Update the AudioSource
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.clip = moleNote;
+        }
+
+        Debug.Log(
+            gameObject.name +
+            " changed to instrument " + instrumentIndex
+        );
+    }
+
 }
