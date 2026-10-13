@@ -620,4 +620,4 @@ MonoBehaviour:
   scoreText: {fileID: 4098519439557330713}
   background: {fileID: 8167307950867698222}
   normalColor: {r: 1, g: 1, b: 1, a: 0.15}
-  playerColor: {r: 1, g: 0.85, b: 0.2, a: 0.6}
+  playerColor: {r: 0.7518788, g: 0.62954384, b: 0.8742138, a: 1}
