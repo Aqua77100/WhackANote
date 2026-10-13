@@ -336,7 +336,7 @@ public class PauseMenu : MonoBehaviour
                     string scoreKey = "CustomLevelHighScore_" +
                         Path.GetFileNameWithoutExtension(fileName);
 
-                    int currentScore = ScoreManager.Instance.GetScore();
+                    //int currentScore = ScoreManager.Instance.GetScore();
                     int previousBest = PlayerPrefs.GetInt(scoreKey, 0);
 
                     // Only save if the player beats their previous high score
@@ -362,8 +362,8 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0f;
 
             // Display Game Over UI
-            if (GameOverUI != null)
-                GameOverUI.SetActive(true);
+            if (gameOverUI != null)
+                gameOverUI.SetActive(true);
 
             if (uiBlocker != null)
                 uiBlocker.SetActive(true);

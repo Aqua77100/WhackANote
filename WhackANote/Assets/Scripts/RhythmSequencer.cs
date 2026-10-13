@@ -112,7 +112,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
                     if (menu != null)
                     {
-                        menu.gameOver();
+                        menu.trackComplete();
                     }
 
                     yield break;

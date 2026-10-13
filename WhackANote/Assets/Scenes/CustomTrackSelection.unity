@@ -2639,6 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
   myMixer: {fileID: 24100000, guid: 55397187d9bc3b14da84b4933cee76df, type: 2}
   musicSlider: {fileID: 526169626}
+  dyslexiaToggle: {fileID: 0}
 --- !u!114 &1189527892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,9 +2782,9 @@ MonoBehaviour:
   - backgroundName: Moon
     sprite: {fileID: 2721249908109017506, guid: f59acdc4177104d48a27479ee1131b45, type: 3}
   - backgroundName: Garden
-    sprite: {fileID: -5699104055798326421, guid: b3bbb5473345a4131beb10db068a9be6, type: 3}
+    sprite: {fileID: -5699104055798326421, guid: 08793a7865d65c641b50dc3dfa94e4f1, type: 3}
   - backgroundName: Arcade
-    sprite: {fileID: 1440048236831023578, guid: c8982d37a293c450dad087d593cc53a9, type: 3}
+    sprite: {fileID: 1440048236831023578, guid: 2f1a37b732b5b4643a3f0f2dc00d0cf2, type: 3}
   detailsPopup: {fileID: 945268351}
 --- !u!4 &1206784214
 Transform:
@@ -3251,6 +3252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   myMixer: {fileID: 24100000, guid: 55397187d9bc3b14da84b4933cee76df, type: 2}
   musicSlider: {fileID: 526169626}
+  dyslexiaToggle: {fileID: 0}
 --- !u!1 &1527745001
 GameObject:
   m_ObjectHideFlags: 0
