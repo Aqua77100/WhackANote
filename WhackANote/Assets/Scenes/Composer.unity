@@ -1564,7 +1564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &513488342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2010,8 +2010,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289033351
+  m_fontColor: {r: 0.5294118, g: 0.45490196, b: 0.64705884, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3927,6 +3927,7 @@ GameObject:
   - component: {fileID: 953868559}
   - component: {fileID: 953868561}
   - component: {fileID: 953868560}
+  - component: {fileID: 953868562}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -3991,6 +3992,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953868558}
   m_CullTransparentMesh: 1
+--- !u!114 &953868562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953868558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 0, b: 0.99501085, a: 1}
+  darkModeColour: {r: 0.52156866, g: 0.45490196, b: 0.6392157, a: 1}
 --- !u!1 &985568852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,6 +5386,7 @@ GameObject:
   - component: {fileID: 1260516692}
   - component: {fileID: 1260516691}
   - component: {fileID: 1260516690}
+  - component: {fileID: 1260516693}
   m_Layer: 5
   m_Name: save
   m_TagString: Untagged
@@ -5492,6 +5508,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260516688}
   m_CullTransparentMesh: 1
+--- !u!114 &1260516693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260516688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 0, g: 1, b: 0.20496893, a: 1}
+  darkModeColour: {r: 0.006274463, g: 0.4433962, b: 0.09587084, a: 1}
 --- !u!1 &1271740715
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,8 +7628,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289033351
+  m_fontColor: {r: 0.5294118, g: 0.45490196, b: 0.64705884, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

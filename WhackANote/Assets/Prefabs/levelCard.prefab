@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 5952168306853202638}
   - component: {fileID: 7766922230818214161}
   - component: {fileID: 8924948791513593329}
+  - component: {fileID: 4655521492142677732}
   m_Layer: 5
   m_Name: levelCard
   m_TagString: Untagged
@@ -232,6 +233,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   titleText: {fileID: 8156047475524649908}
   backgroundImage: {fileID: 5363398801319438086}
+--- !u!114 &4655521492142677732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412302025014349329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
 --- !u!1 &2568058736306114101
 GameObject:
   m_ObjectHideFlags: 0

@@ -155,6 +155,8 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips: []
+  moleIndex: 0
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -179,6 +181,8 @@ MonoBehaviour:
   perfectScore: 100
   greatScore: 50
   goodScore: 25
+  moles: []
+  duration: 0
 --- !u!82 &235594
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1379,6 +1383,12 @@ MonoBehaviour:
   bpm: 80
   activeWindowInBeats: 1.8
   isTutorial: 0
+  loadCustomLevel: 0
+  customLevelBackground: {fileID: 0}
+  drumBackingTrack: {fileID: 0}
+  drumLoop65: {fileID: 0}
+  drumLoop85: {fileID: 0}
+  drumLoop105: {fileID: 0}
 --- !u!4 &204618385
 Transform:
   m_ObjectHideFlags: 0
@@ -5380,6 +5390,8 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips: []
+  moleIndex: 0
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -5404,6 +5416,8 @@ MonoBehaviour:
   perfectScore: 100
   greatScore: 50
   goodScore: 25
+  moles: []
+  duration: 0
 --- !u!82 &1327623826
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5781,6 +5795,8 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips: []
+  moleIndex: 0
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -5805,6 +5821,8 @@ MonoBehaviour:
   perfectScore: 100
   greatScore: 50
   goodScore: 25
+  moles: []
+  duration: 0
 --- !u!82 &1381646348
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6813,6 +6831,7 @@ GameObject:
   - component: {fileID: 1618067647}
   - component: {fileID: 1618067649}
   - component: {fileID: 1618067648}
+  - component: {fileID: 1618067650}
   m_Layer: 5
   m_Name: Pause Panel
   m_TagString: Untagged
@@ -6880,6 +6899,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618067646}
   m_CullTransparentMesh: 1
+--- !u!114 &1618067650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618067646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1632883552
 GameObject:
   m_ObjectHideFlags: 0
@@ -7826,6 +7859,8 @@ MonoBehaviour:
   moleNote: {fileID: 0}
   HitType: {fileID: 1026194157}
   showHitFeedback: 1
+  instrumentClips: []
+  moleIndex: 0
   perfectColour: {r: 1, g: 0.93333334, b: 0.5058824, a: 1}
   greatColour: {r: 0.50980395, g: 1, b: 0.8980392, a: 1}
   goodColour: {r: 0.95686275, g: 0.6, b: 0.9882353, a: 1}
@@ -7850,6 +7885,8 @@ MonoBehaviour:
   perfectScore: 100
   greatScore: 50
   goodScore: 25
+  moles: []
+  duration: 0
 --- !u!95 &1875355412
 Animator:
   serializedVersion: 7
@@ -8212,6 +8249,8 @@ MonoBehaviour:
   gameOverUI: {fileID: 413570464}
   countdownText: {fileID: 1974283502}
   isEnded: 0
+  isCustomLevel: 0
+  drumBackingTrack: {fileID: 0}
 --- !u!1 &2139513849
 GameObject:
   m_ObjectHideFlags: 0
