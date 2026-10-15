@@ -135,7 +135,16 @@ public class CustomLevelDetailsPopup : MonoBehaviour
         Debug.Log("Launching custom level: " + selectedLevelFileName);
 
         // Open the shared gameplay scene.
-        SceneManager.LoadScene(gameplaySceneName);
+        // find UiFade and tell it to switch scenes
+        UiFade fader = FindObjectOfType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene(gameplaySceneName);
+        }
+        else
+        {
+            SceneManager.LoadScene(gameplaySceneName); // load normally
+        }
     }
 
     public void ShowDeleteConfirmation()
