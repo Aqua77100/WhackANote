@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16078432, g: 0.09019608, b: 0.23529413, a: 1}
+  m_Color: {r: 0.058216926, g: 0.018037235, b: 0.10062885, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5015,7 +5015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   canvasGroup: {fileID: 2051539843}
-  fadeDuration: 1
+  fadeDuration: 0.5
 --- !u!225 &2051539843
 CanvasGroup:
   m_ObjectHideFlags: 0
