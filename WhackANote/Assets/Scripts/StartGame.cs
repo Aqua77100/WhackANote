@@ -11,7 +11,7 @@ public class StartGame : MonoBehaviour
         CurrentTrackId = LevelName; // NEW
 
         // find UiFade and tell it to switch scenes
-        UiFade fader = FindObjectOfType<UiFade>();
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
         if (fader != null)
         {
             fader.GoToScene(LevelName);
@@ -27,7 +27,7 @@ public class StartGame : MonoBehaviour
         CurrentTrackId = LevelName;
 
         // find UiFade and tell it to switch scenes
-        UiFade fader = FindObjectOfType<UiFade>();
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
         if (fader != null)
         {
             fader.GoToScene("Leaderboard");

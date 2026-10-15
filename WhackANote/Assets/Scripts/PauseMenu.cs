@@ -219,19 +219,44 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         CleanupBeforeSceneChange(); // Reset to initial states (see method below)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // get the scene and load it
+
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void Home()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("Track Selection"); 
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene("Track Selection");
+        }
+        else
+        {
+            SceneManager.LoadScene("Track Selection");
+        }
     }
 
     public void CustomHome()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("CustomTrackSelection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene("CustomTrackSelection");
+        }
+        else
+        {
+            SceneManager.LoadScene("CustomTrackSelection");
+        }
     }
 
     private void CleanupBeforeSceneChange() // reset the game states
