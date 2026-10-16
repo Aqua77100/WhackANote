@@ -1753,6 +1753,7 @@ GameObject:
   - component: {fileID: 837684936}
   - component: {fileID: 837684937}
   - component: {fileID: 837684938}
+  - component: {fileID: 837684939}
   m_Layer: 5
   m_Name: SettingMenu
   m_TagString: Untagged
@@ -1767,7 +1768,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837684935}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1799,7 +1800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   myMixer: {fileID: 24100000, guid: 55397187d9bc3b14da84b4933cee76df, type: 2}
   musicSlider: {fileID: 1588714038}
-  dyslexiaToggle: {fileID: 0}
+  dyslexiaToggle: {fileID: 390546011}
 --- !u!114 &837684938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,6 +1816,18 @@ MonoBehaviour:
   nameInput: {fileID: 1994720706}
   currentNameText: {fileID: 233971597}
   statusText: {fileID: 1824678728}
+--- !u!225 &837684939
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837684935}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &944091619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,7 +4654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
   myMixer: {fileID: 24100000, guid: 55397187d9bc3b14da84b4933cee76df, type: 2}
   musicSlider: {fileID: 1588714038}
-  dyslexiaToggle: {fileID: 0}
+  dyslexiaToggle: {fileID: 390546011}
 --- !u!1 &1994720704
 GameObject:
   m_ObjectHideFlags: 0
