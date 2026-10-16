@@ -3,6 +3,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 [Serializable]
 public class SavedLevelData
@@ -34,6 +35,12 @@ public class LevelSavePopup : MonoBehaviour
     public CanvasGroup mainUIGroup;
     public GameObject dimBackground;
 
+    [Header("UI Animation")]
+    [SerializeField] RectTransform savePanelRect;
+    [SerializeField] float topPosY, middlePosY;
+    [SerializeField] float tweenDuration;
+    [SerializeField] CanvasGroup canvasGroup; // dark panel
+
     public static bool IsPopupOpen { get; private set; } = false;
 
     private void Start()
@@ -62,7 +69,7 @@ public class LevelSavePopup : MonoBehaviour
         if (composer.IsRecording)
             composer.StopRecording();
 
-        // Disable the normal UI buttons.
+        //Disable the normal UI buttons.
         if (mainUIGroup != null)
         {
             mainUIGroup.interactable = false;
@@ -77,6 +84,7 @@ public class LevelSavePopup : MonoBehaviour
         // Show the popup on top.
         if (popupPanel != null)
             popupPanel.SetActive(true);
+        SavePanelIntro();
 
         if (statusText != null)
             statusText.text = "";
@@ -92,22 +100,32 @@ public class LevelSavePopup : MonoBehaviour
 
     public void ClosePopup()
     {
-        IsPopupOpen = false;
-
-        if (popupPanel != null)
-            popupPanel.SetActive(false);
-
         // Restore the normal UI buttons.
         if (mainUIGroup != null)
         {
             mainUIGroup.interactable = true;
             mainUIGroup.blocksRaycasts = true;
         }
-
-        // Remove the dark overlay.
-        if (dimBackground != null)
-            dimBackground.SetActive(false);
+        SavePanelOutro();
     }
+
+    void SavePanelIntro()
+    {
+        canvasGroup.DOFade(1, tweenDuration);
+        savePanelRect.DOAnchorPosY(middlePosY, tweenDuration);
+    }
+
+    void SavePanelOutro()
+    {
+        canvasGroup.DOFade(0, tweenDuration);
+        savePanelRect.DOAnchorPosY(topPosY, tweenDuration)
+            .OnComplete(() =>
+            {
+                if (dimBackground != null) dimBackground.SetActive(false);
+                gameObject.SetActive(false);
+            });
+    }
+
 
     private void SetBpmDropdownToCurrent()
     {

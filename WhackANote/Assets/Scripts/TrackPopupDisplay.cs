@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TrackPopupDisplay : MonoBehaviour
 {
@@ -21,8 +22,14 @@ public class TrackPopupDisplay : MonoBehaviour
     [SerializeField] private int twoStarThreshold = 1500;
     [SerializeField] private int threeStarThreshold = 3000;
 
+    [SerializeField] RectTransform trackPanelRect;
+    [SerializeField] float topPosY, middlePosY;
+    [SerializeField] float tweenDuration;
+    [SerializeField] CanvasGroup canvasGroup; // dark panel
+
     private async void OnEnable()
     {
+        TrackPanelIntro();
         try
         {
             string key = $"highscore_{trackId}";
@@ -44,6 +51,25 @@ public class TrackPopupDisplay : MonoBehaviour
             Debug.LogException(ex);
         }
     }
+
+    public void Close()
+    {
+        TrackPanelOutro();
+    }
+
+    void TrackPanelIntro()
+    {
+        canvasGroup.DOFade(1, tweenDuration);
+        trackPanelRect.DOAnchorPosY(middlePosY, tweenDuration);
+    }
+
+    void TrackPanelOutro()
+    {
+        canvasGroup.DOFade(0, tweenDuration);
+        trackPanelRect.DOAnchorPosY(topPosY, tweenDuration)
+            .OnComplete(() => gameObject.SetActive(false));
+    }
+
 
     private void UpdateStars(int score)
     {

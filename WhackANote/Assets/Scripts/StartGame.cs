@@ -9,12 +9,32 @@ public class StartGame : MonoBehaviour
     public void LoadLevel()
     {
         CurrentTrackId = LevelName; // NEW
-        SceneManager.LoadScene(LevelName);
+
+        // find UiFade and tell it to switch scenes
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene(LevelName);
+        }
+        else
+        {
+            SceneManager.LoadScene(LevelName); // load normally
+        }
     }
 
     public void LoadLeaderboard()
     {
         CurrentTrackId = LevelName;
-        SceneManager.LoadScene("Leaderboard");
+
+        // find UiFade and tell it to switch scenes
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene("Leaderboard");
+        }
+        else
+        {
+            SceneManager.LoadScene("Leaderboard"); // load normally
+        }
     }
 }
