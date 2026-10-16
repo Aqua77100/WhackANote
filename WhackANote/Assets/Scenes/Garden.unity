@@ -447,6 +447,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &21059966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +599,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: -3341633421191362770, guid: 51089add4398d47698c9ab4591fe3aea, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &59745428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,6 +811,7 @@ GameObject:
   - component: {fileID: 127094221}
   - component: {fileID: 127094223}
   - component: {fileID: 127094222}
+  - component: {fileID: 127094224}
   m_Layer: 5
   m_Name: PauseTitle
   m_TagString: Untagged
@@ -931,6 +938,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127094220}
   m_CullTransparentMesh: 1
+--- !u!114 &127094224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127094220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 1, g: 1, b: 1, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 1
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &144622436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1105,7 @@ GameObject:
   - component: {fileID: 157837094}
   - component: {fileID: 157837096}
   - component: {fileID: 157837095}
+  - component: {fileID: 157837097}
   m_Layer: 5
   m_Name: YouFailed
   m_TagString: Untagged
@@ -1205,6 +1232,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157837093}
   m_CullTransparentMesh: 1
+--- !u!114 &157837097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157837093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 1, g: 1, b: 1, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 1
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &181260806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3043,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &519065367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3262,6 +3311,7 @@ GameObject:
   - component: {fileID: 604717712}
   - component: {fileID: 604717714}
   - component: {fileID: 604717713}
+  - component: {fileID: 604717715}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3388,6 +3438,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604717711}
   m_CullTransparentMesh: 1
+--- !u!114 &604717715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604717711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 1, g: 1, b: 1, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 1
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,6 +3712,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 3356406395973183004, guid: 515bec51d5471468a830df2e36b8b4e9, type: 3}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &625016140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3908,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &635760682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4020,6 +4095,7 @@ GameObject:
   - component: {fileID: 666944768}
   - component: {fileID: 666944770}
   - component: {fileID: 666944769}
+  - component: {fileID: 666944771}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4146,6 +4222,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666944767}
   m_CullTransparentMesh: 1
+--- !u!114 &666944771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666944767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 1, g: 1, b: 1, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 1
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &691643741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,6 +4496,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: -3341633421191362770, guid: 51089add4398d47698c9ab4591fe3aea, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &826525885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,6 +5691,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: -3341633421191362770, guid: 51089add4398d47698c9ab4591fe3aea, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1102598760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6533,6 +6634,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1381646345
 GameObject:
   m_ObjectHideFlags: 0
@@ -7514,6 +7618,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 3356406395973183004, guid: 515bec51d5471468a830df2e36b8b4e9, type: 3}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1632883552
 GameObject:
   m_ObjectHideFlags: 0
@@ -7950,6 +8057,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 1196986037622552834, guid: 4b77a6c29cb5548baaa63a37f90360ea, type: 3}
   darkModeSprite: {fileID: 8124196735557578148, guid: 0a75a40fc853141468fc76c8eeadf075, type: 3}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1769151748
 GameObject:
   m_ObjectHideFlags: 0
@@ -8804,6 +8914,7 @@ GameObject:
   - component: {fileID: 1930981938}
   - component: {fileID: 1930981940}
   - component: {fileID: 1930981939}
+  - component: {fileID: 1930981941}
   m_Layer: 5
   m_Name: trackClearedText
   m_TagString: Untagged
@@ -8930,6 +9041,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930981937}
   m_CullTransparentMesh: 1
+--- !u!114 &1930981941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930981937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 1, g: 1, b: 1, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 1
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1947751650
 GameObject:
   m_ObjectHideFlags: 0
@@ -9215,6 +9345,7 @@ GameObject:
   - component: {fileID: 2086590609}
   - component: {fileID: 2086590611}
   - component: {fileID: 2086590610}
+  - component: {fileID: 2086590612}
   m_Layer: 5
   m_Name: Mole-Tdown
   m_TagString: Untagged
@@ -9341,6 +9472,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086590608}
   m_CullTransparentMesh: 1
+--- !u!114 &2086590612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086590608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeColour: {r: 1, g: 1, b: 1, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 1
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2089323145
 GameObject:
   m_ObjectHideFlags: 0
@@ -9403,6 +9553,9 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 2985597505395403577, guid: 3088f09059bef46a2953e1ccf8041590, type: 3}
   darkModeSprite: {fileID: 3356406395973183004, guid: 515bec51d5471468a830df2e36b8b4e9, type: 3}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2089323148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9588,7 +9741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2134198672
 RectTransform:
   m_ObjectHideFlags: 0

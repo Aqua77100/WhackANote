@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ThemeColour : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class ThemeColour : MonoBehaviour
     [Header("Optional Sprite Variants")]
     [SerializeField] private Sprite lightModeSprite;
     [SerializeField] private Sprite darkModeSprite;
+
+    [Header("Optional Dyslexia Font Colours")]
+    [SerializeField] private bool overrideDyslexiaColour = false;
+    [SerializeField] private Color dyslexiaLightColour = Color.black;
+    [SerializeField] private Color dyslexiaDarkColour = Color.white;
 
     private Graphic uiGraphic;
     private Image uiImage;
@@ -69,7 +75,21 @@ public class ThemeColour : MonoBehaviour
         // 4. Apply to UI graphics (Images and TMP text)
         if (uiGraphic != null)
         {
-            uiGraphic.color = selectedColour;
+            bool dyslexiaActive =
+                uiGraphic is TMP_Text &&
+                DyslexiaFontManager.Instance != null &&
+                DyslexiaFontManager.Instance.IsDyslexiaFontEnabled();
+
+            if (dyslexiaActive && overrideDyslexiaColour)
+            {
+                uiGraphic.color = isDark
+                    ? dyslexiaDarkColour
+                    : dyslexiaLightColour;
+            }
+            else
+            {
+                uiGraphic.color = selectedColour;
+            }
         }
 
         // 5. Apply to 2D SpriteRenderers
@@ -81,5 +101,10 @@ public class ThemeColour : MonoBehaviour
 
             spriteRenderer.color = selectedColour;
         }
+    }
+
+    public void RefreshTheme()
+    {
+        ApplyTheme();
     }
 }
