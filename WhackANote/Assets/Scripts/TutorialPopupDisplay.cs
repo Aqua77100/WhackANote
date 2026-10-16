@@ -13,7 +13,7 @@ public class TutorialPopupDisplay : MonoBehaviour
 
     private async void OnEnable()
     {
-        SettingPanelIntro();
+        TutorialPanelIntro();
         try
         {
             var loaded = await CloudSaveManager.Instance.LoadData(new HashSet<string> { "tutorial_completed" });
@@ -36,16 +36,16 @@ public class TutorialPopupDisplay : MonoBehaviour
 
     public void Close()
     {
-        SettingPanelOutro();
+        TutorialPanelOutro();
     }
 
-    void SettingPanelIntro()
+    void TutorialPanelIntro()
     {
         canvasGroup.DOFade(1, tweenDuration);
         tutorialPanelRect.DOAnchorPosY(middlePosY, tweenDuration);
     }
 
-    void SettingPanelOutro()
+    void TutorialPanelOutro()
     {
         canvasGroup.DOFade(0, tweenDuration);
         tutorialPanelRect.DOAnchorPosY(topPosY, tweenDuration)
