@@ -1,13 +1,19 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class TutorialPopupDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI statusValueText; // the "Incomplete"/"Completed" text object
+    [SerializeField] RectTransform tutorialPanelRect;
+    [SerializeField] float topPosY, middlePosY;
+    [SerializeField] float tweenDuration;
+    [SerializeField] CanvasGroup canvasGroup; // dark panel
 
     private async void OnEnable()
     {
+        SettingPanelIntro();
         try
         {
             var loaded = await CloudSaveManager.Instance.LoadData(new HashSet<string> { "tutorial_completed" });
@@ -26,5 +32,23 @@ public class TutorialPopupDisplay : MonoBehaviour
         {
             Debug.LogException(ex);
         }
+    }
+
+    public void Close()
+    {
+        SettingPanelOutro();
+    }
+
+    void SettingPanelIntro()
+    {
+        canvasGroup.DOFade(1, tweenDuration);
+        tutorialPanelRect.DOAnchorPosY(middlePosY, tweenDuration);
+    }
+
+    void SettingPanelOutro()
+    {
+        canvasGroup.DOFade(0, tweenDuration);
+        tutorialPanelRect.DOAnchorPosY(topPosY, tweenDuration)
+            .OnComplete(() => gameObject.SetActive(false));
     }
 }
