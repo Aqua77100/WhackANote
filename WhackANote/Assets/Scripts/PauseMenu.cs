@@ -23,6 +23,9 @@ public class PauseMenu : MonoBehaviour
     private bool hasStartedPlaying = false;
     private bool gameStarted = false;
 
+    [Header("Tutorial Settings")]
+    [SerializeField] private bool isTutorial = false;
+
     private Coroutine countdownCoroutine; // Corouting needed for the countdown
 
     [Header("Custom Level Settings")]
@@ -180,7 +183,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Music.UnPause(); //unpause
             }
-            else // if it hasnt played yet (e.g. you paused when just starting the game):
+            else if (!isTutorial)// if it hasnt played yet (e.g. you paused when just starting the game):
             {
                 Music.Play(); // play
                 hasStartedPlaying = true; // set boolean to true so that next time, it will unpause where you left off
