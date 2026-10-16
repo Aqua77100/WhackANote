@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   canvasGroup: {fileID: 418293569}
   fadeDuration: 0.5
-  holdDurationBeforeFadeIn: 0.6
+  holdDurationBeforeFadeIn: 0.4
 --- !u!222 &2051539844
 CanvasRenderer:
   m_ObjectHideFlags: 0

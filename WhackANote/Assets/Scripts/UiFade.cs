@@ -11,6 +11,7 @@ public class UiFade : MonoBehaviour
     private static UiFade instance;
     private bool isTransitioning = false; // prevent double clicks
     private Coroutine currentFade; // track running fade
+    private bool isFirstLoad = true;
 
     private void Awake()
     {
@@ -40,13 +41,28 @@ public class UiFade : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        isTransitioning = false;
+
+        // title screen at start up: no fade, just start clear
+        if (isFirstLoad)
+        {
+            isFirstLoad = false;
+            canvasGroup.alpha = 0f;
+            if (myCanvas != null)
+            {
+                myCanvas.sortingOrder = -1;
+                myCanvas.enabled = false;
+            }
+            return;
+        }
+
+        // every other scene: normal fade-in
         // make sure canvas is turned on so we can see fade-in
         if (myCanvas != null)
         {
             myCanvas.enabled = true;
         }
 
-        isTransitioning = false;
         // start solid, then fade out
         // true: turn off canvas when finished, true: want to use hold delay
         StartFade(1f, 0f, true, true); 
@@ -80,26 +96,16 @@ public class UiFade : MonoBehaviour
 
     private IEnumerator FadeEffect(string sceneName)
     {
-        // cancel any fade in and fade out from CURRENT alpha
-        if (currentFade != null) StopCoroutine(currentFade);
-        currentFade = StartCoroutine(ChangeAlphaCo(canvasGroup.alpha, 1f, false, false));
+        // cancel any fade-in and fade out from the CURRENT alpha
+        StartFade(canvasGroup.alpha, 1f, false, false);
         yield return currentFade;
 
-        // stabilise render pipeline
-        yield return new WaitForSecondsRealtime(0.1f);
-
-        // load scene after fade is already done
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     private IEnumerator ChangeAlphaCo(float startAlpha, float targetAlpha, bool disableCanvasOnFinish, bool useDelay)
     {
-        if (useDelay && targetAlpha == 0f)
+        if (useDelay)
         {
             yield return new WaitForSecondsRealtime(holdDurationBeforeFadeIn);
         }
@@ -122,7 +128,7 @@ public class UiFade : MonoBehaviour
 
         canvasGroup.alpha = targetAlpha; // snap the result
 
-        if (disableCanvasOnFinish && targetAlpha == 0f && myCanvas != null)
+        if (disableCanvasOnFinish && myCanvas != null)
         {
             // drop the sort order so its behind everything during gameplay
             myCanvas.sortingOrder = -1;
