@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3088f09059bef46a2953e1ccf8041590
+guid: f6400fd8920244f2bb414957f31c1f90
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2985597505395403577
-    second: LightBlockRescaled_0
+      213: -3105986886678517695
+    second: HomePressedLight512_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,37 +109,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LightBlockRescaled_0
+      name: HomePressedLight512_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,15 +121,15 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 50, y: 50, z: 50, w: 50}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93ba26fdc19fe6920800000000000000
-      internalID: 2985597505395403577
+      spriteID: 148618ef16155e4d0800000000000000
+      internalID: -3105986886678517695
       vertices: []
       indices: 
       edges: []
@@ -164,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8e5246b17294048dfa9fa88b9d965b0b
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LightBlockRescaled_0: 2985597505395403577
+      HomePressedLight512_0: -3105986886678517695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
