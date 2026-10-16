@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameScripts::ThemeColour
   lightModeColour: {r: 1, g: 1, b: 1, a: 1}
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
-  lightModeSprite: {fileID: 657116962449586238, guid: e909b48064e2d481eb0b51f1316fba1e, type: 3}
+  lightModeSprite: {fileID: 798583721717672976, guid: a399217ea16ed482b86eb353d7260603, type: 3}
   darkModeSprite: {fileID: -7547706621382638503, guid: 4a5b8bce88e72aa40aab56b0e9600768, type: 3}
 --- !u!1 &576490181
 GameObject:
@@ -2124,7 +2124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameScripts::ThemeColour
   lightModeColour: {r: 1, g: 1, b: 1, a: 1}
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
-  lightModeSprite: {fileID: 7763487435073120151, guid: 989bec2999d1a4d99aab2e32b9a6fa03, type: 3}
+  lightModeSprite: {fileID: -8509412218445676972, guid: 9372b20cd22f545d89ad8564a64ef3d3, type: 3}
   darkModeSprite: {fileID: -3899801052766357017, guid: 0f8562dd70e8ea94c827a4d7fcaf9655, type: 3}
 --- !u!1 &656222908
 GameObject:
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameScripts::ThemeColour
   lightModeColour: {r: 1, g: 1, b: 1, a: 1}
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
-  lightModeSprite: {fileID: 7763487435073120151, guid: 989bec2999d1a4d99aab2e32b9a6fa03, type: 3}
+  lightModeSprite: {fileID: -8509412218445676972, guid: 9372b20cd22f545d89ad8564a64ef3d3, type: 3}
   darkModeSprite: {fileID: 0}
 --- !u!1 &705543619
 GameObject:
