@@ -25,11 +25,19 @@ public class ThemeColour : MonoBehaviour
     private Sprite originalUISprite;
     private Sprite originalWorldSprite;
 
+    [Header("Optional Outline Colours")]
+    [SerializeField] private bool changeOutlineColour = false;
+    [SerializeField] private Color lightModeOutlineColour = Color.white;
+    [SerializeField] private Color darkModeOutlineColour = Color.black;
+
+private Outline uiOutline;
+
     private void Awake()
     {
         uiGraphic = GetComponent<Graphic>();
         uiImage = GetComponent<Image>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        uiOutline = GetComponent<Outline>();
 
         // Remember the original sprites as fallbacks
         if (uiImage != null)
@@ -100,6 +108,14 @@ public class ThemeColour : MonoBehaviour
                 : originalWorldSprite;
 
             spriteRenderer.color = selectedColour;
+        }
+
+        // Change Outline colour if enabled
+        if (changeOutlineColour && uiOutline != null)
+        {
+            uiOutline.effectColor = isDark
+                ? darkModeOutlineColour
+                : lightModeOutlineColour;
         }
     }
 

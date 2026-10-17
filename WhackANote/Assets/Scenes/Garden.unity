@@ -450,6 +450,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &21059966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,6 +605,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &59745428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +963,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &144622436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1260,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &181260806
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3058,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &519065367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3457,6 +3472,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3733,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &625016140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,6 +3932,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &635760682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4241,6 +4265,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &691643741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,6 +4526,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &826525885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5694,6 +5724,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1102598760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6637,6 +6670,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1381646345
 GameObject:
   m_ObjectHideFlags: 0
@@ -7621,6 +7657,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1632883552
 GameObject:
   m_ObjectHideFlags: 0
@@ -8060,6 +8099,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1769151748
 GameObject:
   m_ObjectHideFlags: 0
@@ -9060,6 +9102,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1947751650
 GameObject:
   m_ObjectHideFlags: 0
@@ -9491,6 +9536,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2089323145
 GameObject:
   m_ObjectHideFlags: 0
@@ -9556,6 +9604,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &2089323148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9741,7 +9792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2134198672
 RectTransform:
   m_ObjectHideFlags: 0

@@ -263,6 +263,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &128090064
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +646,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &179161122
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +806,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &199219533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1097,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &265357373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1253,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &317983756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1423,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &391175454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,6 +2055,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &915698616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,6 +2609,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &979266492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2743,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1030441650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3370,6 +3397,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1438531518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,6 +3682,7 @@ GameObject:
   - component: {fileID: 1544084377}
   - component: {fileID: 1544084376}
   - component: {fileID: 1544084375}
+  - component: {fileID: 1544084379}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -3714,7 +3745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
-  m_EffectColor: {r: 0.754717, g: 0.5435396, b: 0.49602464, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 0, y: 94.1}
   m_UseGraphicAlpha: 1
 --- !u!114 &1544084377
@@ -3730,7 +3761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63522005, g: 0.40670058, b: 0.34957075, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3755,6 +3786,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544084373}
   m_CullTransparentMesh: 1
+--- !u!114 &1544084379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544084373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60a0fa3de6349e4b211de261a4fb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameScripts::ThemeColour
+  lightModeColour: {r: 0.9882353, g: 0.8745098, b: 1, a: 1}
+  darkModeColour: {r: 0.53333336, g: 0.34117648, b: 0.29803923, a: 1}
+  lightModeSprite: {fileID: 0}
+  darkModeSprite: {fileID: 0}
+  overrideDyslexiaColour: 0
+  dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
+  dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 1
+  lightModeOutlineColour: {r: 0.8666667, g: 0.654902, b: 0.8862745, a: 1}
+  darkModeOutlineColour: {r: 0.6313726, g: 0.45882353, b: 0.41568628, a: 1}
 --- !u!1 &1800240888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4056,6 +4109,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1882934347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,6 +4272,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 1
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1942291602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4441,9 @@ MonoBehaviour:
   overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
+  changeOutlineColour: 0
+  lightModeOutlineColour: {r: 1, g: 1, b: 1, a: 1}
+  darkModeOutlineColour: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1959794357
 GameObject:
   m_ObjectHideFlags: 0
