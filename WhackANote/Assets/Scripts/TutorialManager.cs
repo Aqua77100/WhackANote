@@ -29,7 +29,6 @@ public class TutorialManager : MonoBehaviour
 
     private int currentStepIndex = 0; // change number for whichever step you wish to have
     private bool waitingForInput = false; // Are we wating for the user to tap? --> will be used to move onto next scene hopefully
-    //private bool ignoreTapThisFrame = false; // Prevents 1 tap from triggering 2 steps simultaneously
 
     private void Start()
     {
@@ -134,7 +133,6 @@ public class TutorialManager : MonoBehaviour
         TutorialStep currentStep = steps[currentStepIndex];
         if (currentStep.triggerType == StepTriggerType.TapTargetMole && currentStep.targetMoleIndex == moleIndex)
         {
-            //ignoreTapThisFrame = true; // Prevent step 1 from taking this tap (for some reason it kept doing that)
             AdvanceStep();
         }
     }

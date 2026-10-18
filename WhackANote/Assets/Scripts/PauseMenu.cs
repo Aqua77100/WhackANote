@@ -250,6 +250,11 @@ public class PauseMenu : MonoBehaviour
 
         // Show GameOver panel & blocker
         if (gameOverUI != null) gameOverUI.SetActive(true);
+
+        if(drumBackingTrack != null){
+            drumBackingTrack.Stop();
+        }
+        
         if (uiBlocker != null) uiBlocker.SetActive(true);
     }
 
