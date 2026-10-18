@@ -25,6 +25,10 @@ public class ScoreManager : MonoBehaviour
     public bool enableGameOverOnMisses = true;
     public int maxAllowedMisses = 10;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip multiplierClip;
+
     // --- HIT COUNT & MULTIPLIER TRACKING ---
     public int Perfects { get; private set; }
     public int Greats { get; private set; }
@@ -59,6 +63,20 @@ public class ScoreManager : MonoBehaviour
 
         // Covers the case where GameManager finishes loading AFTER this runs
         GameManager.OnHighScoreRestored += HandleHighScoreRestored;
+
+        if (sfxSource != null)
+        {
+            sfxSource.loop = false;
+            sfxSource.playOnAwake = false;
+        }
+    }
+
+    public void PlaySound()
+    {
+        if (sfxSource != null && multiplierClip != null)
+        {
+            sfxSource.PlayOneShot(multiplierClip);
+        }
     }
 
     private void OnDestroy()
@@ -124,6 +142,7 @@ public class ScoreManager : MonoBehaviour
             if (multiplierText != null)
             {
                 StopAllCoroutines(); // Prevents overlapping timers if they hit another streak quickly (for fast levels)
+                PlaySound();
                 StartCoroutine(FlashMultiplierRoutine());
             }
         }
