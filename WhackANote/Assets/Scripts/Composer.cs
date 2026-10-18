@@ -131,7 +131,7 @@ public class Composer : MonoBehaviour
 
         if (recordButtonText != null)
         {
-            recordButtonText.text = "Record";
+            recordButtonText.text = "RECORD";
         }
 
         Debug.Log("Recording stopped");

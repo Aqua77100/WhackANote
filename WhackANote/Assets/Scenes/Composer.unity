@@ -273,7 +273,7 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 0}
   darkModeSprite: {fileID: 0}
-  overrideDyslexiaColour: 1
+  overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
   changeOutlineColour: 0
@@ -2109,7 +2109,7 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 0}
   darkModeSprite: {fileID: 0}
-  overrideDyslexiaColour: 1
+  overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
   changeOutlineColour: 0
@@ -3077,7 +3077,7 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 0}
   darkModeSprite: {fileID: 0}
-  overrideDyslexiaColour: 1
+  overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
   changeOutlineColour: 0
@@ -3805,7 +3805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9878479, b: 0, a: 1}
+  m_Color: {r: 0.74111646, g: 0.48940903, b: 0.8867924, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3948,7 +3948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41963333, g: 0.46902192, b: 0.7735849, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4944,7 +4944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5917765, g: 1, b: 0.3176471, a: 1}
+  m_Color: {r: 0.9254902, g: 0.654902, b: 0.09019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5861,7 +5861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8679245, g: 0.33161268, b: 0.33161268, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6395,14 +6395,14 @@ RectTransform:
   m_GameObject: {fileID: 1415416417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 945310952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -21.7, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415416419
@@ -6418,7 +6418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7072,7 +7072,7 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 0}
   darkModeSprite: {fileID: 0}
-  overrideDyslexiaColour: 1
+  overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
   changeOutlineColour: 0
@@ -7682,8 +7682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
-  m_SizeDelta: {x: -35, y: -13}
+  m_AnchoredPosition: {x: -3, y: -0.5}
+  m_SizeDelta: {x: -44, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1655135879
 MonoBehaviour:
@@ -7801,7 +7801,7 @@ MonoBehaviour:
   darkModeColour: {r: 1, g: 1, b: 1, a: 1}
   lightModeSprite: {fileID: 0}
   darkModeSprite: {fileID: 0}
-  overrideDyslexiaColour: 1
+  overrideDyslexiaColour: 0
   dyslexiaLightColour: {r: 0, g: 0, b: 0, a: 1}
   dyslexiaDarkColour: {r: 1, g: 1, b: 1, a: 1}
   changeOutlineColour: 0
@@ -10313,7 +10313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3726415, g: 0.90368974, b: 1, a: 1}
+  m_Color: {r: 0.35933605, g: 0.7309118, b: 0.8018868, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
