@@ -1,5 +1,5 @@
 # 🕹️ Whack-A-Note
-A 2-D whack-a-mole-based rhythm game designed to make rhythm games feel more user-friendly and enjoyable.
+A 2-D whack-a-mole-based rhythm game designed to make rhythm games feel more beginner-friendly and enjoyable.
 
 ## 📸 Gameplay Preview
 ![Add GIF/screenshots of gameplay]

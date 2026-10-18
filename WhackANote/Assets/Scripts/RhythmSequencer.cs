@@ -127,44 +127,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
 
-    // private IEnumerator PlaySequence()
-    // {
-    //     int sequenceIndex = 0;
-
-    //     // Loop continuously for main game but run ONCE through the array for tutorial
-    //     while (true)
-    //     {
-    //         float secondsPerBeat = SecondsPerBeat;
-    //         int moleIndex = sequence[sequenceIndex];
-
-    //         if (moleIndex >= 0 && moleIndex < moles.Length && moles[moleIndex] != null)
-    //         {
-    //             float duration = secondsPerBeat * activeWindowInBeats;
-    //             moles[moleIndex].PopUp(duration);
-    //         }
-
-    //         sequenceIndex++;
-
-    //         // If we reached the end of the tutorial sequence, stop and advance tutorial!
-    //         if (sequenceIndex >= sequence.Length)
-    //         {
-    //             if (isTutorial)
-    //             {
-    //                 // Signal tutorial manager that song is done
-    //                 TutorialManager tutorial = Object.FindAnyObjectByType<TutorialManager>();
-    //                 if (tutorial != null) tutorial.AdvanceStep();
-
-    //                 yield break; // Exit loop
-    //             }
-
-    //             sequenceIndex = 0; // Loop around for normal levels
-    //         }
-
-    //         yield return new WaitForSeconds(secondsPerBeat);
-    //     }
-    // }
-
-
     private bool LoadCustomLevel()
     {
         string fileName = PlayerPrefs.GetString(

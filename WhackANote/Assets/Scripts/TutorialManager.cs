@@ -44,28 +44,6 @@ public class TutorialManager : MonoBehaviour
         ExecuteStep(0);
     }
 
-    // private void Update()
-    // {
-    //     // Handling the dialogue taps:
-    //     if (!waitingForInput) return;
-
-    //     if (ignoreTapThisFrame) //(this was because it would skip to the last one for some reason)
-    //     {
-    //         ignoreTapThisFrame = false;
-    //         return;
-    //     }
-
-    //     TutorialStep currentStep = steps[currentStepIndex];
-
-    //     if (currentStep.triggerType == StepTriggerType.TapAnywhere) // If this step is the type to want a tap anywhere, wait for tap and advance forward
-    //     {
-    //         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-    //         {
-    //             AdvanceStep();
-    //         }
-    //     }
-    // }
-
     public void ExecuteStep(int index)
     {
         // Hide all the UI containers first
