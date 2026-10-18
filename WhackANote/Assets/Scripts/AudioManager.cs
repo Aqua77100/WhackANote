@@ -9,9 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio clip:")]
     public AudioClip titleBGM;
-    public AudioClip circusTrack;
-    public AudioClip tutorialTrack;
-
+    
     public static AudioManager instance;
 
     private void Awake()
@@ -40,7 +38,13 @@ public class AudioManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "tutorial" || currentScene.name == "Circus" || currentScene.name == "MMC" || currentScene.name == "Composer" || currentScene.name == "CustomLevelGameplay")
+        if (currentScene.name == "tutorial" || 
+            currentScene.name == "Circus" || 
+            currentScene.name == "MMC" || 
+            currentScene.name == "Garden" ||
+            currentScene.name == "WhackArena" ||
+            currentScene.name == "Composer" || 
+            currentScene.name == "CustomLevelGameplay")
         {
             musicSource.Pause();
         }

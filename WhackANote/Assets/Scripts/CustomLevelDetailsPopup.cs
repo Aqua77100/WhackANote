@@ -1,9 +1,11 @@
 
+using DG.Tweening;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class CustomLevelDetailsPopup : MonoBehaviour
 {
@@ -32,6 +34,11 @@ public class CustomLevelDetailsPopup : MonoBehaviour
     [SerializeField] private Sprite starFullSprite;
     [SerializeField] private Sprite starHalfSprite;
     [SerializeField] private Sprite starNoneSprite;
+
+    [SerializeField] RectTransform trackPanelRect;
+    [SerializeField] float topPosY, middlePosY;
+    [SerializeField] float tweenDuration;
+    [SerializeField] CanvasGroup canvasGroup; // dark panel
 
 
     public void Show(SavedLevelData data, string filePath, Sprite backgroundSprite)
@@ -84,16 +91,31 @@ public class CustomLevelDetailsPopup : MonoBehaviour
             dimBackground.SetActive(true);
 
         gameObject.SetActive(true);
+        TrackPanelIntro();
 
         Debug.Log("Opened details for: " + data.levelName);
     }
 
     public void Close()
     {
-        if (dimBackground != null)
-            dimBackground.SetActive(false);
+        TrackPanelOutro();
+    }
 
-        gameObject.SetActive(false);
+    void TrackPanelIntro()
+    {
+        canvasGroup.DOFade(1, tweenDuration);
+        trackPanelRect.DOAnchorPosY(middlePosY, tweenDuration);
+    }
+
+    void TrackPanelOutro()
+    {
+        canvasGroup.DOFade(0, tweenDuration);
+        trackPanelRect.DOAnchorPosY(topPosY, tweenDuration)
+            .OnComplete(() =>
+            {
+                if (dimBackground != null) dimBackground.SetActive(false);
+                gameObject.SetActive(false);
+            });
     }
 
 
@@ -135,7 +157,16 @@ public class CustomLevelDetailsPopup : MonoBehaviour
         Debug.Log("Launching custom level: " + selectedLevelFileName);
 
         // Open the shared gameplay scene.
-        SceneManager.LoadScene(gameplaySceneName);
+        // find UiFade and tell it to switch scenes
+        UiFade fader = FindObjectOfType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene(gameplaySceneName);
+        }
+        else
+        {
+            SceneManager.LoadScene(gameplaySceneName); // load normally
+        }
     }
 
     public void ShowDeleteConfirmation()

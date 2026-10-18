@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using DG.Tweening;
+using System.Threading.Tasks;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AudioSource Music;
     [SerializeField] private GameObject trackCompleteUI; // The  gameover (track cleared) panel, which has the retry (restart) and home button
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] RectTransform pausePanelRect;
+    [SerializeField] float topPosY, middlePosY;
+    [SerializeField] float tweenDuration;
+    [SerializeField] CanvasGroup canvasGroup; // dark panel canvas group
 
     public TextMeshProUGUI countdownText;
 
@@ -104,6 +110,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         if (pauseMenu != null) pauseMenu.SetActive(true); // set the pause menu to active
+        PausePanelIntro();
         if (uiBlocker != null) uiBlocker.SetActive(true); // block UI when paused (dark screen)
 
         Time.timeScale = 0f; // pauses time
@@ -122,10 +129,11 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Continue() 
+    public async void Continue() 
     {
         isPaused = false;
 
+        await PausePanelOutro();
         if (pauseMenu != null) pauseMenu.SetActive(false); // remove pause menu display
 
         if (countdownCoroutine != null)
@@ -136,10 +144,36 @@ public class PauseMenu : MonoBehaviour
         countdownCoroutine = StartCoroutine(CountdownRoutine()); // start the countdown
     }
 
+    void PausePanelIntro()
+    {
+        canvasGroup.DOFade(1, tweenDuration);
+        pausePanelRect.DOAnchorPosY(middlePosY, tweenDuration).SetUpdate(true);
+
+        // only fade the dark panel in if it wasn't already showing
+        bool alreadyShown = uiBlocker != null && uiBlocker.activeInHierarchy && canvasGroup.alpha >= 1f;
+
+        if (uiBlocker != null) uiBlocker.SetActive(true);
+
+        if (!alreadyShown)
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.DOFade(1f, tweenDuration).SetUpdate(true);
+        }
+    }
+
+    async Task PausePanelOutro()
+    {
+        await pausePanelRect.DOAnchorPosY(topPosY, tweenDuration).SetUpdate(true).AsyncWaitForCompletion();
+    }
+
     IEnumerator CountdownRoutine() 
     {
         Time.timeScale = 0f; // make sure time is pased so game isn't going on
-        if (uiBlocker != null) uiBlocker.SetActive(true); // Keep clicks blocked during countdown       
+        if (uiBlocker != null)
+        {
+            canvasGroup.alpha = 1f;
+            uiBlocker.SetActive(true); // Keep clicks blocked during countdown       
+        }
 
         if (Music != null && Music.isPlaying)
         {
@@ -222,19 +256,44 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         CleanupBeforeSceneChange(); // Reset to initial states (see method below)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // get the scene and load it
+
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void Home()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("Track Selection"); 
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene("Track Selection");
+        }
+        else
+        {
+            SceneManager.LoadScene("Track Selection");
+        }
     }
 
     public void CustomHome()
     {
         CleanupBeforeSceneChange(); // reset to initial states so when played again, it is alright
-        SceneManager.LoadScene("CustomTrackSelection"); // load menu screen -- CHANGE THIS TO 'TITLE' IF WANTING TO RENAME
+        UiFade fader = Object.FindAnyObjectByType<UiFade>();
+        if (fader != null)
+        {
+            fader.GoToScene("CustomTrackSelection");
+        }
+        else
+        {
+            SceneManager.LoadScene("CustomTrackSelection");
+        }
     }
 
     private void CleanupBeforeSceneChange() // reset the game states

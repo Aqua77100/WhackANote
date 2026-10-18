@@ -3664,6 +3664,7 @@ GameObject:
   - component: {fileID: 935677523}
   - component: {fileID: 935677525}
   - component: {fileID: 935677524}
+  - component: {fileID: 935677526}
   m_Layer: 5
   m_Name: Dark Panel
   m_TagString: Untagged
@@ -3728,6 +3729,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935677522}
   m_CullTransparentMesh: 1
+--- !u!225 &935677526
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935677522}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &937683915
 GameObject:
   m_ObjectHideFlags: 0
@@ -6631,10 +6644,10 @@ RectTransform:
   - {fileID: 528458144}
   m_Father: {fileID: 914692584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1820, y: 980.1096}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1085}
+  m_SizeDelta: {x: 1920, y: 1080.1096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618067648
 MonoBehaviour:
@@ -8717,6 +8730,11 @@ MonoBehaviour:
   Music: {fileID: 286253601}
   trackCompleteUI: {fileID: 2045146085}
   gameOverUI: {fileID: 2071073708}
+  pausePanelRect: {fileID: 1618067647}
+  topPosY: 1085
+  middlePosY: 0
+  tweenDuration: 0.5
+  canvasGroup: {fileID: 935677526}
   countdownText: {fileID: 1974283502}
   isEnded: 0
   isTutorial: 0

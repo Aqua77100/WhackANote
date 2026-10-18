@@ -7437,10 +7437,10 @@ RectTransform:
   - {fileID: 541340386}
   m_Father: {fileID: 1541131041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1820, y: 980.1096}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1085}
+  m_SizeDelta: {x: 1920, y: 1080.1096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467100321
 MonoBehaviour:
@@ -9519,6 +9519,7 @@ GameObject:
   - component: {fileID: 1803615049}
   - component: {fileID: 1803615048}
   - component: {fileID: 1803615047}
+  - component: {fileID: 1803615050}
   m_Layer: 5
   m_Name: Dark Panel
   m_TagString: Untagged
@@ -9583,6 +9584,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180.2334, y: 148.78003}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1803615050
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803615046}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1817196095
 GameObject:
   m_ObjectHideFlags: 0
@@ -9699,9 +9712,14 @@ MonoBehaviour:
   Music: {fileID: 254005151}
   trackCompleteUI: {fileID: 2102176813}
   gameOverUI: {fileID: 0}
+  pausePanelRect: {fileID: 1467100320}
+  isTutorial: 1
+  topPosY: 1085
+  middlePosY: 0
+  tweenDuration: 0.5
+  canvasGroup: {fileID: 1803615050}
   countdownText: {fileID: 608747442}
   isEnded: 0
-  isTutorial: 1
   isCustomLevel: 0
   drumBackingTrack: {fileID: 0}
 --- !u!114 &1825380345
