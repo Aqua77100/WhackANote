@@ -2,7 +2,12 @@
 A 2-D whack-a-mole-based rhythm game designed to make rhythm games feel more beginner-friendly and enjoyable.
 
 ## 📸 Gameplay Preview
-![Add GIF/screenshots of gameplay]
+<img width="800" height="345" alt="NewAnimation" src="https://github.com/user-attachments/assets/aa84e678-0a53-441c-9a35-781fcd9d7749" />
+<img width="800" height="346" alt="NewCustomSongsGIF" src="https://github.com/user-attachments/assets/b92f2e84-7556-4062-b03a-5b183785620c" />
+<img width="800" height="346" alt="NewDarkmodeToggleGIF" src="https://github.com/user-attachments/assets/c65fb7da-92e2-487c-9d59-ec817781012f" />
+<img width="800" height="347" alt="NewDyslexia" src="https://github.com/user-attachments/assets/930fc260-92b5-40af-8eea-603bd48f10d4" />
+<img width="800" height="345" alt="NewLeaderboard" src="https://github.com/user-attachments/assets/fc426e14-6f42-446b-b228-06fb526cb9d4" />
+<img width="800" height="348" alt="TrackSelection" src="https://github.com/user-attachments/assets/6d27e881-3dd8-4dfc-941c-a0a6ff0488d0" />
 
 ## ✨ Key Features
 - **Fun Tracks:** Visually appealing tracks with intriguing music—all handmade!
